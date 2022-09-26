@@ -1,0 +1,1768 @@
+{
+  "data": {
+    "cwe": {
+      "20": {
+        "name": "Improper Input Validation",
+        "url": "https://cwe.mitre.org/data/definitions/20.html",
+        "csv_codes": [
+          "F30C1",
+          "F30C0"
+        ]
+      },
+      "22": {
+        "name": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+        "url": "https://cwe.mitre.org/data/definitions/22.html",
+        "csv_codes": [
+          "F16J2",
+          "F16J1",
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "23": {
+        "name": "Relative Path Traversal",
+        "url": "https://cwe.mitre.org/data/definitions/23.html",
+        "csv_codes": [
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "28": {
+        "name": "Path Traversal: '..\\filedir'",
+        "url": "https://cwe.mitre.org/data/definitions/28.html",
+        "csv_codes": [
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "40": {
+        "name": "Path Traversal: '\\UNC\\share\\name\\' (Windows UNC Share)",
+        "url": "https://cwe.mitre.org/data/definitions/40.html",
+        "csv_codes": [
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "41": {
+        "name": "Improper Resolution of Path Equivalence",
+        "url": "https://cwe.mitre.org/data/definitions/41.html",
+        "csv_codes": [
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "59": {
+        "name": "Improper Link Resolution Before File Access ('Link Following')",
+        "url": "https://cwe.mitre.org/data/definitions/59.html",
+        "csv_codes": [
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "73": {
+        "name": "External Control of File Name or Path",
+        "url": "https://cwe.mitre.org/data/definitions/73.html",
+        "csv_codes": [
+          "F02C6",
+          "F02C5",
+          "F02C4",
+          "F02C3",
+          "F02C2",
+          "F02C1",
+          "F02C0"
+        ]
+      },
+      "77": {
+        "name": "Improper Neutralization of Special Elements used in a Command ('Command Injection')",
+        "url": "https://cwe.mitre.org/data/definitions/77.html",
+        "csv_codes": [
+          "N33C3",
+          "N33C2",
+          "N33C1",
+          "N33C0"
+        ]
+      },
+      "78": {
+        "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
+        "url": "https://cwe.mitre.org/data/definitions/78.html",
+        "csv_codes": [
+          "N33C3",
+          "N33C2",
+          "N33C1",
+          "N33C0",
+          "S02C2",
+          "S02C1",
+          "S0200",
+          "I07J1",
+          "I07J0"
+        ]
+      },
+      "79": {
+        "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+        "url": "https://cwe.mitre.org/data/definitions/79.html",
+        "csv_codes": [
+          "I16J1",
+          "I16J0",
+          "I01J2",
+          "I01J1",
+          "I01J0"
+        ]
+      },
+      "88": {
+        "name": "Improper Neutralization of Argument Delimiters in a Command ('Argument Injection')",
+        "url": "https://cwe.mitre.org/data/definitions/88.html",
+        "csv_codes": [
+          "FMT2",
+          "FMT1",
+          "FMT0",
+          "N33C3",
+          "N33C2",
+          "N33C1",
+          "N33C0",
+          "S02C2",
+          "S02C1",
+          "S0200"
+        ]
+      },
+      "89": {
+        "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+        "url": "https://cwe.mitre.org/data/definitions/89.html",
+        "csv_codes": [
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0"
+        ]
+      },
+      "90": {
+        "name": "Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection')",
+        "url": "https://cwe.mitre.org/data/definitions/90.html",
+        "csv_codes": [
+          "I54J1",
+          "I54J0"
+        ]
+      },
+      "91": {
+        "name": "XML Injection (aka Blind XPath Injection)",
+        "url": "https://cwe.mitre.org/data/definitions/91.html",
+        "csv_codes": [
+          "I53J1",
+          "I53J0"
+        ]
+      },
+      "116": {
+        "name": "Improper Encoding or Escaping of Output",
+        "url": "https://cwe.mitre.org/data/definitions/116.html",
+        "csv_codes": [
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0",
+          "I17J2",
+          "I17J1",
+          "I17J0"
+        ]
+      },
+      "117": {
+        "name": "Improper Output Neutralization for Logs",
+        "url": "https://cwe.mitre.org/data/definitions/117.html",
+        "csv_codes": [
+          "I03J2",
+          "I03J1",
+          "I03J0"
+        ]
+      },
+      "119": {
+        "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+        "url": "https://cwe.mitre.org/data/definitions/119.html",
+        "csv_codes": [
+          "FMT2",
+          "FMT1",
+          "FMT0",
+          "F37C1",
+          "F37C0",
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0",
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0",
+          "A38C2",
+          "A38C1",
+          "A38C0"
+        ]
+      },
+      "121": {
+        "name": "Stack-based Buffer Overflow",
+        "url": "https://cwe.mitre.org/data/definitions/121.html",
+        "csv_codes": [
+          "CSL0",
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0"
+        ]
+      },
+      "122": {
+        "name": "Heap-based Buffer Overflow",
+        "url": "https://cwe.mitre.org/data/definitions/122.html",
+        "csv_codes": [
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0"
+        ]
+      },
+      "123": {
+        "name": "Write-what-where Condition",
+        "url": "https://cwe.mitre.org/data/definitions/123.html",
+        "csv_codes": [
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0"
+        ]
+      },
+      "124": {
+        "name": "Buffer Underwrite ('Buffer Underflow')",
+        "url": "https://cwe.mitre.org/data/definitions/124.html",
+        "csv_codes": []
+      },
+      "125": {
+        "name": "Out-of-bounds Read",
+        "url": "https://cwe.mitre.org/data/definitions/125.html",
+        "csv_codes": [
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0",
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0",
+          "A38C2",
+          "A38C1",
+          "A38C0"
+        ]
+      },
+      "126": {
+        "name": "Buffer Over-read",
+        "url": "https://cwe.mitre.org/data/definitions/126.html",
+        "csv_codes": [
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0"
+        ]
+      },
+      "134": {
+        "name": "Use of Externally-Controlled Format String",
+        "url": "https://cwe.mitre.org/data/definitions/134.html",
+        "csv_codes": [
+          "F30C1",
+          "F30C0",
+          "I06J0"
+        ]
+      },
+      "144": {
+        "name": "Improper Neutralization of Line Delimiters",
+        "url": "https://cwe.mitre.org/data/definitions/144.html",
+        "csv_codes": [
+          "I03J2",
+          "I03J1",
+          "I03J0"
+        ]
+      },
+      "150": {
+        "name": "Improper Neutralization of Escape, Meta, or Control Sequences",
+        "url": "https://cwe.mitre.org/data/definitions/150.html",
+        "csv_codes": [
+          "I03J2",
+          "I03J1",
+          "I03J0"
+        ]
+      },
+      "170": {
+        "name": "Improper Null Termination",
+        "url": "https://cwe.mitre.org/data/definitions/170.html",
+        "csv_codes": [
+          "P30C1",
+          "P30C0",
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0"
+        ]
+      },
+      "180": {
+        "name": "Incorrect Behavior Order: Validate Before Canonicalize",
+        "url": "https://cwe.mitre.org/data/definitions/180.html",
+        "csv_codes": [
+          "I01J2",
+          "I01J1",
+          "I01J0"
+        ]
+      },
+      "182": {
+        "name": "Collapse of Data into Unsafe Value",
+        "url": "https://cwe.mitre.org/data/definitions/182.html",
+        "csv_codes": [
+          "I11J2",
+          "I11J1",
+          "I11J0"
+        ]
+      },
+      "190": {
+        "name": "Integer Overflow or Wraparound",
+        "url": "https://cwe.mitre.org/data/definitions/190.html",
+        "csv_codes": [
+          "N322",
+          "N321",
+          "N320"
+        ]
+      },
+      "191": {
+        "name": "Integer Underflow (Wrap or Wraparound)",
+        "url": "https://cwe.mitre.org/data/definitions/191.html",
+        "csv_codes": [
+          "N322",
+          "N321",
+          "N320"
+        ]
+      },
+      "197": {
+        "name": "Numeric Truncation Error",
+        "url": "https://cwe.mitre.org/data/definitions/197.html",
+        "csv_codes": [
+          "F34C0"
+        ]
+      },
+      "200": {
+        "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+        "url": "https://cwe.mitre.org/data/definitions/200.html",
+        "csv_codes": [
+          "P37C2",
+          "P37C1",
+          "P37C0",
+          "N06J2",
+          "N06J1",
+          "N06J0",
+          "F52J2",
+          "F52J1",
+          "F52J0",
+          "I15J2",
+          "I15J1",
+          "I15J0"
+        ]
+      },
+      "223": {
+        "name": "Omission of Security-relevant Information",
+        "url": "https://cwe.mitre.org/data/definitions/223.html",
+        "csv_codes": [
+          "SCB0",
+          "ECB1",
+          "ECB0",
+          "E00J0"
+        ]
+      },
+      "241": {
+        "name": "Improper Handling of Unexpected Data Type",
+        "url": "https://cwe.mitre.org/data/definitions/241.html",
+        "csv_codes": [
+          "F37C1",
+          "F37C0"
+        ]
+      },
+      "250": {
+        "name": "Execution with Unnecessary Privileges",
+        "url": "https://cwe.mitre.org/data/definitions/250.html",
+        "csv_codes": []
+      },
+      "252": {
+        "name": "Unchecked Return Value",
+        "url": "https://cwe.mitre.org/data/definitions/252.html",
+        "csv_codes": [
+          "P34C2",
+          "P34C1",
+          "P34C0",
+          "F02J0"
+        ]
+      },
+      "253": {
+        "name": "Incorrect Check of Function Return Value",
+        "url": "https://cwe.mitre.org/data/definitions/253.html",
+        "csv_codes": [
+          "P34C2",
+          "P34C1",
+          "P34C0"
+        ]
+      },
+      "256": {
+        "name": "Unprotected Storage of Credentials",
+        "url": "https://cwe.mitre.org/data/definitions/256.html",
+        "csv_codes": [
+          "C06J3",
+          "C06J2",
+          "C06J1",
+          "C06J0"
+        ]
+      },
+      "259": {
+        "name": "Use of Hard-coded Password",
+        "url": "https://cwe.mitre.org/data/definitions/259.html",
+        "csv_codes": [
+          "M41C2",
+          "M41C1",
+          "M41C0"
+        ]
+      },
+      "266": {
+        "name": "Incorrect Privilege Assignment",
+        "url": "https://cwe.mitre.org/data/definitions/266.html",
+        "csv_codes": [
+          "C01J2",
+          "C01J1",
+          "C01J0"
+        ]
+      },
+      "269": {
+        "name": "Improper Privilege Management",
+        "url": "https://cwe.mitre.org/data/definitions/269.html",
+        "csv_codes": [
+          "C02J1",
+          "C02J0",
+          "C03J1",
+          "C03J0",
+          "C05J0"
+        ]
+      },
+      "272": {
+        "name": "Least Privilege Violation",
+        "url": "https://cwe.mitre.org/data/definitions/272.html",
+        "csv_codes": [
+          "C01J2",
+          "C01J1",
+          "C01J0"
+        ]
+      },
+      "273": {
+        "name": "Improper Check for Dropped Privileges",
+        "url": "https://cwe.mitre.org/data/definitions/273.html",
+        "csv_codes": [
+          "P37C2",
+          "P37C1",
+          "P37C0"
+        ]
+      },
+      "275": {
+        "name": "Permission Issues",
+        "url": "https://cwe.mitre.org/data/definitions/275.html",
+        "csv_codes": [
+          "WRF0"
+        ]
+      },
+      "276": {
+        "name": "Incorrect Default Permissions",
+        "url": "https://cwe.mitre.org/data/definitions/276.html",
+        "csv_codes": []
+      },
+      "284": {
+        "name": "Improper Access Control",
+        "url": "https://cwe.mitre.org/data/definitions/284.html",
+        "csv_codes": [
+          "I15J2",
+          "I15J1",
+          "I15J0",
+          "C03J1",
+          "C03J0",
+          "C04J2",
+          "C04J1",
+          "C04J0"
+        ]
+      },
+      "285": {
+        "name": "Improper Authorization",
+        "url": "https://cwe.mitre.org/data/definitions/285.html",
+        "csv_codes": [
+          "C06J3",
+          "C06J2",
+          "C06J1",
+          "C06J0",
+          "C04J2",
+          "C04J1",
+          "C04J0"
+        ]
+      },
+      "287": {
+        "name": "Improper Authentication",
+        "url": "https://cwe.mitre.org/data/definitions/287.html",
+        "csv_codes": [
+          "N03J2",
+          "N03J1",
+          "N03J0"
+        ]
+      },
+      "289": {
+        "name": "Authentication Bypass by Alternate Name",
+        "url": "https://cwe.mitre.org/data/definitions/289.html",
+        "csv_codes": [
+          "I01J2",
+          "I01J1",
+          "I01J0"
+        ]
+      },
+      "295": {
+        "name": "Improper Certificate Validation",
+        "url": "https://cwe.mitre.org/data/definitions/295.html",
+        "csv_codes": [
+          "C06J3",
+          "C06J2",
+          "C06J1",
+          "C06J0"
+        ]
+      },
+      "299": {
+        "name": "Improper Check for Certificate Revocation",
+        "url": "https://cwe.mitre.org/data/definitions/299.html",
+        "csv_codes": [
+          "P37C2",
+          "P37C1",
+          "P37C0"
+        ]
+      },
+      "306": {
+        "name": "Missing Authentication for Critical Function",
+        "url": "https://cwe.mitre.org/data/definitions/306.html",
+        "csv_codes": []
+      },
+      "311": {
+        "name": "Missing Encryption of Sensitive Data",
+        "url": "https://cwe.mitre.org/data/definitions/311.html",
+        "csv_codes": [
+          "M41C2",
+          "M41C1",
+          "M41C0"
+        ]
+      },
+      "312": {
+        "name": "Cleartext Storage of Sensitive Information",
+        "url": "https://cwe.mitre.org/data/definitions/312.html",
+        "csv_codes": [
+          "F52J2",
+          "F52J1",
+          "F52J0"
+        ]
+      },
+      "325": {
+        "name": "Missing Cryptographic Step",
+        "url": "https://cwe.mitre.org/data/definitions/325.html",
+        "csv_codes": [
+          "M61J1",
+          "M61J0"
+        ]
+      },
+      "326": {
+        "name": "Inadequate Encryption Strength",
+        "url": "https://cwe.mitre.org/data/definitions/326.html",
+        "csv_codes": [
+          "M61J1",
+          "M61J0"
+        ]
+      },
+      "327": {
+        "name": "Use of a Broken or Risky Cryptographic Algorithm",
+        "url": "https://cwe.mitre.org/data/definitions/327.html",
+        "csv_codes": [
+          "M32C1",
+          "M32C0",
+          "M02J1",
+          "M02J0",
+          "M30C2",
+          "M30C1",
+          "M30C0"
+        ]
+      },
+      "330": {
+        "name": "Use of Insufficiently Random Values",
+        "url": "https://cwe.mitre.org/data/definitions/330.html",
+        "csv_codes": [
+          "M30C2",
+          "M30C1",
+          "M30C0"
+        ]
+      },
+      "338": {
+        "name": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
+        "url": "https://cwe.mitre.org/data/definitions/338.html",
+        "csv_codes": [
+          "M30C2",
+          "M30C1",
+          "M30C0"
+        ]
+      },
+      "349": {
+        "name": "Acceptance of Extraneous Untrusted Data With Trusted Data",
+        "url": "https://cwe.mitre.org/data/definitions/349.html",
+        "csv_codes": [
+          "N01J0"
+        ]
+      },
+      "352": {
+        "name": "Cross-Site Request Forgery (CSRF)",
+        "url": "https://cwe.mitre.org/data/definitions/352.html",
+        "csv_codes": []
+      },
+      "363": {
+        "name": "Race Condition Enabling Link Following",
+        "url": "https://cwe.mitre.org/data/definitions/363.html",
+        "csv_codes": [
+          "P35C0"
+        ]
+      },
+      "369": {
+        "name": "Divide By Zero",
+        "url": "https://cwe.mitre.org/data/definitions/369.html",
+        "csv_codes": [
+          "DBZ2",
+          "DBZ1",
+          "DBZ0"
+        ]
+      },
+      "390": {
+        "name": "Detection of Error Condition Without Action",
+        "url": "https://cwe.mitre.org/data/definitions/390.html",
+        "csv_codes": []
+      },
+      "391": {
+        "name": "Unchecked Error Condition",
+        "url": "https://cwe.mitre.org/data/definitions/391.html",
+        "csv_codes": [
+          "P34C2",
+          "P34C1",
+          "P34C0"
+        ]
+      },
+      "400": {
+        "name": "Uncontrolled Resource Consumption",
+        "url": "https://cwe.mitre.org/data/definitions/400.html",
+        "csv_codes": []
+      },
+      "401": {
+        "name": "Missing Release of Memory after Effective Lifetime",
+        "url": "https://cwe.mitre.org/data/definitions/401.html",
+        "csv_codes": [
+          "m51P0"
+        ]
+      },
+      "404": {
+        "name": "Improper Resource Shutdown or Release",
+        "url": "https://cwe.mitre.org/data/definitions/404.html",
+        "csv_codes": [
+          "F42C2",
+          "F42C1",
+          "F42C0"
+        ]
+      },
+      "409": {
+        "name": "Improper Handling of Highly Compressed Data (Data Amplification)",
+        "url": "https://cwe.mitre.org/data/definitions/409.html",
+        "csv_codes": [
+          "I04J0"
+        ]
+      },
+      "412": {
+        "name": "Unrestricted Externally Accessible Lock",
+        "url": "https://cwe.mitre.org/data/definitions/412.html",
+        "csv_codes": [
+          "SLAE0",
+          "LLAT0"
+        ]
+      },
+      "415": {
+        "name": "Double Free",
+        "url": "https://cwe.mitre.org/data/definitions/415.html",
+        "csv_codes": [
+          "DBF0"
+        ]
+      },
+      "416": {
+        "name": "Use After Free",
+        "url": "https://cwe.mitre.org/data/definitions/416.html",
+        "csv_codes": [
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0"
+        ]
+      },
+      "434": {
+        "name": "Unrestricted Upload of File with Dangerous Type",
+        "url": "https://cwe.mitre.org/data/definitions/434.html",
+        "csv_codes": []
+      },
+      "457": {
+        "name": "Use of Uninitialized Variable",
+        "url": "https://cwe.mitre.org/data/definitions/457.html",
+        "csv_codes": []
+      },
+      "459": {
+        "name": "Incomplete Cleanup",
+        "url": "https://cwe.mitre.org/data/definitions/459.html",
+        "csv_codes": [
+          "F42C2",
+          "F42C1",
+          "F42C0"
+        ]
+      },
+      "476": {
+        "name": "NULL Pointer Dereference",
+        "url": "https://cwe.mitre.org/data/definitions/476.html",
+        "csv_codes": [
+          "NPD0",
+          "E08J0"
+        ]
+      },
+      "479": {
+        "name": "Signal Handler Use of a Non-reentrant Function",
+        "url": "https://cwe.mitre.org/data/definitions/479.html",
+        "csv_codes": [
+          "G30C0"
+        ]
+      },
+      "498": {
+        "name": "Cloneable Class Containing Sensitive Information",
+        "url": "https://cwe.mitre.org/data/definitions/498.html",
+        "csv_codes": [
+          "O07J1",
+          "O07J0"
+        ]
+      },
+      "502": {
+        "name": "Deserialization of Untrusted Data",
+        "url": "https://cwe.mitre.org/data/definitions/502.html",
+        "csv_codes": [
+          "R01J0"
+        ]
+      },
+      "522": {
+        "name": "Insufficiently Protected Credentials",
+        "url": "https://cwe.mitre.org/data/definitions/522.html",
+        "csv_codes": [
+          "M32C1",
+          "M32C0",
+          "F05J1",
+          "F05J0",
+          "M62J1",
+          "M62J0",
+          "F52J2",
+          "F52J1",
+          "F52J0"
+        ]
+      },
+      "523": {
+        "name": "Unprotected Transport of Credentials",
+        "url": "https://cwe.mitre.org/data/definitions/523.html",
+        "csv_codes": [
+          "I15J2",
+          "I15J1",
+          "I15J0"
+        ]
+      },
+      "532": {
+        "name": "Insertion of Sensitive Information into Log File",
+        "url": "https://cwe.mitre.org/data/definitions/532.html",
+        "csv_codes": []
+      },
+      "564": {
+        "name": "SQL Injection: Hibernate",
+        "url": "https://cwe.mitre.org/data/definitions/564.html",
+        "csv_codes": [
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0"
+        ]
+      },
+      "577": {
+        "name": "EJB Bad Practices: Use of Sockets",
+        "url": "https://cwe.mitre.org/data/definitions/577.html",
+        "csv_codes": [
+          "RXS0"
+        ]
+      },
+      "590": {
+        "name": "Free of Memory not on the Heap",
+        "url": "https://cwe.mitre.org/data/definitions/590.html",
+        "csv_codes": [
+          "UDR5",
+          "UDR4",
+          "UDR3",
+          "UDR2",
+          "UDR1",
+          "UDR0"
+        ]
+      },
+      "609": {
+        "name": "Double-Checked Locking",
+        "url": "https://cwe.mitre.org/data/definitions/609.html",
+        "csv_codes": [
+          "DBLI0"
+        ]
+      },
+      "611": {
+        "name": "Improper Restriction of XML External Entity Reference",
+        "url": "https://cwe.mitre.org/data/definitions/611.html",
+        "csv_codes": [
+          "I17J2",
+          "I17J1",
+          "I17J0"
+        ]
+      },
+      "647": {
+        "name": "Use of Non-Canonical URL Paths for Authorization Decisions",
+        "url": "https://cwe.mitre.org/data/definitions/647.html",
+        "csv_codes": [
+          "F16J2",
+          "F16J1"
+        ]
+      },
+      "662": {
+        "name": "Improper Synchronization",
+        "url": "https://cwe.mitre.org/data/definitions/662.html",
+        "csv_codes": [
+          "G31C1",
+          "G31C0"
+        ]
+      },
+      "667": {
+        "name": "Improper Locking",
+        "url": "https://cwe.mitre.org/data/definitions/667.html",
+        "csv_codes": [
+          "UIL0"
+        ]
+      },
+      "672": {
+        "name": "Operation on a Resource after Expiration or Release",
+        "url": "https://cwe.mitre.org/data/definitions/672.html",
+        "csv_codes": [
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0"
+        ]
+      },
+      "674": {
+        "name": "Uncontrolled Recursion",
+        "url": "https://cwe.mitre.org/data/definitions/674.html",
+        "csv_codes": [
+          "CRF0"
+        ]
+      },
+      "680": {
+        "name": "Integer Overflow to Buffer Overflow",
+        "url": "https://cwe.mitre.org/data/definitions/680.html",
+        "csv_codes": [
+          "N322",
+          "N321",
+          "N320"
+        ]
+      },
+      "690": {
+        "name": "Unchecked Return Value to NULL Pointer Dereference",
+        "url": "https://cwe.mitre.org/data/definitions/690.html",
+        "csv_codes": []
+      },
+      "696": {
+        "name": "Incorrect Behavior Order",
+        "url": "https://cwe.mitre.org/data/definitions/696.html",
+        "csv_codes": []
+      },
+      "705": {
+        "name": "Incorrect Control Flow Scoping",
+        "url": "https://cwe.mitre.org/data/definitions/705.html",
+        "csv_codes": [
+          "F14J0"
+        ]
+      },
+      "732": {
+        "name": "Incorrect Permission Assignment for Critical Resource",
+        "url": "https://cwe.mitre.org/data/definitions/732.html",
+        "csv_codes": [
+          "N03J2",
+          "N03J1",
+          "N03J0",
+          "C01J2",
+          "C01J1",
+          "C01J0"
+        ]
+      },
+      "766": {
+        "name": "Critical Data Element Declared Public",
+        "url": "https://cwe.mitre.org/data/definitions/766.html",
+        "csv_codes": [
+          "O01J0"
+        ]
+      },
+      "767": {
+        "name": "Access to Critical Private Variable via Public Method",
+        "url": "https://cwe.mitre.org/data/definitions/767.html",
+        "csv_codes": [
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0"
+        ]
+      },
+      "772": {
+        "name": "Missing Release of Resource after Effective Lifetime",
+        "url": "https://cwe.mitre.org/data/definitions/772.html",
+        "csv_codes": [
+          "F42C2",
+          "F42C1",
+          "F42C0"
+        ]
+      },
+      "776": {
+        "name": "Improper Restriction of Recursive Entity References in DTDs ('XML Entity Expansion')",
+        "url": "https://cwe.mitre.org/data/definitions/776.html",
+        "csv_codes": [
+          "I16J1",
+          "I16J0",
+          "I17J2",
+          "I17J1",
+          "I17J0"
+        ]
+      },
+      "787": {
+        "name": "Out-of-bounds Write",
+        "url": "https://cwe.mitre.org/data/definitions/787.html",
+        "csv_codes": [
+          "CSS0",
+          "FMT2",
+          "FMT1",
+          "FMT0",
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0",
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0",
+          "A38C2",
+          "A38C1",
+          "A38C0"
+        ]
+      },
+      "798": {
+        "name": "Use of Hard-coded Credentials",
+        "url": "https://cwe.mitre.org/data/definitions/798.html",
+        "csv_codes": [
+          "M41C2",
+          "M41C1",
+          "M41C0",
+          "M03J0"
+        ]
+      },
+      "828": {
+        "name": "Signal Handler with Functionality that is not Asynchronous-Safe",
+        "url": "https://cwe.mitre.org/data/definitions/828.html",
+        "csv_codes": [
+          "G31C1",
+          "G31C0"
+        ]
+      },
+      "832": {
+        "name": "Unlock of a Resource that is not Locked",
+        "url": "https://cwe.mitre.org/data/definitions/832.html",
+        "csv_codes": [
+          "MLU0"
+        ]
+      },
+      "833": {
+        "name": "Deadlock",
+        "url": "https://cwe.mitre.org/data/definitions/833.html",
+        "csv_codes": [
+          "LNR0"
+        ]
+      },
+      "862": {
+        "name": "Missing Authorization",
+        "url": "https://cwe.mitre.org/data/definitions/862.html",
+        "csv_codes": [
+          "N03J2",
+          "N03J1",
+          "N03J0",
+          "C02J1",
+          "C02J0",
+          "C06J3",
+          "C06J2",
+          "C06J1",
+          "C06J0"
+        ]
+      },
+      "909": {
+        "name": "Missing Initialization of Resource",
+        "url": "https://cwe.mitre.org/data/definitions/909.html",
+        "csv_codes": [
+          "UIC0"
+        ]
+      },
+      "917": {
+        "name": "Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')",
+        "url": "https://cwe.mitre.org/data/definitions/917.html",
+        "csv_codes": [
+          "N33C3",
+          "N33C2",
+          "N33C1",
+          "N33C0",
+          "S02C2",
+          "S02C1",
+          "S0200",
+          "I07J1",
+          "I07J0"
+        ]
+      },
+      "918": {
+        "name": "Server-Side Request Forgery (SSRF)",
+        "url": "https://cwe.mitre.org/data/definitions/918.html",
+        "csv_codes": []
+      },
+      "943": {
+        "name": "Improper Neutralization of Special Elements in Data Query Logic",
+        "url": "https://cwe.mitre.org/data/definitions/943.html",
+        "csv_codes": [
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0",
+          "I53J1",
+          "I53J0",
+          "I54J1",
+          "I54J0"
+        ]
+      }
+    },
+    "p3c-sec": {
+      "1": {
+        "name": "User-owned pages or functions must be authorized.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": [
+          "I15J2",
+          "I15J1",
+          "I15J0"
+        ]
+      },
+      "2": {
+        "name": "Direct display of user sensitive data is not allowed. Displayed data must be desensitized.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": [
+          "I03J2",
+          "I03J1",
+          "I03J0"
+        ]
+      },
+      "3": {
+        "name": "SQL parameter entered by users should be checked carefully or limited by METADATA, to prevent SQL injection. Database access by string concatenation SQL is forbidden.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/",
+        "csv_codes": [
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0"
+        ]
+      },
+      "4": {
+        "name": "It is forbidden to output user data to HTML page without security filtering or proper escaping.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": [
+          "I16J1",
+          "I16J0",
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0",
+          "I01J2",
+          "I01J1",
+          "I01J0",
+          "I11J2",
+          "I11J1",
+          "I11J0",
+          "I07J1",
+          "I07J0"
+        ]
+      },
+      "5": {
+        "name": "It is forbidden to output user data to HTML page without security filtering or proper escaping.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": [
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0"
+        ]
+      },
+      "6": {
+        "name": "Form and AJAX submission must be filtered by CSRF security check.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": []
+      },
+      "7": {
+        "name": "It is necessary to use the correct anti-replay restrictions, such as number restriction, fatigue control, verification code checking, to avoid abusing of platform resources, such as text messages, e-mail, telephone, order, payment.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": [
+          "I15J2",
+          "I15J1",
+          "I15J0"
+        ]
+      },
+      "8": {
+        "name": "In scenarios when users generate content (e.g., posting, comment, instant messages), anti-scam word filtering and other risk control strategies must be applied.",
+        "url": "https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification",
+        "csv_codes": []
+      }
+    },
+    "owasp": {
+      "A1": {
+        "name": "Injection",
+        "url": "https://owasp.org/www-project-top-ten/2017/A1_2017-Injection",
+        "csv_codes": [
+          "FMT2",
+          "FMT1",
+          "FMT0",
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0",
+          "UDR5",
+          "UDR4",
+          "UDR3",
+          "UDR2",
+          "UDR1",
+          "UDR0",
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "F34C0",
+          "m35C1",
+          "m35C0",
+          "P30C1",
+          "P30C0",
+          "G30C0",
+          "S02C2",
+          "S02C1",
+          "S0200",
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0",
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0",
+          "I16J1",
+          "I16J0",
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0",
+          "I17J2",
+          "I17J1",
+          "I17J0",
+          "F30C1",
+          "F30C0",
+          "M41C2",
+          "M41C1",
+          "M41C0",
+          "I07J1",
+          "I07J0",
+          "I53J1",
+          "I53J0",
+          "I54J1",
+          "I54J0"
+        ]
+      },
+      "A2": {
+        "name": "Broken Authentication",
+        "url": "https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication",
+        "csv_codes": [
+          "UDR5",
+          "UDR4",
+          "UDR3",
+          "UDR2",
+          "UDR1",
+          "UDR0",
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "M32C1",
+          "M32C0",
+          "P34C2",
+          "P34C1",
+          "P34C0",
+          "P37C2",
+          "P37C1",
+          "P37C0",
+          "N03J2",
+          "N03J1",
+          "N03J0",
+          "N06J2",
+          "N06J1",
+          "N06J0",
+          "F05J1",
+          "F05J0",
+          "F16J2",
+          "F16J1",
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0",
+          "I01J2",
+          "I01J1",
+          "I01J0",
+          "I11J2",
+          "I11J1",
+          "I11J0",
+          "T06J1",
+          "T06J0",
+          "C02J1",
+          "C02J0",
+          "C06J3",
+          "C06J2",
+          "C06J1",
+          "C06J0",
+          "F52J2",
+          "F52J1",
+          "F52J0",
+          "I15J2",
+          "I15J1",
+          "I15J0",
+          "C01J2",
+          "C01J1",
+          "C01J0",
+          "N01J0",
+          "O13J1",
+          "O13J0",
+          "C03J1",
+          "C03J0"
+        ]
+      },
+      "A3": {
+        "name": "Sensitive Data Exposure",
+        "url": "https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure",
+        "csv_codes": [
+          "FMT2",
+          "FMT1",
+          "FMT0",
+          "MSF2",
+          "MSF1",
+          "MSF0",
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0",
+          "UDR5",
+          "UDR4",
+          "UDR3",
+          "UDR2",
+          "UDR1",
+          "UDR0",
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "FAM2",
+          "FAM1",
+          "FAM0",
+          "ECB1",
+          "ECB0",
+          "M32C1",
+          "M32C0",
+          "F42C2",
+          "F42C1",
+          "F42C0",
+          "F45C0",
+          "m35C1",
+          "m35C0",
+          "P34C2",
+          "P34C1",
+          "P34C0",
+          "P35C0",
+          "S02C2",
+          "S02C1",
+          "S0200",
+          "S31C4",
+          "S31C3",
+          "S31C2",
+          "S31C1",
+          "S31C0",
+          "S32C4",
+          "S32C3",
+          "S32C2",
+          "S32C1",
+          "S32C0",
+          "M02J1",
+          "M02J0",
+          "N06J2",
+          "N06J1",
+          "N06J0",
+          "F05J1",
+          "F05J0",
+          "F14J0",
+          "I11J2",
+          "I11J1",
+          "I11J0",
+          "M61J1",
+          "M61J0",
+          "C06J3",
+          "C06J2",
+          "C06J1",
+          "C06J0",
+          "I03J2",
+          "I03J1",
+          "I03J0",
+          "M41C2",
+          "M41C1",
+          "M41C0",
+          "F52J2",
+          "F52J1",
+          "F52J0",
+          "M03J0",
+          "O07J1",
+          "O07J0",
+          "C01J2",
+          "C01J1",
+          "C01J0",
+          "O13J1",
+          "O13J0",
+          "C04J2",
+          "C04J1",
+          "C04J0",
+          "M30C2",
+          "M30C1",
+          "M30C0"
+        ]
+      },
+      "A4": {
+        "name": "XML External Entities (XXE)",
+        "url": "https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)",
+        "csv_codes": [
+          "I16J1",
+          "I16J0",
+          "I17J2",
+          "I17J1",
+          "I17J0"
+        ]
+      },
+      "A5": {
+        "name": "Broken Access Control",
+        "url": "https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control",
+        "csv_codes": [
+          "WRF0",
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0",
+          "ECB1",
+          "ECB0",
+          "P34C2",
+          "P34C1",
+          "P34C0",
+          "M02J1",
+          "M02J0",
+          "N03J2",
+          "N03J1",
+          "N03J0",
+          "F16J2",
+          "F16J1",
+          "I00J3",
+          "I00J2",
+          "I00J1",
+          "I00J0",
+          "I01J2",
+          "I01J1",
+          "I01J0",
+          "T06J1",
+          "T06J0",
+          "F30C1",
+          "F30C0",
+          "M41C2",
+          "M41C1",
+          "M41C0",
+          "I15J2",
+          "I15J1",
+          "I15J0",
+          "O07J1",
+          "O07J0",
+          "C01J2",
+          "C01J1",
+          "C01J0",
+          "O01J0",
+          "C03J1",
+          "C03J0",
+          "C04J2",
+          "C04J1",
+          "C04J0"
+        ]
+      },
+      "A6": {
+        "name": "Security Misconfiguration",
+        "url": "https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration",
+        "csv_codes": [
+          "FMT2",
+          "FMT1",
+          "FMT0",
+          "FAM2",
+          "FAM1",
+          "FAM0",
+          "N03J2",
+          "N03J1",
+          "N03J0",
+          "C02J1",
+          "C02J0",
+          "C04J2",
+          "C04J1",
+          "C04J0"
+        ]
+      },
+      "A7": {
+        "name": "Cross-Site Scripting (XSS)",
+        "url": "https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS)",
+        "csv_codes": [
+          "P30C1",
+          "P30C0",
+          "I01J2",
+          "I01J1",
+          "I01J0",
+          "I11J2",
+          "I11J1",
+          "I11J0"
+        ]
+      },
+      "A8": {
+        "name": "Insecure Deserialization",
+        "url": "https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization",
+        "csv_codes": [
+          "R01J0"
+        ]
+      },
+      "A9": {
+        "name": "Using Components with Known Vulnerabilities",
+        "url": "https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities",
+        "csv_codes": [
+          "C07J0",
+          "N06J2",
+          "N06J1",
+          "N06J0"
+        ]
+      },
+      "A10": {
+        "name": "Insufficient Logging & Monitoring",
+        "url": "https://owasp.org/www-project-top-ten/2017/A10_2017-Insufficient_Logging%2526Monitoring",
+        "csv_codes": [
+          "E08J0",
+          "E00J0"
+        ]
+      }
+    },
+    "cert": {
+      "ARR38-C": {
+        "name": "Guarantee that library functions do not form invalid pointers",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/ARR38-C.+Guarantee+that+library+functions+do+not+form+invalid+pointers",
+        "csv_codes": [
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0"
+        ]
+      },
+      "ERR00-J": {
+        "name": "Do not suppress or ignore checked exceptions",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/java/ERR00-J.+Do+not+suppress+or+ignore+checked+exceptions",
+        "csv_codes": [
+          "ECB1",
+          "ECB0"
+        ]
+      },
+      "EXP34-C": {
+        "name": "Do not dereference null pointers",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/EXP34-C.+Do+not+dereference+null+pointers",
+        "csv_codes": [
+          "NPD0"
+        ]
+      },
+      "EXP37-C": {
+        "name": "Call functions with the correct number and type of arguments",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/EXP37-C.+Call+functions+with+the+correct+number+and+type+of+arguments",
+        "csv_codes": []
+      },
+      "EXP53-CPP": {
+        "name": "Do not read uninitialized memory",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/cplusplus/EXP53-CPP.+Do+not+read+uninitialized+memory",
+        "csv_codes": [
+          "UIV1",
+          "UIV0"
+        ]
+      },
+      "EXP54-CPP": {
+        "name": "Do not access an object outside of its lifetime",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/cplusplus/EXP54-CPP.+Do+not+access+an+object+outside+of+its+lifetime",
+        "csv_codes": [
+          "RAL1",
+          "RAL0"
+        ]
+      },
+      "FIO08-J": {
+        "name": "Distinguish between characters or bytes read from a stream and -1",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/java/FIO08-J.+Distinguish+between+characters+or+bytes+read+from+a+stream+and+-1",
+        "csv_codes": []
+      },
+      "FIO47-C": {
+        "name": "Use valid format strings",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/FIO47-C.+Use+valid+format+strings",
+        "csv_codes": []
+      },
+      "FLP03-C": {
+        "name": "Detect and handle floating-point errors",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/FLP03-C.+Detect+and+handle+floating-point+errors",
+        "csv_codes": [
+          "DBZ2",
+          "DBZ1",
+          "DBZ0"
+        ]
+      },
+      "INT33-C": {
+        "name": "Ensure that division and remainder operations do not result in divide-by-zero errors",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/INT33-C.+Ensure+that+division+and+remainder+operations+do+not+result+in+divide-by-zero+errors",
+        "csv_codes": [
+          "DBZ2",
+          "DBZ1",
+          "DBZ0"
+        ]
+      },
+      "MEM00-C": {
+        "name": "Allocate and free memory in the same module, at the same level of abstraction",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/MEM00-C.+Allocate+and+free+memory+in+the+same+module%2C+at+the+same+level+of+abstraction",
+        "csv_codes": [
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0"
+        ]
+      },
+      "MEM01-C": {
+        "name": "Store a new value in pointers immediately after free()",
+        "url": "https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152148",
+        "csv_codes": [
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0"
+        ]
+      },
+      "MEM30-C": {
+        "name": "Do not access freed memory",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/MEM30-C.+Do+not+access+freed+memory",
+        "csv_codes": [
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0"
+        ]
+      },
+      "MEM31-C": {
+        "name": "Free dynamically allocated memory when no longer needed",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/MEM31-C.+Free+dynamically+allocated+memory+when+no+longer+needed",
+        "csv_codes": []
+      },
+      "MEM50-CPP": {
+        "name": "Do not access freed memory",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/cplusplus/MEM50-CPP.+Do+not+access+freed+memory",
+        "csv_codes": [
+          "UAF3",
+          "UAF2",
+          "UAF1",
+          "UAF0"
+        ]
+      },
+      "MEM51-CPP": {
+        "name": "Properly deallocate dynamically allocated resources",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/cplusplus/MEM51-CPP.+Properly+deallocate+dynamically+allocated+resources",
+        "csv_codes": [
+          "DBF0"
+        ]
+      },
+      "MSC07-C": {
+        "name": "Detect and remove dead code",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/MSC07-C.+Detect+and+remove+dead+code",
+        "csv_codes": [
+          "DDC1",
+          "DDC0",
+          "SSE0"
+        ]
+      },
+      "MSC12-C": {
+        "name": "Detect and remove code that has no effect or is never executed",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/MSC12-C.+Detect+and+remove+code+that+has+no+effect+or+is+never+executed",
+        "csv_codes": [
+          "DDC1",
+          "DDC0",
+          "DDV0",
+          "RCD0",
+          "SCB0"
+        ]
+      },
+      "NUM02-J": {
+        "name": "Ensure that division and remainder operations do not result in divide-by-zero errors",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/java/NUM02-J.+Ensure+that+division+and+remainder+operations+do+not+result+in+divide-by-zero+errors",
+        "csv_codes": [
+          "DBZ2",
+          "DBZ1",
+          "DBZ0"
+        ]
+      },
+      "OBJ14-J": {
+        "name": "Do not use an object that has been freed",
+        "url": "https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88487820",
+        "csv_codes": []
+      },
+      "MSC37-C": {
+        "name": "Non-void functions should always exit this function through a return statement",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/MSC37-C.+Ensure+that+control+never+reaches+the+end+of+a+non-void+function",
+        "csv_codes": []
+      },
+      "MSC52-CPP": {
+        "name": "Any value returning function must ensure all exit paths return a value",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/cplusplus/MSC52-CPP.+Value-returning+functions+must+return+a+value+from+all+exit+paths",
+        "csv_codes": []
+      },
+      "FIO42-C": {
+        "name": "Close files when done with them",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/FIO42-C.+Close+files+when+they+are+no+longer+needed",
+        "csv_codes": []
+      },
+      "FIO51-CPP": {
+        "name": "Always close files before a program terminates",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/cplusplus/FIO51-CPP.+Close+files+when+they+are+no+longer+needed",
+        "csv_codes": []
+      },
+      "CON35-C": {
+        "name": "Avoid deadlock by locking in a predefined order",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/CON35-C.+Avoid+deadlock+by+locking+in+a+predefined+order",
+        "csv_codes": [
+          "DBLI0",
+          "UIL0"
+        ]
+      },
+      "CON38-C": {
+        "name": "Preserve thread safety and liveness when using condition variables",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/CON38-C.+Preserve+thread+safety+and+liveness+when+using+condition+variables",
+        "csv_codes": [
+          "SLAE0"
+        ]
+      },
+      "CON30-C": {
+        "name": "Clean up thread-specific storage",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/CON30-C.+Clean+up+thread-specific+storage",
+        "csv_codes": [
+          "LNR0",
+          "LLAT0"
+        ]
+      },
+      "ARR30-C": {
+        "name": "Do not form or use out-of-bounds pointers or array subscripts",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/ARR30-C.+Do+not+form+or+use+out-of-bounds+pointers+or+array+subscripts",
+        "csv_codes": [
+          "AOB4",
+          "AOB3",
+          "AOB2",
+          "AOB1",
+          "AOB0"
+        ]
+      },
+      "EXP33-C": {
+        "name": "Do not read uninitialized memory",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/EXP33-C.+Do+not+read+uninitialized+memory",
+        "csv_codes": [
+          "UIV1",
+          "UIV0"
+        ]
+      },
+      "CON43-C": {
+        "name": "Do not allow data races in multithreaded code",
+        "url": "https://wiki.sei.cmu.edu/confluence/display/c/CON43-C.+Do+not+allow+data+races+in+multithreaded+code",
+        "csv_codes": [
+          "TASR0"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,974 @@
+[
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A5_0_3",
+    "name": "Same essential type within an expression ",
+    "severity": "H",
+    "compliance": "A",
+    "likelihood": "L",
+    "cost": "H",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nvoid func ( void );\n\nvoid func ( void )\n{\n    char char_var;\n    bool bool_var;\n    // int can be cast to char\n    char_var = ( char ) 1;\n    // int 1 can be cast to bool by exception\n    bool_var = ( bool ) 1;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n \nvoid func ( void );\n \nbool bool_var;\nchar char_var;\nenum enum_var {} enum_var;\nsigned signed_var;\nunsigned unsigned_var;\nfloat float_var;\n \nvoid func ( void )\n{\n  // expression 1.0f cast to an narrower type char\n  char_var = ( char ) 1.0f;\n  // char_var cast to narrower type bool\n  bool_var = ( bool ) char_var;\n  char_var = ( char ) bool_var; // non-compliant\n  enum_var = ( enum enum_var ) bool_var; // non-compliant\n  signed_var = ( signed ) bool_var; // non-compliant\n  unsigned_var = ( unsigned ) bool_var; // non-compliant\n  float_var = ( float ) bool_var; // non-compliant\n  bool_var = ( bool ) char_var; // non-compliant\n  enum_var = ( enum enum_var ) char_var; // non-compliant\n  float_var = ( float ) char_var; // non-compliant\n  bool_var = ( bool ) enum_var; // non-compliant\n  bool_var = ( enum enum_var ) enum_var; // non-compliant\n  bool_var = ( bool ) signed_var; // non-compliant\n  bool_var = ( enum enum_var ) signed_var; // non-compliant\n  bool_var = ( bool ) unsigned_var; // non-compliant\n  bool_var = ( enum enum_var ) unsigned_var; // non-compliant\n  bool_var = ( bool ) float_var; // non-compliant\n  bool_var = ( enum enum_var ) float_var; // non-compliant\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the value of the expression is converted to an inappropriate essential type",
+    "desc": "The value of the expression cannot be converted to an inappropriate essential type",
+    "details": "#### Abstract\nThe value of the expression cannot be converted to an inappropriate essential type\n\n#### Explanation\nCast conversion between two inappropriate types may result in the loss or change of data, so the value of the expression cannot be cast to an inappropriate type.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A5_0_3"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A3_3_1",
+    "name": "Objects or functions with external linkage should be declared in a header file",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include \"header.h\"\n\nint x = 5;\nstatic int y = 10; // compliant\nvoid func ( void ) // compliant\n{\n    x = 10;\n    y = 5;\n}\n\nstatic int test ( void ) // compliant\n{\n    x = 10;\n    y = 5;\n    return 0;\n}\n"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include \"header.h\"\n\nint x = 5;\nint y = 10; // non-compliant\nint test ( void ) // non-compliant\n{\n    x = 10;\n    y = 5;\n    return 0;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, objects or functions with external linkage are not declared in a header file",
+    "desc": "Objects or functions with external linkage should be declared in a header file",
+    "details": "#### Abstract\nObjects or functions with external linkage should be declared in a header file\n\n#### Explanation\nThe object and functions without external linkage should be declared in an unnamed namespace or declared static in order to reduce visibility of them.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A3_3_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A3_9_1",
+    "name": "Fixed width integer types should be used in place of the basic numerical types",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nvoid func ( void )\n{\n    int8_t a = 1; // fixed width integer types\n    int16_t b = 5;\n    int32_t c = 10;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nvoid func ( void )\n{\n    int a = 1; // basic numerical types\n    int b = 5;\n    int c = 10;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the basic numerical types are used instead of fixed width integer types",
+    "desc": "Fixed width integer types should replace the basic numerical types",
+    "details": "#### Abstract\nFixed width integer types should replace the basic numerical types\n\n#### Explanation\nSpecific length types from <cstdint> should be used to replace basic numerical types of char, int, short, long",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A3_9_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A2_11_5",
+    "name": "Identifier with static storage duration should not be reused",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nnamespace TEST1\n{\n    static int a = 1;\n}\n\nnamespace TEST2\n{\n    void func ( void )\n    {\n        int b; // not reused identifier b\n        b++;\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nnamespace TEST1\n{\n    static int a = 1;\n}\n\nnamespace TEST2\n{\n    void func ( void )\n    {\n        int a; // reused identifier a\n        a++;\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, identifiers with static storage duration are reused",
+    "desc": "Identifier with static storage duration should not be reused",
+    "details": "#### Abstract\nIdentifier with static storage duration should not be reused\n\n#### Explanation\nThe reuse of identifier with static storage duration would possibly make unrelated variables incorrectly associted with the same name.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A2_11_5"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "枚举不应用于算术",
+    "mapping": "",
+    "language": "c++",
+    "code": "A4_5_1",
+    "name": "Enumerations should not be used in arthmetic conditions",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nenum {a, b, c} test;\n\nvoid func ( void )\n{\n    if ( a != b )  // compliant\n    {\n        printf(\"test_1\");\n    }\n    else if ( b <= c ) // compliant\n    {\n        printf(\"test_2\");\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nextern void extern_func(char *);\n\nenum {a, b, c} test;\n\nvoid func ( void )\n{\n    if ( ( a + b ) == test ) // non-compliant\n    {\n        extern_func(\"test_1\");\n    }\n    else if ( ( a - c  ) != b ) // non-compliant\n    {\n        extern_func(\"test_2\");\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, enumerations are used in arthmetic conditions",
+    "desc": "Enumerations should not be used in arthmetic conditions",
+    "details": "#### Abstract\nEnumerations should not be used in arthmetic conditions\n\n#### Explanation\nEnumerations have implementation-defined representations. Eums can be used as operands only to operators including [ ], =, ==, !=, <, <=, >, >=. ",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A4_5_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A5_1_1",
+    "name": "Literal values should not be used apart from type initialization",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\n#include <stdio.h>\n#include <stdint.h>\n\nvoid function( void )\n{\n    const int max_length = 100;\n    for (int i = 0; i < max_length; i++)\n    {\n        printf(\"avoid magic numbers\"); // compliant\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n#include <iostream>\n\nvoid function( void )\n{\n  for (int32_t i = 0; i < 100; i++)  // non-compliant\n    {\n      printf(\"magic number for 100\"); // compliant by exception\n      std::cout << \"magic number\" << i << '\\n'; // compliant by exception\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, literal values are used",
+    "desc": "Literal values should not be used apart from type initialization",
+    "details": "#### Abstract\nLiteral values should not be used apart from type initialization\n\n#### Explanation\nThe use of literal value has bad effect on readability and maintainability of the code.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A5_1_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A2_10_1",
+    "name": "An identifier declared in an inner scope should not hide an outer one",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nint i;\n\nint func1 ( int j ) // compliant\n{\n    j ++;\n    return 0;\n}\n\nnamespace test1\n{\n    int t;\n    namespace test2\n    {\n        int t; // compliant by exception\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nint i, j;\n\nint func ( int i, int j ) // non-compliant\n{\n    i = 1;\n    j = 2;\n    if ( i - j < 0 )\n    {\n        return 0;\n    }\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, An identifier declared in an inner scope  hides an outer one",
+    "desc": "An identifier declared in an inner scope should not be the same as an outer one",
+    "details": "#### Abstract\nAn identifier declared in an inner scope should not be the same as an outer one\n\n#### Explanation\nIf an identifier declared in an inner scope uses the same name as an identifier in an out er scope, it would raise confusion for developer.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A2_10_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A2_11_1",
+    "name": "Volatile keyword should not be used",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nint func ( void )\n{\n    int i = 10; // compliant\n    int a;\n    a = i;\n    return a;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nint func ( void )\n{\n    volatile int i = 10; // non-compliant\n    int a, b;\n    a = i;\n    /*\n    ...\n    do something\n    */\n    b = i;\n    return 0;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, volatile keyword is used",
+    "desc": "Volatile keyword should not be used",
+    "details": "#### Abstract\nVolatile keyword should not be used\n\n#### Explanation\nVolatile keyword is error-prone and is often misused by developers.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A2_11_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A2_13_5",
+    "name": "Hexadecimal constants should be upper case",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <cstdint>\n\nint16_t i = 0xA;    // compliant\nint16_t j = 0x4B;   // compliant\nint16_t k = 0x0F5C; // compliant"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n#include <cstdint>\n\nint   i = 0xa;    // non-compliant\nshort j = 0x4b;   // non-compliant\nshort k = 0x0f5c; // non-compliant\n\nint foo(int i, short s1, short s2)\n{\n  return i + (int)j + (int)k;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, hexadecimal constants is not upper case",
+    "desc": "Hexadecimal constants should be upper case",
+    "details": "#### Abstract\nHexadecimal constants should be upper case\n\n#### Explanation\nUse of upper case for hexadecimal constants makes source code consistent and reduces developer confusion.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A2_13_5"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A2_13_4",
+    "name": "String literals should not be assigned to non-constant pointers",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nvoid func ( void )\n{\n    const char a1[] = \"str_literal\";    // compliant\n    const char* a2 = \"str_literal\";     // compliant\n    const char a3[12] = \"str_literal\";  // compliant\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nvoid func ( void )\n{\n    char non_const1[] = \"str_literal\";      // non-compliant\n    char* non_const2 = \"str_literal\";       // non-compliant\n    char non_const3[ 12 ] = \"str_literal\";  // non-compliant\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, string literals are assigned to non-constant pointers",
+    "desc": "String literals should not be assigned to non-constant pointers",
+    "details": "#### Abstract\nString literals should not be assigned to non-constant pointers\n\n#### Explanation\nString literals should be changed to constant pointers in order to prevent from calling an inappropriate function which might modify its argument.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A2_13_4"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A7_2_2",
+    "name": "Enumeration underlying base type should be explicitly defined",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\nenum test : int // compliant\n{   \n    t1,\n    t2,\n    t3\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\nenum test // non-compliant\n{   \n    t1,\n    t2,\n    t3\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, enumeration underlying base type is not explicitly defined.",
+    "desc": "Enumeration underlying base type should be explicitly defined",
+    "details": "#### Abstract\nEnumeration underlying base type should be explicitly defined\n\n#### Explanation\nThe enumeration underlying type must be able to represent the enumeration values.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A7_2_2"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A5_16_1",
+    "name": "The ternary conditional operators should not be used as sub-expressions",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nint func ( int x, int y )\n{\n    int z = x > y ? 10 : x; // compliant\n    return z;\n}\n"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdio.h>\n\nint func ( int x, int y )\n{\n    // ternary conditional operator used as sub-expression\n    int z = y - (x > y ? 10 : ( y > 5 ? 2 : ( x + y )));\n    return z;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the ternary conditional operators are used as sub-expressions",
+    "desc": "The ternary conditional operators should not be used as sub-expressions",
+    "details": "#### Abstract\nThe ternary conditional operators should not be used as sub-expressions\n\n#### Explanation\nThe use of ternary conditional operators as sub-expressions would make code less readable.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A5_16_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A7_1_6",
+    "name": "typedef specifier should not be used for defining alias",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n// defining aliases with using\nusing uint_t = unsigned int;\n\ntemplate <typename Test>\nusing func_t = void (*)(Test, Test);"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include<string>\n\n// defining aliases with typedef\ntypedef unsigned int uint_t;\ntypedef int *p;\ntypedef int f( void );\n\n// template <typename Test>\n// typedef func_t: void (*)(Test, Test); // this example would raise compilation error"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, typedef specifier is used.",
+    "desc": "typedef specifier should not be used for defining alias",
+    "details": "#### Abstract\ntypedef specifier should not be used for defining alias\n\n#### Explanation\nThe using syntax should be used to replace typedef since typedef makes code less readable.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A7_1_6"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A7_2_3",
+    "name": "Enumerations should be declared as scoped enum classes",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n// Using enum-class as enumeration is compliant\nenum class test : int\n{   \n    t1,\n    t2,\n    t3\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n// unscoped enumeration enum is declared in a global scope\nenum test : int\n{   \n    t1,\n    t2,\n    t3\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, enumerations are not declared as scoped enum classes",
+    "desc": "Enumerations should be declared as scoped enum classes",
+    "details": "#### Abstract\nEnumerations should be declared as scoped enum classes\n\n#### Explanation\nThe declaration of unscoped enumeration enum in global scope may be confusing, so  enum-class should be used as enumeration.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A7_2_3"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A7_2_4",
+    "name": "In enumeration, either none, the first or all enumerators should be initialized.",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\nenum class test1 : int // compliant\n{   \n    t1,\n    t2,\n    t3\n};\n\nenum class test2 : int // compliant\n{   \n    t4 = 1,\n    t5,\n    t6\n};\n\nenum class test3 : int // compliant\n{   \n    t7 = 1,\n    t8 = 2,\n    t9 = 3\n};\n"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\nenum class test1 : int // non-compliant\n{   \n    t1,\n    t2 = 10,\n    t3\n};\n\nenum class test2 : int // non-compliant\n{   \n    t4,\n    t5 = 10,\n    t6 = 11\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, only partial enumerators in enumeration are initialized.",
+    "desc": "In enumeration, either none, the first or all enumerators should be initialized.",
+    "details": "#### Abstract\nIn enumeration, either none, the first or all enumerators should be initialized.\n\n#### Explanation\nInitialization of only some enumerators in enumeration is confusing.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A7_2_4"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A10_1_1",
+    "name": "Class should not be derived from more than one non-interface base class ",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\nclass Base1 \n{\n    public:\n        virtual void func1() = 0;\n        virtual void func2() = 0;\n};\n\nclass Base2\n{\n    public:\n        void func3(){}\n        void func4(){}\n};\n\nclass Base3\n{\n    public:\n        virtual void func5() = 0;\n        virtual void func6() = 0;\n};\n\n\n// compliant\n// Only Base2 is not interface class\nclass Derived1 : public Base1,\n                 public Base2\n{};\n\n// compliant\n// Both Base1 and Base3 are interface classes\nclass Derived2 : public Base1,\n                 public Base3\n{};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\nclass Base1\n{\n    public:\n        void func1(){}\n};\n\nclass Base2\n{\n    public:\n        void func2(){}\n};\n\n// Non-compliant\n// Base1 and Base2 are both not interface classes\nclass Derived : public Base1,\n                public Base2\n{};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, class is derived from more than one non-interface base class ",
+    "desc": "Class should not be derived from more than one non-interface base class ",
+    "details": "#### Abstract\nClass should not be derived from more than one non-interface base class \n\n#### Explanation\nClasses derived from more than one non-interface base class would make the code more difficult to maintain.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A10_1_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A11_0_1",
+    "name": "Non-POD type should be defined as class",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <stdint.h>\n\ntypedef char    Letter;  \ntypedef Letter* pLetter;\n  \nclass Xlass_With_non_POD    \n{\npublic:\n  Letter  c;  \n  pLetter p;\n};\n\nstruct Struct_with_POD // declared as struct\n{\n  char*   pc;\n};\n\n\nclass Class_with_POD // declared as class\n{\npublic:              // POD declared as public, not conformed to M11-0-1\n  int8_t   c;        \n  char*   pc;\nprivate:\n  int32_t  x;        // data member is private\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <stdint.h>\n\ntypedef char    Letter;  \ntypedef Letter* pLetter;\n  \nstruct Struct_With_non_POD    \n{\npublic:\n  Letter  c;  \n  pLetter p;\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, non-POD type is not defined as class",
+    "desc": "Non-POD type should be defined as class",
+    "details": "#### Abstract\nNon-POD type should be defined as class\n\n#### Explanation\nThe class specifier forces the non-POD type to provide private access control for all its members by default, which is consistent with developer expectations.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A11_0_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A12_1_6",
+    "name": "Use inheriting constructors when derived classes do not need further initialization",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n#include <iostream>\n\nclass Base {\n  \npublic:\n  // destructor non-virtual\n  ~Base(void) { std::cout << \"Base dtor called\\n\"; }\n};\n\nclass Derived : public Base {\n  \npublic:\n    using Base::Base;\n}; \n\n\nint main()\n{\n    Base* b = new Derived;\n    delete b;\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n#include <cstdint>\n#include <iostream>\n\nclass Base {\n  \npublic:\n  // destructor non-virtual\n  ~Base(void) { std::cout << \"Base dtor called\\n\"; }\n  explicit Base(std::int32_t x) : Base(x+1) {}\n};\n\nclass Derived : public Base {\n  \npublic:\n\n  ~Derived(void)  { std::cout<< \"Derived dtor called\\n\"; }\n  explicit Derived(std::int32_t) : Base(x-1) {}\n}; \n\n\nint main()\n{\n    Base* b = new Derived;\n    delete b;\n}\n\n// bad example from document\nclass A  \n{\n    public: \n        A(std::int32_t x, std::int32_t y) : x(x + 8), y(y) {}\n        explicit A(std::int32_t x) : A(x, 0) {}\n\n        private:\n            std::int32_t x;\n            std::int32_t y;\n};\n\n\nclass B : public A\n{\n    public:\n        B(std::int32_t x, std::int32_t y) : A(x, y) {}\n        explicit B(std::int32_t x) : A(x) {}\n}"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, when derived classes do not need further initialization, it does not use inheriting constructors.",
+    "desc": "Use inheriting constructors when derived classes do not need further initialization",
+    "details": "#### Abstract\nUse inheriting constructors when derived classes do not need further initialization\n\n#### Explanation\nReimplementation of constructors which do not need further initialization may lead to using wrong base class constructor.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A12_1_6"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c++",
+    "code": "A13_5_1",
+    "name": "Operator[] should not be overloaded with only a non-const version",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          "\n// Only non-const version of operator[] is implemented\nclass Test{\n    public:\n        int& operator[](int n) {\n            return elements[n];\n        }\n    private:\n        int* elements;\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          "\n// Both const and non-const version of operator[] are implemented\nclass Test{\n    public:\n        int& operator[](int n) {\n            return elements[n];\n        }\n        const int& operator[](int n) const {\n            return elements[n];\n        }\n    private:\n        int* elements;\n};"
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, operator[] is overloaded with only a non-const version",
+    "desc": "Operator[] should not be overloaded with only a non-const version",
+    "details": "#### Abstract\nOperator[] should not be overloaded with only a non-const version\n\n#### Explanation\nIf non-const version of operator[] is implemented, it only allows the object to be modified. But it does not allow reading from const object without a const version overload.",
+    "alias": {},
+    "standards": {},
+    "csv_string": [
+      "A13_5_1"
+    ],
+    "ruleSet": {
+      "id": "A",
+      "code": "A",
+      "displayName": "Autosar"
+    }
+  }
+]

@@ -1,0 +1,803 @@
+[
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A5_0_3",
+		"master_id": "2025",
+		"severity": "H",
+		"compliance": "A",
+		"likelihood": "L",
+		"cost": "H",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nvoid func ( void );\n\nvoid func ( void )\n{\n    char char_var;\n    bool bool_var;\n    // int can be cast to char\n    char_var = ( char ) 1;\n    // int 1 can be cast to bool by exception\n    bool_var = ( bool ) 1;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n \nvoid func ( void );\n \nbool bool_var;\nchar char_var;\nenum enum_var {} enum_var;\nsigned signed_var;\nunsigned unsigned_var;\nfloat float_var;\n \nvoid func ( void )\n{\n  // expression 1.0f cast to an narrower type char\n  char_var = ( char ) 1.0f;\n  // char_var cast to narrower type bool\n  bool_var = ( bool ) char_var;\n  char_var = ( char ) bool_var; // non-compliant\n  enum_var = ( enum enum_var ) bool_var; // non-compliant\n  signed_var = ( signed ) bool_var; // non-compliant\n  unsigned_var = ( unsigned ) bool_var; // non-compliant\n  float_var = ( float ) bool_var; // non-compliant\n  bool_var = ( bool ) char_var; // non-compliant\n  enum_var = ( enum enum_var ) char_var; // non-compliant\n  float_var = ( float ) char_var; // non-compliant\n  bool_var = ( bool ) enum_var; // non-compliant\n  bool_var = ( enum enum_var ) enum_var; // non-compliant\n  bool_var = ( bool ) signed_var; // non-compliant\n  bool_var = ( enum enum_var ) signed_var; // non-compliant\n  bool_var = ( bool ) unsigned_var; // non-compliant\n  bool_var = ( enum enum_var ) unsigned_var; // non-compliant\n  bool_var = ( bool ) float_var; // non-compliant\n  bool_var = ( enum enum_var ) float_var; // non-compliant\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}中表达式的值被转换为不适当的类型",
+		"name": "表达式中相同的基本类型",
+		"desc": "表达式的值不能被转换为不适当的类型",
+		"details": "#### 概要\n表达式的值不能被转换为不适当的类型\n\n#### 解释\n在两种不适当的类型之间进行强制类型转换可能会导致数据的丢失或者改变，因此表达式的值不能不能被强制转换为不适当的类型。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A3_3_1",
+		"master_id": "2102",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include \"header.h\"\n\nint x = 5;\nstatic int y = 10; // compliant\nvoid func ( void ) // compliant\n{\n    x = 10;\n    y = 5;\n}\n\nstatic int test ( void ) // compliant\n{\n    x = 10;\n    y = 5;\n    return 0;\n}\n"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include \"header.h\"\n\nint x = 5;\nint y = 10; // non-compliant\nint test ( void ) // non-compliant\n{\n    x = 10;\n    y = 5;\n    return 0;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 具有外部链接的对象或函数没有在头文件中声明",
+		"name": "具有外部链接的对象或函数应在头文件中声明",
+		"desc": "具有外部链接的对象或函数应在头文件中声明",
+		"details": "#### 概要\n具有外部链接的对象或函数应在头文件中声明\n\n#### 解释\n没有外部链接的对象和函数应在未命名的命名空间中声明或声明为静态，以降低它们的可见性。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A3_9_1",
+		"master_id": "2103",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\nvoid func ( void )\n{\n    int8_t a = 1; // fixed width integer types\n    int16_t b = 5;\n    int32_t c = 10;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\nvoid func ( void )\n{\n    int a = 1; // basic numerical types\n    int b = 5;\n    int c = 10;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 使用基本数值类型而不是固定宽度的整数类型",
+		"name": "应使用固定宽度整数类型代替基本数值类型",
+		"desc": "固定宽度整数类型应该替换基本的数值类型",
+		"details": "#### 概要\n固定宽度整数类型应该替换基本的数值类型\n\n#### 解释\n<cstdint> 中的特定长度类型应用于替换 char、int、short、long 的基本数字类型"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A2_11_5",
+		"master_id": "2104",
+		"compliance": "A",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\nnamespace TEST1\n{\n    static int a = 1;\n}\n\nnamespace TEST2\n{\n    void func ( void )\n    {\n        int b; // not reused identifier b\n        b++;\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\nnamespace TEST1\n{\n    static int a = 1;\n}\n\nnamespace TEST2\n{\n    void func ( void )\n    {\n        int a; // reused identifier a\n        a++;\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 重复使用具有静态存储持续时间的标识符",
+		"name": "不应重复使用具有静态存储持续时间的标识符",
+		"desc": "不应重复使用具有静态存储持续时间的标识符",
+		"details": "#### 概要\n不应重复使用具有静态存储持续时间的标识符\n\n#### 解释\n重复使用具有静态存储持续时间的标识符可能会使不相关的变量错误地与同名相关联。"
+	},
+	{
+		"category": "枚举不应用于算术",
+		"mapping": "",
+		"language": "c++",
+		"code": "A4_5_1",
+		"master_id": "2105",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\nenum {a, b, c} test;\n\nvoid func ( void )\n{\n    if ( a != b )  // compliant\n    {\n        printf(\"test_1\");\n    }\n    else if ( b <= c ) // compliant\n    {\n        printf(\"test_2\");\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\nextern void extern_func(char *);\n\nenum {a, b, c} test;\n\nvoid func ( void )\n{\n    if ( ( a + b ) == test ) // non-compliant\n    {\n        extern_func(\"test_1\");\n    }\n    else if ( ( a - c  ) != b ) // non-compliant\n    {\n        extern_func(\"test_2\");\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 枚举被应用于算术",
+		"name": "枚举不应用于算术",
+		"desc": "枚举不应用于算术",
+		"details": "#### 概要\n枚举不应用于算术\n\n#### 解释\n枚举具有实现定义的表示。 Eums 只能用作部分运算符的操作数，包括 [ ]、=、==、!=、<、<=、>、>=。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A5_1_1",
+		"master_id": "2106",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n\n#include <stdio.h>\n#include <stdint.h>\n\nvoid function( void )\n{\n    const int max_length = 100;\n    for (int i = 0; i < max_length; i++)\n    {\n        printf(\"avoid magic numbers\"); // compliant\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <stdint.h>\n#include <iostream>\n\nvoid function( void )\n{\n  for (int32_t i = 0; i < 100; i++)  // non-compliant\n    {\n      printf(\"magic number for 100\"); // compliant by exception\n      std::cout << \"magic number\" << i << '\\n'; // compliant by exception\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 使用了文字值",
+		"name": "除了类型初始化之外，不应使用文字值",
+		"desc": "除了类型初始化之外，不应使用文字值",
+		"details": "#### 概要\n除了类型初始化之外，不应使用文字值\n\n#### 解释\n文字值的使用对代码的可读性和可维护性有不良影响。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A2_10_1",
+		"master_id": "2121",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nint i;\n\nint func1 ( int j ) // compliant\n{\n    j ++;\n    return 0;\n}\n\nnamespace test1\n{\n    int t;\n    namespace test2\n    {\n        int t; // compliant by exception\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nint i, j;\n\nint func ( int i, int j ) // non-compliant\n{\n    i = 1;\n    j = 2;\n    if ( i - j < 0 )\n    {\n        return 0;\n    }\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 在内部范围内声明的标识符隐藏了外部标识符",
+		"name": "在内部范围内声明的标识符不应隐藏外部标识符",
+		"desc": "在内部范围中声明的标识符不应与外部范围中的相同",
+		"details": "#### 概要\n在内部范围中声明的标识符不应与外部范围中的相同\n\n#### 解释\n如果在内部作用域中声明的标识符使用与在外部作用域中的标识符相同的名称，则会引起开发人员的混淆。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A2_11_1",
+		"master_id": "2122",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nint func ( void )\n{\n    int i = 10; // compliant\n    int a;\n    a = i;\n    return a;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nint func ( void )\n{\n    volatile int i = 10; // non-compliant\n    int a, b;\n    a = i;\n    /*\n    ...\n    do something\n    */\n    b = i;\n    return 0;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, volatile关键字被使用了",
+		"name": "不应该使用volatile关键字",
+		"desc": "不应该使用volatile关键字",
+		"details": "#### 概要\n不应该使用volatile关键字\n\n#### 解释\nVolatile 关键字容易出错，并且经常被开发人员误用。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A2_13_5",
+		"master_id": "2123",
+		"compliance": "A",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <cstdint>\n\nint16_t i = 0xA;    // compliant\nint16_t j = 0x4B;   // compliant\nint16_t k = 0x0F5C; // compliant"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n#include <cstdint>\n\nint   i = 0xa;    // non-compliant\nshort j = 0x4b;   // non-compliant\nshort k = 0x0f5c; // non-compliant\n\nint foo(int i, short s1, short s2)\n{\n  return i + (int)j + (int)k;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 十六进制常量不是大写",
+		"name": "十六进制常量应为大写",
+		"desc": "十六进制常量应为大写",
+		"details": "#### 概要\n十六进制常量应为大写\n\n#### 解释\n对十六进制常量使用大写字母可使源代码保持一致并减少开发人员的困惑。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A2_13_4",
+		"master_id": "2124",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nvoid func ( void )\n{\n    const char a1[] = \"str_literal\";    // compliant\n    const char* a2 = \"str_literal\";     // compliant\n    const char a3[12] = \"str_literal\";  // compliant\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nvoid func ( void )\n{\n    char non_const1[] = \"str_literal\";      // non-compliant\n    char* non_const2 = \"str_literal\";       // non-compliant\n    char non_const3[ 12 ] = \"str_literal\";  // non-compliant\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 字符串文字被分配给非常量指针",
+		"name": "不应将字符串文字分配给非常量指针",
+		"desc": "不应将字符串文字分配给非常量指针",
+		"details": "#### 概要\n不应将字符串文字分配给非常量指针\n\n#### 解释\n字符串文字应更改为常量指针，以防止调用可能修改其参数的不适当函数。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A7_2_2",
+		"master_id": "2127",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\nenum test : int // compliant\n{   \n    t1,\n    t2,\n    t3\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\nenum test // non-compliant\n{   \n    t1,\n    t2,\n    t3\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 枚举基础类型没有被明确定义。",
+		"name": "枚举基础类型应明确定义",
+		"desc": "枚举基础类型应明确定义",
+		"details": "#### 概要\n枚举基础类型应明确定义\n\n#### 解释\n枚举基础类型必须能够表示枚举值。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A5_16_1",
+		"master_id": "2128",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nint func ( int x, int y )\n{\n    int z = x > y ? 10 : x; // compliant\n    return z;\n}\n"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdio.h>\n\nint func ( int x, int y )\n{\n    // ternary conditional operator used as sub-expression\n    int z = y - (x > y ? 10 : ( y > 5 ? 2 : ( x + y )));\n    return z;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 三元条件运算符被用作子表达式",
+		"name": "三元条件运算符不应用作子表达式",
+		"desc": "三元条件运算符不应用作子表达式",
+		"details": "#### 概要\n三元条件运算符不应用作子表达式\n\n#### 解释\n使用三元条件运算符作为子表达式会降低代码的可读性。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A7_1_6",
+		"master_id": "2129",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n// defining aliases with using\nusing uint_t = unsigned int;\n\ntemplate <typename Test>\nusing func_t = void (*)(Test, Test);"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include<string>\n\n// defining aliases with typedef\ntypedef unsigned int uint_t;\ntypedef int *p;\ntypedef int f( void );\n\n// template <typename Test>\n// typedef func_t: void (*)(Test, Test); // this example would raise compilation error"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, typedef 说明符被使用了。",
+		"name": "typedef 说明符不应用于定义别名",
+		"desc": "typedef 说明符不应用于定义别名",
+		"details": "#### 概要\ntypedef 说明符不应用于定义别名\n\n#### 解释\n应该使用 using 语法来替换 typedef，因为 typedef 会使代码的可读性降低。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A7_2_3",
+		"master_id": "2130",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n// Using enum-class as enumeration is compliant\nenum class test : int\n{   \n    t1,\n    t2,\n    t3\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n// unscoped enumeration enum is declared in a global scope\nenum test : int\n{   \n    t1,\n    t2,\n    t3\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 枚举没有被声明为有范围的枚举类",
+		"name": "枚举应声明为有范围的枚举类",
+		"desc": "枚举应声明为有范围的枚举类",
+		"details": "#### 概要\n枚举应声明为有范围的枚举类\n\n#### 解释\n在全局范围内声明无范围的 enum 可能会造成混淆，因此应该使用 enum-class 作为枚举。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A7_2_4",
+		"master_id": "2131",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\nenum class test1 : int // compliant\n{   \n    t1,\n    t2,\n    t3\n};\n\nenum class test2 : int // compliant\n{   \n    t4 = 1,\n    t5,\n    t6\n};\n\nenum class test3 : int // compliant\n{   \n    t7 = 1,\n    t8 = 2,\n    t9 = 3\n};\n"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\nenum class test1 : int // non-compliant\n{   \n    t1,\n    t2 = 10,\n    t3\n};\n\nenum class test2 : int // non-compliant\n{   \n    t4,\n    t5 = 10,\n    t6 = 11\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 仅部分枚举数被初始化。",
+		"name": "在枚举中，应该或是全部无初始化，或是初始化第一个或所有枚举数。",
+		"desc": "在枚举中，应该或是全部无初始化，或是初始化第一个或所有枚举数。",
+		"details": "#### 概要\n在枚举中，应该或是全部无初始化，或是初始化第一个或所有枚举数。\n\n#### 解释\n在枚举中仅初始化部分枚举数是令人困惑的。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A10_1_1",
+		"master_id": "2133",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\nclass Base1 \n{\n    public:\n        virtual void func1() = 0;\n        virtual void func2() = 0;\n};\n\nclass Base2\n{\n    public:\n        void func3(){}\n        void func4(){}\n};\n\nclass Base3\n{\n    public:\n        virtual void func5() = 0;\n        virtual void func6() = 0;\n};\n\n\n// compliant\n// Only Base2 is not interface class\nclass Derived1 : public Base1,\n                 public Base2\n{};\n\n// compliant\n// Both Base1 and Base3 are interface classes\nclass Derived2 : public Base1,\n                 public Base3\n{};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\nclass Base1\n{\n    public:\n        void func1(){}\n};\n\nclass Base2\n{\n    public:\n        void func2(){}\n};\n\n// Non-compliant\n// Base1 and Base2 are both not interface classes\nclass Derived : public Base1,\n                public Base2\n{};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 类从多个非接口基类派生",
+		"name": "类不应从多个非接口基类派生",
+		"desc": "类不应从多个非接口基类派生",
+		"details": "#### 概要\n类不应从多个非接口基类派生\n\n#### 解释\n从多个非接口基类派生的类将使代码更难维护。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A11_0_1",
+		"master_id": "2134",
+		"compliance": "A",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <stdint.h>\n\ntypedef char    Letter;  \ntypedef Letter* pLetter;\n  \nclass Xlass_With_non_POD    \n{\npublic:\n  Letter  c;  \n  pLetter p;\n};\n\nstruct Struct_with_POD // declared as struct\n{\n  char*   pc;\n};\n\n\nclass Class_with_POD // declared as class\n{\npublic:              // POD declared as public, not conformed to M11-0-1\n  int8_t   c;        \n  char*   pc;\nprivate:\n  int32_t  x;        // data member is private\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <stdint.h>\n\ntypedef char    Letter;  \ntypedef Letter* pLetter;\n  \nstruct Struct_With_non_POD    \n{\npublic:\n  Letter  c;  \n  pLetter p;\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 非 POD 类型没有被定义为类",
+		"name": "非 POD 类型应定义为类",
+		"desc": "非 POD 类型应定义为类",
+		"details": "#### 概要\n非 POD 类型应定义为类\n\n#### 解释\n类说明符强制 non-POD 类型在默认情况下为其所有成员提供专用访问控制，这与开发人员的期望一致。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A12_1_6",
+		"master_id": "2135",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n#include <iostream>\n\nclass Base {\n  \npublic:\n  // destructor non-virtual\n  ~Base(void) { std::cout << \"Base dtor called\\n\"; }\n};\n\nclass Derived : public Base {\n  \npublic:\n    using Base::Base;\n}; \n\n\nint main()\n{\n    Base* b = new Derived;\n    delete b;\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n#include <cstdint>\n#include <iostream>\n\nclass Base {\n  \npublic:\n  // destructor non-virtual\n  ~Base(void) { std::cout << \"Base dtor called\\n\"; }\n  explicit Base(std::int32_t x) : Base(x+1) {}\n};\n\nclass Derived : public Base {\n  \npublic:\n\n  ~Derived(void)  { std::cout<< \"Derived dtor called\\n\"; }\n  explicit Derived(std::int32_t) : Base(x-1) {}\n}; \n\n\nint main()\n{\n    Base* b = new Derived;\n    delete b;\n}\n\n// bad example from document\nclass A  \n{\n    public: \n        A(std::int32_t x, std::int32_t y) : x(x + 8), y(y) {}\n        explicit A(std::int32_t x) : A(x, 0) {}\n\n        private:\n            std::int32_t x;\n            std::int32_t y;\n};\n\n\nclass B : public A\n{\n    public:\n        B(std::int32_t x, std::int32_t y) : A(x, y) {}\n        explicit B(std::int32_t x) : A(x) {}\n}"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 当派生类不需要进一步初始化时，没有使用继承构造函数。",
+		"name": "当派生类不需要进一步初始化时，请使用继承构造函数",
+		"desc": "当派生类不需要进一步初始化时，请使用继承构造函数",
+		"details": "#### 概要\n当派生类不需要进一步初始化时，请使用继承构造函数\n\n#### 解释\n重新实现不需要进一步初始化的构造函数可能会导致使用错误的基类构造函数。"
+	},
+	{
+		"category": "",
+		"mapping": "",
+		"language": "c++",
+		"code": "A13_5_1",
+		"master_id": "2136",
+		"compliance": "R",
+		"examples": {
+			"good": {
+				"cpp": [
+					"\n// Only non-const version of operator[] is implemented\nclass Test{\n    public:\n        int& operator[](int n) {\n            return elements[n];\n        }\n    private:\n        int* elements;\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			},
+			"bad": {
+				"cpp": [
+					"\n// Both const and non-const version of operator[] are implemented\nclass Test{\n    public:\n        int& operator[](int n) {\n            return elements[n];\n        }\n        const int& operator[](int n) const {\n            return elements[n];\n        }\n    private:\n        int* elements;\n};"
+				],
+				"java": [
+					""
+				],
+				"c": [
+					""
+				],
+				"general": [
+					""
+				]
+			}
+		},
+		"msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 下标运算符只定义了非常量版本",
+		"name": "下标运算符不应该只定义非常量版本",
+		"desc": "下标运算符不应该只定义非常量版本",
+		"details": "#### 概要\n下标运算符不应该只定义非常量版本\n\n#### 解释\n如果实现了运算符[]的非常量版本，则只允许修改对象。但在没有常量版本重载的情况下，无法读取常量对象。"
+	}
+]

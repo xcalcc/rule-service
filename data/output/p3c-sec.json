@@ -1,0 +1,18 @@
+{
+"1" : {"name":"User-owned pages or functions must be authorized.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"2" : {"name":"Direct display of user sensitive data is not allowed. Displayed data must be desensitized.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"3" : {"name":"SQL parameter entered by users should be checked carefully or limited by METADATA, to prevent SQL injection. Database access by string concatenation SQL is forbidden.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/"},
+"4" : {"name":"It is forbidden to output user data to HTML page without security filtering or proper escaping.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"5" : {"name":"It is forbidden to output user data to HTML page without security filtering or proper escaping.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"6" : {"name":"Form and AJAX submission must be filtered by CSRF security check.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"7" : {"name":"It is necessary to use the correct anti-replay restrictions, such as number restriction, fatigue control, verification code checking, to avoid abusing of platform resources, such as text messages, e-mail, telephone, order, payment.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"8" : {"name":"In scenarios when users generate content (e.g., posting, comment, instant messages), anti-scam word filtering and other risk control strategies must be applied.",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"}
+}

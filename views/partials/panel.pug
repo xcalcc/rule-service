@@ -1,0 +1,23 @@
++panel-primary(rule.text)
+    div(id=rule.text)
+        +panel-info("Details")
+            +panel-success("Detail Chinese")
+                div!=markdown(rule.detailsCn)
+            +panel-success("Detail English")
+                div!=markdown(rule.detailsEn)
+        +panel-info("Good examples")
+            each val, key in rule.examples.good
+                +panel-success(`${key}`)
+                    if val
+                        for example in val
+                            if example !== ''
+                                pre
+                                    code!=highlight(example, key)
+        +panel-danger("Bad examples")
+            each val, key in rule.examples.bad
+                +panel-danger(`${key}`)
+                    if val
+                        for example in val
+                            if example !== ''
+                                pre
+                                    code!=highlight(example, key)

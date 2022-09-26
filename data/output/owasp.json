@@ -1,0 +1,22 @@
+{
+"A1" : {"name":"Injection",
+ "url":"https://owasp.org/www-project-top-ten/2017/A1_2017-Injection"},
+"A2" : {"name":"Broken Authentication",
+ "url":"https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication"},
+"A3" : {"name":"Sensitive Data Exposure",
+ "url":"https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure"},
+"A4" : {"name":"XML External Entities (XXE)",
+ "url":"https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)"},
+"A5" : {"name":"Broken Access Control",
+ "url":"https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control"},
+"A6" : {"name":"Security Misconfiguration",
+ "url":"https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration"},
+"A7" : {"name":"Cross-Site Scripting (XSS)",
+ "url":"https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS)"},
+"A8" : {"name":"Insecure Deserialization",
+ "url":"https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization"},
+"A9" : {"name":"Using Components with Known Vulnerabilities",
+ "url":"https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities"},
+"A10" : {"name":"Insufficient Logging & Monitoring",
+ "url":"https://owasp.org/www-project-top-ten/2017/A10_2017-Insufficient_Logging%2526Monitoring"}
+}

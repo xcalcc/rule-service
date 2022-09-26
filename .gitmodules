@@ -1,0 +1,6 @@
+[submodule "data/raw"]
+	path = data/raw
+	url = https://github.com/xcalcc/rule-details.git
+[submodule "data/source/v2csv"]
+	path = data/source/v2csv
+	url = https://github.com/xcalcc/v2csv.git

@@ -1,0 +1,13 @@
+extends ../node_modules/pug-bootstrap/_bootstrap
+block body
+    div.container
+        link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css")
+        script(type="javascript", src='./libs/highlight.js')
+        h1 Preview rule details
+        h3 Version - #{ver.xcalscan_rule_version}
+        div.row
+            div.col-sm-2
+                +nav-stacked(rules, 0)
+            div.col-sm-10
+                for rule in rules
+                    include partials/panel.pug

@@ -1,0 +1,405 @@
+[
+  {
+    "core_string": "AOB",
+    "csv_string": "AOB4",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 11,
+    "id": 2
+  },
+  {
+    "core_string": "",
+    "csv_string": "AOB3",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 11,
+    "id": 3
+  },
+  {
+    "core_string": "",
+    "csv_string": "AOB2",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 11,
+    "id": 4
+  },
+  {
+    "core_string": "",
+    "csv_string": "AOB1",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 11,
+    "id": 5
+  },
+  {
+    "core_string": "",
+    "csv_string": "AOB0",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 11,
+    "id": 6
+  },
+  {
+    "core_string": "DBF",
+    "csv_string": "DBF0",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 3,
+    "id": 9
+  },
+  {
+    "core_string": "DBZ",
+    "csv_string": "DBZ2",
+    "severity": "L",
+    "likelihood": "P",
+    "cost": "H",
+    "master_id": 13,
+    "id": 12
+  },
+  {
+    "core_string": "DBZ",
+    "csv_string": "DBZ1",
+    "severity": "L",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 13,
+    "id": 13
+  },
+  {
+    "core_string": "DBZ",
+    "csv_string": "DBZ0",
+    "severity": "L",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 13,
+    "id": 14
+  },
+  {
+    "core_string": "DDV",
+    "csv_string": "DDV0",
+    "severity": "L",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 15,
+    "id": 17
+  },
+  {
+    "core_string": "FAM",
+    "csv_string": "FAM2",
+    "severity": "H",
+    "likelihood": "P",
+    "cost": "H",
+    "master_id": 16,
+    "id": 20
+  },
+  {
+    "core_string": "FAM",
+    "csv_string": "FAM1",
+    "severity": "H",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 16,
+    "id": 21
+  },
+  {
+    "core_string": "FAM",
+    "csv_string": "FAM0",
+    "severity": "M",
+    "likelihood": "P",
+    "cost": "H",
+    "master_id": 16,
+    "id": 22
+  },
+  {
+    "core_string": "FMT",
+    "csv_string": "FMT2",
+    "severity": "H",
+    "likelihood": "U",
+    "cost": "L",
+    "master_id": 4,
+    "id": 25
+  },
+  {
+    "core_string": "FMT",
+    "csv_string": "FMT1",
+    "severity": "H",
+    "likelihood": "U",
+    "cost": "L",
+    "master_id": 4,
+    "id": 26
+  },
+  {
+    "core_string": "FMT",
+    "csv_string": "FMT0",
+    "severity": "H",
+    "likelihood": "U",
+    "cost": "L",
+    "master_id": 4,
+    "id": 27
+  },
+  {
+    "core_string": "MSF",
+    "csv_string": "MSF2",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 5,
+    "id": 30
+  },
+  {
+    "core_string": "MSF",
+    "csv_string": "MSF1",
+    "severity": "M",
+    "likelihood": "P",
+    "cost": "M",
+    "master_id": 5,
+    "id": 31
+  },
+  {
+    "core_string": "MSF",
+    "csv_string": "MSF0",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 5,
+    "id": 32
+  },
+  {
+    "core_string": "NPD",
+    "csv_string": "NPD0",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 17,
+    "id": 36
+  },
+  {
+    "core_string": "RAL",
+    "csv_string": "RAL0",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "L",
+    "master_id": 6,
+    "id": 39
+  },
+  {
+    "core_string": "UAF",
+    "csv_string": "UAF3",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 8,
+    "id": 43
+  },
+  {
+    "core_string": "UAF",
+    "csv_string": "UAF2",
+    "severity": "H",
+    "likelihood": "U",
+    "cost": "L",
+    "master_id": 8,
+    "id": 44
+  },
+  {
+    "core_string": "UAF",
+    "csv_string": "UAF1",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 8,
+    "id": 45
+  },
+  {
+    "core_string": "UAF",
+    "csv_string": "UAF0",
+    "severity": "H",
+    "likelihood": "P",
+    "cost": "M",
+    "master_id": 8,
+    "id": 46
+  },
+  {
+    "core_string": "UDR",
+    "csv_string": "UDR5",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 9,
+    "id": 50
+  },
+  {
+    "core_string": "UDR",
+    "csv_string": "UDR4",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 9,
+    "id": 51
+  },
+  {
+    "core_string": "UDR",
+    "csv_string": "UDR3",
+    "severity": "H",
+    "likelihood": "P",
+    "cost": "H",
+    "master_id": 9,
+    "id": 52
+  },
+  {
+    "core_string": "UDR",
+    "csv_string": "UDR2",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 9,
+    "id": 53
+  },
+  {
+    "csv_string": "UDR1",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 9,
+    "id": 54
+  },
+  {
+    "core_string": "UDR",
+    "csv_string": "UDR0",
+    "severity": "M",
+    "likelihood": "L",
+    "cost": "H",
+    "master_id": 9
+  },
+  {
+    "core_string": "UIV",
+    "csv_string": "UIV0",
+    "severity": "H",
+    "likelihood": "P",
+    "cost": "M",
+    "master_id": 22,
+    "id": 58
+  },
+  {
+    "core_string": "CRF",
+    "csv_string": "CRF0",
+    "severity": "M",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 12,
+    "id": 61
+  },
+  {
+    "core_string": "CSL",
+    "csv_string": "CSL0",
+    "severity": "M",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 1,
+    "id": 64
+  },
+  {
+    "core_string": "CSS",
+    "csv_string": "CSS0",
+    "severity": "M",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 2,
+    "id": 67
+  },
+  {
+    "core_string": "ECB",
+    "csv_string": "ECB1",
+    "severity": "L",
+    "likelihood": "P",
+    "cost": "M",
+    "master_id": 23,
+    "id": 70
+  },
+  {
+    "core_string": "ECB",
+    "csv_string": "ECB0",
+    "severity": "L",
+    "likelihood": "P",
+    "cost": "M",
+    "master_id": 23,
+    "id": 71
+  },
+  {
+    "core_string": "RCD",
+    "csv_string": "RCD0",
+    "severity": "L",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 18,
+    "id": 74
+  },
+  {
+    "core_string": "RXS",
+    "csv_string": "RXS0",
+    "severity": "M",
+    "likelihood": "L",
+    "cost": "L",
+    "master_id": 7,
+    "id": 77
+  },
+  {
+    "core_string": "SCB",
+    "csv_string": "SCB0",
+    "severity": "L",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 19,
+    "id": 81
+  },
+  {
+    "core_string": "SSE",
+    "csv_string": "SSE0",
+    "severity": "L",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 20,
+    "id": 84
+  },
+  {
+    "core_string": "UIC",
+    "csv_string": "UIC0",
+    "severity": "L",
+    "likelihood": "L",
+    "cost": "L",
+    "master_id": 21,
+    "id": 87
+  },
+  {
+    "core_string": "WRF",
+    "csv_string": "WRF0",
+    "severity": "H",
+    "likelihood": "L",
+    "cost": "M",
+    "master_id": 10,
+    "id": 90
+  },
+  {
+    "core_string": "DDC",
+    "csv_string": "DDC1",
+    "severity": "L",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 14,
+    "id": 92
+  },
+  {
+    "core_string": "DDC",
+    "csv_string": "DDC0",
+    "severity": "L",
+    "likelihood": "U",
+    "cost": "M",
+    "master_id": 14,
+    "id": 93
+  }
+]

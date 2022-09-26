@@ -1,0 +1,12 @@
+version: "3"
+services:
+  rule-service:
+    image: 127.0.0.1:8129/xcalibyte/xcal.rule-service:latest
+    container_name: dev_rule_service
+    ports:
+    - "3003:3003"
+    networks:
+     - agent-test
+networks:
+    agent-test:
+     external: true

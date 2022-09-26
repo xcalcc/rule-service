@@ -1,0 +1,18 @@
+{
+"1" : {"name":"隶属于用户个人的页面或者功能必须进行权限控制校验",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"2" : {"name":"用户敏感数据禁止直接展示，必须对展示数据进行脱敏",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"3" : {"name":"用户输入的 SQL 参数严格使用参数绑定或者 METADATA 字段值限定，防止 SQL 注入， 禁止字符串拼接 SQL 访问数据库",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/"},
+"4" : {"name":"用户请求传入的任何参数必须做有效性验证",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"5" : {"name":"禁止向 HTML 页面输出未经安全过滤或未正确转义的用户数据",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"6" : {"name":"表单、AJAX 提交必须执行 CSRF 安全验证",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"7" : {"name":"必须使用正确的防重播限制，例如号码限制，疲劳控制，验证码检查，以避免滥用平台资源，例如短信，电子邮件，电话，订单，付款等",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"},
+"8" : {"name":"在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的防重放的机制，如数量限制、疲劳度控制、验证码校验，避免被滥刷而导致资损",
+ "url":"https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification"}
+}

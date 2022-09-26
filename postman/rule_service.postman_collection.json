@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "ed09f2e1-808b-46df-9f7e-d918e96084cf",
+		"name": "rule service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rule sets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/rule_sets?locale=en",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"rule_sets"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en"
+						}
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "Rule set",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/rule_set/X?locale=en",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"rule_set",
+						"X"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en"
+						}
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "Rule list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/rule_list?locale=en",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"rule_list"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en"
+						}
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "Rule info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/rule_info/npd0",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"rule_info",
+						"npd0"
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "Path msg",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/rule_info/npd0",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"rule_info",
+						"npd0"
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "standard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/standard/owasp",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"standard",
+						"owasp"
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "standards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}rule/standards",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}rule"
+					],
+					"path": [
+						"standards"
+					]
+				},
+				"description": "get rule sets"
+			},
+			"response": []
+		},
+		{
+			"name": "Get error descroption list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Callback format to be JSON\", () => {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Callback to have data field\", () => {",
+							"    pm.response.to.have.jsonBody();",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}{{ruleServiceEp}}error/list",
+					"host": [
+						"{{baseUrl}}{{ruleServiceEp}}error"
+					],
+					"path": [
+						"list"
+					]
+				},
+				"description": "Get error descriptions for hex code and messages"
+			},
+			"response": []
+		}
+	]
+}

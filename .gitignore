@@ -1,0 +1,11 @@
+.idea
+node_modules
+.env
+files
+data/source/v2csv/src/gen_dir
+postman/report.html
+data/report
+logs
+utils/sys-log.log
+data/utilities/standardsToRules*.xlsx
+data/source/v2csv/*

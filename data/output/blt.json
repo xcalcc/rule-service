@@ -1,0 +1,1022 @@
+[
+{ "core_string":"AOB",
+ "csv_string":"AOB4",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : "ARR38-C"
+},
+ "standards": {
+   "owasp":"A1",
+   "cwe":"787",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":11,
+ "id":2},
+{ "core_string":"AOB",
+ "csv_string":"AOB3",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : "ARR30-C"
+},
+ "standards": {
+   "owasp":"A2",
+   "cwe":"125",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":11,
+ "id":3},
+{ "core_string":"AOB",
+ "csv_string":"AOB2",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"121",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":11,
+ "id":4},
+{ "core_string":"AOB",
+ "csv_string":"AOB1",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A5",
+   "cwe":"122",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":11,
+ "id":5},
+{ "core_string":"AOB",
+ "csv_string":"AOB0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"126",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":11,
+ "id":6},
+{ "core_string":"DBF",
+ "csv_string":"DBF0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM51-CPP"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"415",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":3,
+ "id":9},
+{ "core_string":"DBZ",
+ "csv_string":"DBZ2",
+ "severity":"L",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "FLP03-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"369",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":13,
+ "id":12},
+{ "core_string":"DBZ",
+ "csv_string":"DBZ1",
+ "severity":"L",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "INT33-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":13,
+ "id":13},
+{ "core_string":"DBZ",
+ "csv_string":"DBZ0",
+ "severity":"L",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "NUM02-J"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":13,
+ "id":14},
+{ "core_string":"DDV",
+ "csv_string":"DDV0",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MSC12-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":15,
+ "id":17},
+{ "core_string":"FAM",
+ "csv_string":"FAM2",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":16,
+ "id":20},
+{ "core_string":"FAM",
+ "csv_string":"FAM1",
+ "severity":"H",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "FIO47-C"
+},
+ "standards": {
+   "owasp":"A6",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":16,
+ "id":21},
+{ "core_string":"FAM",
+ "csv_string":"FAM0",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "EXP37-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":16,
+ "id":22},
+{ "core_string":"FMT",
+ "csv_string":"FMT2",
+ "severity":"H",
+ "likelihood":"U",
+ "cost":"L",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"787",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":4,
+ "id":25},
+{ "core_string":"FMT",
+ "csv_string":"FMT1",
+ "severity":"H",
+ "likelihood":"U",
+ "cost":"L",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A1",
+   "cwe":"88",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":4,
+ "id":26},
+{ "core_string":"FMT",
+ "csv_string":"FMT0",
+ "severity":"H",
+ "likelihood":"U",
+ "cost":"L",
+ "alias" : {
+    "cert" : "FIO47-C"
+},
+ "standards": {
+   "owasp":"A6",
+   "cwe":"119",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":4,
+ "id":27},
+{ "core_string":"MSF",
+ "csv_string":"MSF2",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":5,
+ "id":30},
+{ "core_string":"MSF",
+ "csv_string":"MSF1",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM31-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"401",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":5,
+ "id":31},
+{ "core_string":"MSF",
+ "csv_string":"MSF0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM51-CPP"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":5,
+ "id":32},
+{ "core_string":"NPD",
+ "csv_string":"NPD0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "EXP34-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"476",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":17,
+ "id":36},
+{ "core_string":"RAL",
+ "csv_string":"RAL1",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"L",
+ "alias" : {
+    "cert" : "EXP54-CPP"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":"M7-5-1"
+ }
+,
+ "master_id":6,
+ "id":39},
+{ "core_string":"RAL",
+ "csv_string":"RAL0",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "DCL30-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":6,
+ "id":40},
+{ "core_string":"UAF",
+ "csv_string":"UAF3",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM50-CPP"
+},
+ "standards": {
+   "owasp":"A1",
+   "cwe":"416",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":8,
+ "id":43},
+{ "core_string":"UAF",
+ "csv_string":"UAF2",
+ "severity":"H",
+ "likelihood":"U",
+ "cost":"L",
+ "alias" : {
+    "cert" : "MEM01-C"
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"672",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":8,
+ "id":44},
+{ "core_string":"UAF",
+ "csv_string":"UAF1",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM30-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":8,
+ "id":45},
+{ "core_string":"UAF",
+ "csv_string":"UAF0",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM00-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":8,
+ "id":46},
+{ "core_string":"UDR",
+ "csv_string":"UDR5",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A1",
+   "cwe":"590",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":9,
+ "id":50},
+{ "core_string":"UDR",
+ "csv_string":"UDR4",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM51-CPP"
+},
+ "standards": {
+   "owasp":"A2",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":9,
+ "id":51},
+{ "core_string":"UDR",
+ "csv_string":"UDR3",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "EXP54-CPP"
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":9,
+ "id":52},
+{ "core_string":"UDR",
+ "csv_string":"UDR2",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM30-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":9,
+ "id":53},
+{ "core_string":"UDR",
+ "csv_string":"UDR1",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MEM50-CPP"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":9,
+ "id":54},
+{ "core_string":"UDR",
+ "csv_string":"UDR0",
+ "severity":"M",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : "OBJ14-J"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":9,
+ "id":55},
+{ "core_string":"UIC",
+ "csv_string":"UIV1",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : "EXP33-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":22,
+ "id":57},
+{ "core_string":"UIV",
+ "csv_string":"UIV0",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : "EXP53-CPP"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"457",
+   "p3c-sec":"",
+   "autosar":"M8-5-1"
+ }
+,
+ "master_id":22,
+ "id":58},
+{ "core_string":"CRF",
+ "csv_string":"CRF0",
+ "severity":"M",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"674",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":12,
+ "id":61},
+{ "core_string":"CSL",
+ "csv_string":"CSL0",
+ "severity":"M",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"121",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":1,
+ "id":64},
+{ "core_string":"CSS",
+ "csv_string":"CSS0",
+ "severity":"M",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"787",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":2,
+ "id":67},
+{ "core_string":"ECB",
+ "csv_string":"ECB1",
+ "severity":"L",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : "ERR00-J"
+},
+ "standards": {
+   "owasp":"A3",
+   "cwe":"223",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":23,
+ "id":70},
+{ "core_string":"ECB",
+ "csv_string":"ECB0",
+ "severity":"L",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : "ERR00-J"
+},
+ "standards": {
+   "owasp":"A5",
+   "cwe":"223",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":23,
+ "id":71},
+{ "core_string":"RCD",
+ "csv_string":"RCD0",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MSC12-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":18,
+ "id":74},
+{ "core_string":"RXS",
+ "csv_string":"RXS0",
+ "severity":"M",
+ "likelihood":"L",
+ "cost":"L",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"577",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":7,
+ "id":77},
+{ "core_string":"SCB",
+ "csv_string":"SCB0",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MSC12-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"223",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":19,
+ "id":81},
+{ "core_string":"SSE",
+ "csv_string":"SSE0",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MSC07-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":20,
+ "id":84},
+{ "core_string":"UIC",
+ "csv_string":"UIC0",
+ "severity":"L",
+ "likelihood":"L",
+ "cost":"L",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"909",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":21,
+ "id":87},
+{ "core_string":"WRF",
+ "csv_string":"WRF0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"A5",
+   "cwe":"275",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":10,
+ "id":90},
+{ "core_string":"DDC",
+ "csv_string":"DDC1",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MSC07-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":14,
+ "id":92},
+{ "core_string":"DDC",
+ "csv_string":"DDC0",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "MSC12-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":14,
+ "id":93},
+{ "core_string":"SIL-A",
+ "csv_string":"SIL0",
+ "severity":"H",
+ "likelihood":"P",
+ "cost":"L",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":128,
+ "id":95},
+{ "core_string":"MLU",
+ "csv_string":"MLU0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"832",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":132,
+ "id":97},
+{ "core_string":"DBLI",
+ "csv_string":"DBLI0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : "CON35-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"609",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":133,
+ "id":99},
+{ "core_string":"LIIT",
+ "csv_string":"LIIT0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":134,
+ "id":101},
+{ "core_string":"SLAE",
+ "csv_string":"SLAE0",
+ "severity":"L",
+ "likelihood":"U",
+ "cost":"M",
+ "alias" : {
+    "cert" : "CON38-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"412",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":135,
+ "id":103},
+{ "core_string":"LNR",
+ "csv_string":"LNR0",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "CON30-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"833",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":136,
+ "id":105},
+{ "core_string":"SAC",
+ "csv_string":"SAC0",
+ "severity":"L",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":137,
+ "id":107},
+{ "core_string":"LLAT",
+ "csv_string":"LLAT0",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "CON30-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"412",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":138,
+ "id":109},
+{ "core_string":"UIL",
+ "csv_string":"UIL0",
+ "severity":"H",
+ "likelihood":"L",
+ "cost":"H",
+ "alias" : {
+    "cert" : "CON35-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"667",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":139,
+ "id":111},
+{ "core_string":"TASR",
+ "csv_string":"TASR0",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"H",
+ "alias" : {
+    "cert" : "CON43-C"
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":140,
+ "id":113},
+{ "core_string":"PNC",
+ "csv_string":"PAIR-NOT-CALLED",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":141,
+ "id":115},
+{ "core_string":"LSO",
+ "csv_string":"LSO0",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"666",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":142,
+ "id":117},
+{ "core_string":"MBSP",
+ "csv_string":"MBSP0",
+ "severity":"M",
+ "likelihood":"P",
+ "cost":"M",
+ "alias" : {
+    "cert" : ""
+},
+ "standards": {
+   "owasp":"",
+   "cwe":"605",
+   "p3c-sec":"",
+   "autosar":""
+ }
+,
+ "master_id":143,
+ "id":119}
+]

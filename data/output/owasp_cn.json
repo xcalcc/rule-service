@@ -1,0 +1,22 @@
+{
+"A1" : {"name":"注入",
+ "url":"https://owasp.org/www-project-top-ten/2017/A1_2017-Injection"},
+"A2" : {"name":"失效的身份认证",
+ "url":"https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication"},
+"A3" : {"name":"敏感数据泄露",
+ "url":"https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure"},
+"A4" : {"name":"XML 外部实体 (XXE)",
+ "url":"https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)"},
+"A5" : {"name":"失效的访问控制",
+ "url":"https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control"},
+"A6" : {"name":"安全配置错误",
+ "url":"https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration"},
+"A7" : {"name":"跨站脚本 (XSS)",
+ "url":"https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS)"},
+"A8" : {"name":"不安全的反序列化",
+ "url":"https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization"},
+"A9" : {"name":"使用含有已知漏洞的组件",
+ "url":"https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities"},
+"A10" : {"name":"不足的日志记录和监控",
+ "url":"https://owasp.org/www-project-top-ten/2017/A10_2017-Insufficient_Logging%2526Monitoring"}
+}
