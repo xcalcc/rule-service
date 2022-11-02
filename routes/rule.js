@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs-extra');
 const path = require('path');
+const yaml = require('js-yaml');
 const router = express.Router();
 const wrapper = require('../utils/asyncWrapper');
 const logger = require('../utils/logger');
@@ -25,6 +26,8 @@ const certInfoList = new CertInfoList();
 // const autosarList = new Autosar();
 
 const cache = require('../utils/cache');
+
+const directDataPath = path.join(__dirname, '../data/directServe');
 
 const writeToFile = (fileName, data) => {
     const outputPath = path.resolve(__dirname, '../data/directServe', fileName);
@@ -54,9 +57,35 @@ router.get('/rule_list', useCache, wrapper(async (req, res) => {
     const rule_set_code = req.query['rule_set_code'];
     const fieldsStr = req.query['fields'];
     const use_csv_key_map = req.query['use_csv_key_map'];
+    const standard_name = req.query['standard_name'];
+
+    const cacheKey = cache.genCacheKey(req);
+
+    // direct serving
+    if (process.env.DIRECT_DATA === 'true') {
+        console.log('start direct serving for rule list...');
+        const data = yaml.load(fs.readFileSync(path.join(directDataPath, `rules_${locale}.yml`), {encoding: 'utf8'}));
+        // index csv strings
+        const csvCodeMap = {};
+        data.forEach((ruleInfo, index) => {
+            Array.isArray(ruleInfo.csv_string) && ruleInfo.csv_string.forEach(csvStr => {
+                csvCodeMap[csvStr] = index;
+            });
+        });
+        const callback = {
+            dataVersion: ruleSet.ver,
+            counts: data.length,
+            rules: data,
+            csvCodeMap,
+        };
+        req.span.finish();
+        cache.set(cacheKey, callback);
+        responseController.successCallBack(res, callback);
+        return;
+    }
+
     const filterFields = !!fieldsStr ? fieldsStr.split(',') : [];
 
-    const standard_name = req.query['standard_name'];
     let ruleListData = [];
     let callback = {
         dataVersion: ruleSet.ver,
@@ -84,7 +113,7 @@ router.get('/rule_list', useCache, wrapper(async (req, res) => {
     if (standard_name) {
         ruleListData = ruleController.extractRulesFromStandard(standard_name, ruleListData);
     }
-    ruleListData = ruleListData.filter(rule => !rule.status || rule.status !== 'pending' );
+    ruleListData = ruleListData.filter(rule => !rule.status || rule.status !== 'pending');
 
     if (rule_set_code) {
         ruleListData = ruleListData
@@ -101,7 +130,7 @@ router.get('/rule_list', useCache, wrapper(async (req, res) => {
                 code: rule.code
             };
             filterFields.forEach(field => {
-                if(rule.hasOwnProperty(field)) {
+                if (rule.hasOwnProperty(field)) {
                     withSelectedKeys[field] = rule[field];
                 }
             });
@@ -109,7 +138,7 @@ router.get('/rule_list', useCache, wrapper(async (req, res) => {
         });
     }
 
-    if(use_csv_key_map) {
+    if (use_csv_key_map) {
         let csv_map = {};
         ruleListData.forEach(rule => {
             rule.csv_string && rule.csv_string.length && rule.csv_string.forEach(csvCode => {
@@ -132,7 +161,6 @@ router.get('/rule_list', useCache, wrapper(async (req, res) => {
 
 
     req.span.finish();
-    const cacheKey = cache.genCacheKey(req);
     cache.set(cacheKey, callback);
     responseController.successCallBack(res, callback);
 }));
@@ -141,6 +169,20 @@ router.get('/rule_info/:csv_code', useCache, wrapper(async (req, res) => {
     req.span = logger.createTracerSpan('get rule by csv code');
     const locale = req.query['locale'] || 'en';
     const csv_code = req.params['csv_code'];
+    // direct serving
+    if (process.env.DIRECT_DATA === 'true') {
+        console.log('start direct serving for rule list...');
+        const data = yaml.load(fs.readFileSync(path.join(directDataPath, `rules_${locale}.yml`), {encoding: 'utf8'}));
+
+        responseController.successCallBack(res, {
+            dataVersion: ruleSet.ver,
+            counts: data.length,
+            rules: data,
+        });
+        req.span.finish();
+        return;
+    }
+
     const ruleData = ruleSet.indexedByCsvCode[csv_code.toLowerCase()];
     let ruleInfo = ruleList.getData(locale)[ruleData.masterId - 1];
     if (!csv_code || !ruleData || !ruleInfo) {
@@ -167,6 +209,22 @@ router.get('/rule_info/:csv_code', useCache, wrapper(async (req, res) => {
 router.get('/path_msg', useCache, wrapper(async (req, res) => {
     req.span = logger.createTracerSpan('path_msg request');
     let locale = req.query['locale'] || 'en';
+    const cacheKey = cache.genCacheKey(req);
+
+    // direct serving
+    if (process.env.DIRECT_DATA === 'true') {
+        console.log('start direct serving for rule list...');
+        const data = yaml.load(fs.readFileSync(path.join(directDataPath, `path_msg_${locale}.yml`), {encoding: 'utf8'}));
+
+        const callback = {
+            dataVersion: ruleSet.ver,
+            data,
+        };
+        req.span.finish();
+        cache.set(cacheKey, callback);
+        responseController.successCallBack(res, callback);
+        return;
+    }
 
     if (pathMsg.getLocales().includes(locale)) {
         let pathMsgData = pathMsg.getData(locale);
@@ -189,6 +247,46 @@ router.get('/path_msg', useCache, wrapper(async (req, res) => {
 router.get('/rule_sets', useCache, wrapper(async (req, res) => {
     req.span = logger.createTracerSpan('rule_sets request');
     const locale = req.query['locale'] || 'en';
+    const cacheKey = cache.genCacheKey(req);
+
+    // direct serving
+    if (process.env.DIRECT_DATA === 'true') {
+        const misraDataPath = path.resolve(__dirname, '../data/output/miscellaneous/input/misra/rules_en.json');
+        const autosarDataPath = path.resolve(__dirname, '../data/output/miscellaneous/input/autosar/rules_en.json');
+        console.log('start direct serving for rule set...');
+        const data = yaml.load(fs.readFileSync(path.join(directDataPath, `ruleset_${locale}.yml`), {encoding: 'utf8'}));
+        const rulesets = Object.keys(data).map(rs => data[rs]);
+
+        //inject misra/autosar
+        rulesets.push({
+            code: "M",
+            displayName: "MISRA",
+            id: "M",
+            rules: (() => {
+                const misraData = fs.readJsonSync(misraDataPath, {encoding: 'utf8'});
+                return misraData.map(rule => rule.code);
+            })(),
+        });
+        rulesets.push({
+            code: "A",
+            displayName: "Autosar",
+            id: "A",
+            rules: (() => {
+                const autosarData = fs.readJsonSync(autosarDataPath, {encoding: 'utf8'});
+                return autosarData.map(rule => rule.code);
+            })(),
+        });
+
+        const callback = {
+            dataVersion: ruleSet.ver,
+            data: rulesets,
+        };
+        req.span.finish();
+        cache.set(cacheKey, callback);
+        responseController.successCallBack(res, callback);
+        return;
+    }
+
     let ruleSets = ruleSet.getData(locale);
     let ruleSetsArray = Object.keys(ruleSets).map(ruleSetCode => ruleSets[ruleSetCode]);
     req.span.finish();
@@ -196,7 +294,6 @@ router.get('/rule_sets', useCache, wrapper(async (req, res) => {
         dataVersion: ruleSet.ver,
         data: ruleSetsArray || null
     };
-    const cacheKey = cache.genCacheKey(req);
     cache.set(cacheKey, callback);
     responseController.successCallBack(res, callback);
 }));
@@ -244,6 +341,22 @@ router.get('/standard/:standard_name', useCache, wrapper(async (req, res) => {
 router.get('/standards', wrapper(async (req, res) => {
     req.span = logger.createTracerSpan('standards request');
     const locale = req.query['locale'] || 'en';
+    const cacheKey = cache.genCacheKey(req);
+
+    // direct serving
+    if (process.env.DIRECT_DATA === 'true') {
+        console.log('start direct serving for rule standards...');
+        const data = yaml.load(fs.readFileSync(path.join(directDataPath, `standards_${locale}.yml`), {encoding: 'utf8'}));
+
+        const callback = {
+            dataVersion: ruleSet.ver,
+            data,
+        };
+        req.span.finish();
+        cache.set(cacheKey, callback);
+        responseController.successCallBack(res, callback);
+        return;
+    }
     const cweData = cweList.getData(locale);
     const p3cSecData = p3cSecList.getData(locale);
     const owaspData = owaspList.getData(locale);
@@ -259,8 +372,8 @@ router.get('/standards', wrapper(async (req, res) => {
             // autosar: autosarData,
         }
     };
-    responseController.successCallBack(res, callback);
     req.span.finish();
+    responseController.successCallBack(res, callback);
 }));
 
 //get all rule set by id

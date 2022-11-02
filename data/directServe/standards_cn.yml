@@ -1,0 +1,1706 @@
+cert:
+  ARR30-C:
+    csv_codes:
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+    name: 不要形成或使用越界指针或数组下标
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/ARR30-C.+Do+not+form+or+use+out-of-bounds+pointers+or+array+subscripts
+  ARR38-C:
+    csv_codes:
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+    name: 数组在使用库函数时越界
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/ARR38-C.+Guarantee+that+library+functions+do+not+form+invalid+pointers
+  CON30-C:
+    csv_codes:
+      - LNR0
+      - LLAT0
+    name: 清理线程特定的存储
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/CON30-C.+Clean+up+thread-specific+storage
+  CON35-C:
+    csv_codes:
+      - DBLI0
+      - UIL0
+    name: 按预定义顺序锁定来避免死锁
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/CON35-C.+Avoid+deadlock+by+locking+in+a+predefined+order
+  CON38-C:
+    csv_codes:
+      - SLAE0
+    name: 条件变量时保持线程安全性和活性
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/CON38-C.+Preserve+thread+safety+and+liveness+when+using+condition+variables
+  CON43-C:
+    csv_codes:
+      - TASR0
+    name: 不允许在多线程代码出现数据竞争
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/CON43-C.+Do+not+allow+data+races+in+multithreaded+code
+  DCL55-CPP:
+    csv_codes: []
+    name: 跨信任边界传递类对象时避免信息泄漏
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/DCL55-CPP.+Avoid+information+leakage+when+passing+a+class+object+across+a+trust+boundary
+  DCL56-CPP:
+    csv_codes: []
+    name: 避免静态对象初始化期间的循环
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/DCL56-CPP.+Avoid+cycles+during+initialization+of+static+objects
+  ENV32-C:
+    csv_codes: []
+    name: 所有退出处理程序必须正常返回
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/ENV32-C.+All+exit+handlers+must+return+normally
+  ENV33-C:
+    csv_codes: []
+    name: 不要调用 system()
+    url: https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152177
+  ERR00-J:
+    csv_codes:
+      - ECB1
+      - ECB0
+    name: 异常必须得到适当处理
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/java/ERR00-J.+Do+not+suppress+or+ignore+checked+exceptions
+  ERR33-C:
+    csv_codes: []
+    name: 检测和处理标准库错误
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/ERR33-C.+Detect+and+handle+standard+library+errors
+  ERR54-CPP:
+    csv_codes: []
+    name: Catch 处理程序应该将它的参数类型从派生最多的到派生最少的排序
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/ERR54-CPP.+Catch+handlers+should+order+their+parameter+types+from+most+derived+to+least+derived
+  EXP33-C:
+    csv_codes:
+      - UIV1
+      - UIV0
+    name: 不要读取未初始化的内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/EXP33-C.+Do+not+read+uninitialized+memory
+  EXP34-C:
+    csv_codes:
+      - NPD0
+    name: 不要使用空指针解引用
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/EXP34-C.+Do+not+dereference+null+pointers
+  EXP37-C:
+    csv_codes: []
+    name: 用正确数量和类型的参数调用函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/EXP37-C.+Call+functions+with+the+correct+number+and+type+of+arguments
+  EXP53-CPP:
+    csv_codes:
+      - UIV1
+      - UIV0
+    name: 禁止读取未初始化的内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/EXP53-CPP.+Do+not+read+uninitialized+memory
+  EXP54-CPP:
+    csv_codes:
+      - RAL1
+      - RAL0
+    name: 仅在对象的生存期内访问该对象
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/EXP54-CPP.+Do+not+access+an+object+outside+of+its+lifetime
+  FIO02-C:
+    csv_codes: []
+    name: 规范化源自受污染源的路径名
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO02-C.+Canonicalize+path+names+originating+from+tainted+sources
+  FIO08-J:
+    csv_codes: []
+    name: 区分从流读取的字符或字节和-1
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/java/FIO08-J.+Distinguish+between+characters+or+bytes+read+from+a+stream+and+-1
+  FIO21-C:
+    csv_codes: []
+    name: 不要在共享目录中创建临时文件
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO21-C.+Do+not+create+temporary+files+in+shared+directories
+  FIO30-C:
+    csv_codes: []
+    name: 从格式字符串中排除用户输入
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO30-C.+Exclude+user+input+from+format+strings
+  FIO34-C:
+    csv_codes: []
+    name: 区分从文件中读取的字符和 EOF 或 WEOF
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO34-C.+Distinguish+between+characters+read+from+a+file+and+EOF+or+WEOF
+  FIO37-C:
+    csv_codes: []
+    name: 不要假设 fgets() 或 fgetws() 在成功时返回非空字符串
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO37-C.+Do+not+assume+that+fgets%28%29+or+fgetws%28%29+returns+a+nonempty+string+when+successful
+  FIO39-C:
+    csv_codes: []
+    name: 不要在没有插入刷新或定位调用的情况下交替输入和输出流
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO39-C.+Do+not+alternately+input+and+output+from+a+stream+without+an+intervening+flush+or+positioning+call
+  FIO42-C:
+    csv_codes: []
+    name: 请关闭使用完的文件
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO42-C.+Close+files+when+they+are+no+longer+needed
+  FIO45-C:
+    csv_codes: []
+    name: 访问文件时避免 TOCTOU 竞争条件
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files
+  FIO47-C:
+    csv_codes: []
+    name: 避免对格式字符串使用有冲突的类型
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FIO47-C.+Use+valid+format+strings
+  FIO51-CPP:
+    csv_codes: []
+    name: 在程序终止前应关闭文件
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/FIO51-CPP.+Close+files+when+they+are+no+longer+needed
+  FLP03-C:
+    csv_codes:
+      - DBZ2
+      - DBZ1
+      - DBZ0
+    name: 检测并处理浮点错误
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/FLP03-C.+Detect+and+handle+floating-point+errors
+  INT32-C:
+    csv_codes: []
+    name: 确保对有符号整数的操作不会导致溢出
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/INT32-C.+Ensure+that+operations+on+signed+integers+do+not+result+in+overflow
+  INT33-C:
+    csv_codes:
+      - DBZ2
+      - DBZ1
+      - DBZ0
+    name: 确保除法和余数运算不会导致被零除错误
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/INT33-C.+Ensure+that+division+and+remainder+operations+do+not+result+in+divide-by-zero+errors
+  MEM00-C:
+    csv_codes:
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+    name: 在同一模块中以相同的抽象级别分配和释放内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MEM00-C.+Allocate+and+free+memory+in+the+same+module%2C+at+the+same+level+of+abstraction
+  MEM01-C:
+    csv_codes:
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+    name: 在free（）之后立即将新值存储在指针中
+    url: https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152148
+  MEM30-C:
+    csv_codes:
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+    name: 不应再次访问或使用已释放的内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MEM30-C.+Do+not+access+freed+memory
+  MEM31-C:
+    csv_codes: []
+    name: 不再需要时释放动态分配的内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MEM31-C.+Free+dynamically+allocated+memory+when+no+longer+needed
+  MEM35-C:
+    csv_codes: []
+    name: 为对象分配足够的内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MEM35-C.+Allocate+sufficient+memory+for+an+object
+  MEM36-C:
+    csv_codes: []
+    name: 不要通过调用 realloc() 来修改对象的对齐方式
+    url: https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152255
+  MEM50-CPP:
+    csv_codes:
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+    name: 不应访问己释放的内存
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MEM50-CPP.+Do+not+access+freed+memory
+  MEM51-CPP:
+    csv_codes:
+      - DBF0
+    name: 分配的资源需要适当的释放
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MEM51-CPP.+Properly+deallocate+dynamically+allocated+resources
+  MEM52-CPP:
+    csv_codes: []
+    name: 检测和处理内存分配错误
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MEM52-CPP.+Detect+and+handle+memory+allocation+errors
+  MEM55-CPP:
+    csv_codes: []
+    name: 荣誉更换动态存储管理要求
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MEM55-CPP.+Honor+replacement+dynamic+storage+management+requirements
+  MSC07-C:
+    csv_codes:
+      - DDC1
+      - DDC0
+      - SSE0
+    name: 检测并删除无效代码
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC07-C.+Detect+and+remove+dead+code
+  MSC12-C:
+    csv_codes:
+      - DDC1
+      - DDC0
+      - DDV0
+      - RCD0
+      - SCB0
+    name: 检测并删除无效或从未执行的代码
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC12-C.+Detect+and+remove+code+that+has+no+effect+or+is+never+executed
+  MSC30-C:
+    csv_codes: []
+    name: 不要使用 rand() 函数来生成伪随机数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC30-C.+Do+not+use+the+rand%28%29+function+for+generating+pseudorandom+numbers
+  MSC32-C:
+    csv_codes: []
+    name: 正确种子伪随机数生成器
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC32-C.+Properly+seed+pseudorandom+number+generators
+  MSC33-C:
+    csv_codes: []
+    name: 不要将无效数据传递给 asctime() 函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC33-C.+Do+not+pass+invalid+data+to+the+asctime%28%29+function
+  MSC37-C:
+    csv_codes: []
+    name: 确保控制永远不会到达非空函数的末尾
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC37-C.+Ensure+that+control+never+reaches+the+end+of+a+non-void+function
+  MSC41-C:
+    csv_codes: []
+    name: 永远不要硬编码敏感信息
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/MSC41-C.+Never+hard+code+sensitive+information
+  MSC50-CPP:
+    csv_codes: []
+    name: 不要使用 std::rand() 生成伪随机数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MSC50-CPP.+Do+not+use+std%3A%3Arand%28%29+for+generating+pseudorandom+numbers
+  MSC51-CPP:
+    csv_codes: []
+    name: 确保您的随机数生成器已正确播种
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MSC51-CPP.+Ensure+your+random+number+generator+is+properly+seeded
+  MSC52-CPP:
+    csv_codes: []
+    name: 有返回值的函数必须确保所有退出路径都返回一个值
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MSC52-CPP.+Value-returning+functions+must+return+a+value+from+all+exit+paths
+  MSC54-CPP:
+    csv_codes: []
+    name: 信号处理程序必须是一个普通的旧函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/MSC54-CPP.+A+signal+handler+must+be+a+plain+old+function
+  NUM02-J:
+    csv_codes:
+      - DBZ2
+      - DBZ1
+      - DBZ0
+    name: 确保除法和余数运算不会导致被零除错误
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/java/NUM02-J.+Ensure+that+division+and+remainder+operations+do+not+result+in+divide-by-zero+errors
+  OBJ14-J:
+    csv_codes: []
+    name: 不要使用已释放的对象
+    url: https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=88487820
+  POS02-C:
+    csv_codes: []
+    name: 遵循最小特权原则
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS02-C.+Follow+the+principle+of+least+privilege
+  POS30-C:
+    csv_codes: []
+    name: 正确使用 readlink() 函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS30-C.+Use+the+readlink%28%29+function+properly
+  POS34-C:
+    csv_codes: []
+    name: 不要使用指向自动变量的指针作为参数调用 putenv()
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS34-C.+Do+not+call+putenv%28%29+with+a+pointer+to+an+automatic+variable+as+the+argument
+  POS35-C:
+    csv_codes: []
+    name: 在检查符号链接是否存在时避免竞争条件
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS35-C.+Avoid+race+conditions+while+checking+for+the+existence+of+a+symbolic+link
+  POS36-C:
+    csv_codes: []
+    name: 在放弃特权时遵守正确的撤销顺序
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS36-C.+Observe+correct+revocation+order+while+relinquishing+privileges
+  POS37-C:
+    csv_codes: []
+    name: 确保权限放弃成功
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS37-C.+Ensure+that+privilege+relinquishment+is+successful
+  POS39-C:
+    csv_codes: []
+    name: 在系统之间传输数据时使用正确的字节顺序
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS39-C.+Use+the+correct+byte+ordering+when+transferring+data+between+systems
+  POS54-C:
+    csv_codes: []
+    name: 检测和处理 POSIX 库错误
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/POS54-C.+Detect+and+handle+POSIX+library+errors
+  SIG30-C:
+    csv_codes: []
+    name: 仅在信号处理程序中调用异步安全函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/SIG30-C.+Call+only+asynchronous-safe+functions+within+signal+handlers
+  SIG31-C:
+    csv_codes: []
+    name: 不要访问信号处理程序中的共享对象
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/SIG31-C.+Do+not+access+shared+objects+in+signal+handlers
+  STR02-C:
+    csv_codes: []
+    name: 清理传递给复杂子系统的数据
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/STR02-C.+Sanitize+data+passed+to+complex+subsystems
+  STR07-C:
+    csv_codes: []
+    name: 使用边界检查接口进行字符串操作
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/STR07-C.+Use+the+bounds-checking+interfaces+for+string+manipulation
+  STR31-C:
+    csv_codes: []
+    name: 保证字符串的存储有足够的空间存放字符数据和空终止符
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/STR31-C.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator
+  STR32-C:
+    csv_codes: []
+    name: 不要将非空终止字符序列传递给需要字符串的库函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/STR32-C.+Do+not+pass+a+non-null-terminated+character+sequence+to+a+library+function+that+expects+a+string
+  STR38-C:
+    csv_codes: []
+    name: 不要混淆窄字符串和宽字符串和函数
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/c/STR38-C.+Do+not+confuse+narrow+and+wide+character+strings+and+functions
+  STR50-CPP:
+    csv_codes: []
+    name: 保证字符串的存储有足够的空间存放字符数据和空终止符
+    url: >-
+      https://wiki.sei.cmu.edu/confluence/display/cplusplus/STR50-CPP.+Guarantee+that+storage+for+strings+has+sufficient+space+for+character+data+and+the+null+terminator
+cwe:
+  '116':
+    csv_codes:
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+      - I17J2
+      - I17J1
+      - I17J0
+    name: 对输出不正确编码或转义
+    url: https://cwe.mitre.org/data/definitions/116.html
+  '117':
+    csv_codes:
+      - I03J2
+      - I03J1
+      - I03J0
+    name: 不适当地中和日志输出
+    url: https://cwe.mitre.org/data/definitions/117.html
+  '119':
+    csv_codes:
+      - FMT2
+      - FMT1
+      - FMT0
+      - F37C1
+      - F37C0
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+      - A38C2
+      - A38C1
+      - A38C0
+    name: 内存缓冲区范围内的操作限制不正确
+    url: https://cwe.mitre.org/data/definitions/119.html
+  '121':
+    csv_codes:
+      - CSL0
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+    name: 栈缓冲区溢出
+    url: https://cwe.mitre.org/data/definitions/121.html
+  '122':
+    csv_codes:
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+    name: 堆缓冲区溢出
+    url: https://cwe.mitre.org/data/definitions/122.html
+  '123':
+    csv_codes:
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+    name: 任意写入
+    url: https://cwe.mitre.org/data/definitions/123.html
+  '124':
+    csv_codes: []
+    name: ' '
+    url: https://cwe.mitre.org/data/definitions/124.html
+  '125':
+    csv_codes:
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+      - A38C2
+      - A38C1
+      - A38C0
+    name: 越界读
+    url: https://cwe.mitre.org/data/definitions/125.html
+  '126':
+    csv_codes:
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+    name: 缓冲区过度读取
+    url: https://cwe.mitre.org/data/definitions/126.html
+  '134':
+    csv_codes:
+      - F30C1
+      - F30C0
+      - I06J0
+    name: 使用外部控制的格式字符串
+    url: https://cwe.mitre.org/data/definitions/134.html
+  '144':
+    csv_codes:
+      - I03J2
+      - I03J1
+      - I03J0
+    name: 不适当地中和行分隔符
+    url: https://cwe.mitre.org/data/definitions/144.html
+  '150':
+    csv_codes:
+      - I03J2
+      - I03J1
+      - I03J0
+    name: 不适当地中和转义、元或者控制序列
+    url: https://cwe.mitre.org/data/definitions/150.html
+  '170':
+    csv_codes:
+      - P30C1
+      - P30C0
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+    name: 不适当的空终止
+    url: https://cwe.mitre.org/data/definitions/170.html
+  '180':
+    csv_codes:
+      - I01J2
+      - I01J1
+      - I01J0
+    name: 不正确的行为顺序：过早验证
+    url: https://cwe.mitre.org/data/definitions/180.html
+  '182':
+    csv_codes:
+      - I11J2
+      - I11J1
+      - I11J0
+    name: 数据崩溃变成不安全值
+    url: https://cwe.mitre.org/data/definitions/182.html
+  '190':
+    csv_codes:
+      - N322
+      - N321
+      - N320
+    name: 整数溢出或超界折返
+    url: https://cwe.mitre.org/data/definitions/190.html
+  '191':
+    csv_codes:
+      - N322
+      - N321
+      - N320
+    name: 整数下溢（超界折返）
+    url: https://cwe.mitre.org/data/definitions/191.html
+  '197':
+    csv_codes:
+      - F34C0
+    name: 数值截断错误
+    url: https://cwe.mitre.org/data/definitions/197.html
+  '20':
+    csv_codes:
+      - F30C1
+      - F30C0
+    name: 输入验证不适当
+    url: https://cwe.mitre.org/data/definitions/20.html
+  '200':
+    csv_codes:
+      - P37C2
+      - P37C1
+      - P37C0
+      - N06J2
+      - N06J1
+      - N06J0
+      - F52J2
+      - F52J1
+      - F52J0
+      - I15J2
+      - I15J1
+      - I15J0
+    name: 将敏感信息暴露给未经授权的行为人
+    url: https://cwe.mitre.org/data/definitions/200.html
+  '22':
+    csv_codes:
+      - F16J2
+      - F16J1
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 不适当地限制受限目录的路径名（“路径遍历”）
+    url: https://cwe.mitre.org/data/definitions/22.html
+  '223':
+    csv_codes:
+      - SCB0
+      - ECB1
+      - ECB0
+      - E00J0
+    name: 省略同安全相关的信息
+    url: https://cwe.mitre.org/data/definitions/223.html
+  '23':
+    csv_codes:
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 相对路径遍历
+    url: https://cwe.mitre.org/data/definitions/23.html
+  '241':
+    csv_codes:
+      - F37C1
+      - F37C0
+    name: 对意外的数据类型处理不当
+    url: https://cwe.mitre.org/data/definitions/241.html
+  '250':
+    csv_codes: []
+    name: 以不必要的权限执行
+    url: https://cwe.mitre.org/data/definitions/250.html
+  '252':
+    csv_codes:
+      - P34C2
+      - P34C1
+      - P34C0
+      - F02J0
+    name: 未经检查的返回值
+    url: https://cwe.mitre.org/data/definitions/252.html
+  '253':
+    csv_codes:
+      - P34C2
+      - P34C1
+      - P34C0
+    name: 对函数返回值的检查错误
+    url: https://cwe.mitre.org/data/definitions/253.html
+  '256':
+    csv_codes:
+      - C06J3
+      - C06J2
+      - C06J1
+      - C06J0
+    name: 认证信息存储未有保护
+    url: https://cwe.mitre.org/data/definitions/256.html
+  '259':
+    csv_codes:
+      - M41C2
+      - M41C1
+      - M41C0
+    name: 使用硬编码的密码
+    url: https://cwe.mitre.org/data/definitions/259.html
+  '266':
+    csv_codes:
+      - C01J2
+      - C01J1
+      - C01J0
+    name: 不正确的权限分配
+    url: https://cwe.mitre.org/data/definitions/266.html
+  '269':
+    csv_codes:
+      - C02J1
+      - C02J0
+      - C03J1
+      - C03J0
+      - C05J0
+    name: 权限管理不当
+    url: https://cwe.mitre.org/data/definitions/269.html
+  '272':
+    csv_codes:
+      - C01J2
+      - C01J1
+      - C01J0
+    name: 违反最低权限原则
+    url: https://cwe.mitre.org/data/definitions/272.html
+  '273':
+    csv_codes:
+      - P37C2
+      - P37C1
+      - P37C0
+    name: 对放弃的权限的检查不适当
+    url: https://cwe.mitre.org/data/definitions/273.html
+  '275':
+    csv_codes:
+      - WRF0
+    name: 权限问题
+    url: https://cwe.mitre.org/data/definitions/275.html
+  '276':
+    csv_codes: []
+    name: 缺省权限不正确
+    url: https://cwe.mitre.org/data/definitions/276.html
+  '28':
+    csv_codes:
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 路径遍历：'..\filedir'
+    url: https://cwe.mitre.org/data/definitions/28.html
+  '284':
+    csv_codes:
+      - I15J2
+      - I15J1
+      - I15J0
+      - C03J1
+      - C03J0
+      - C04J2
+      - C04J1
+      - C04J0
+    name: 对访问权限的控制不适当
+    url: https://cwe.mitre.org/data/definitions/284.html
+  '285':
+    csv_codes:
+      - C06J3
+      - C06J2
+      - C06J1
+      - C06J0
+      - C04J2
+      - C04J1
+      - C04J0
+    name: 授权机制不适当
+    url: https://cwe.mitre.org/data/definitions/285.html
+  '287':
+    csv_codes:
+      - N03J2
+      - N03J1
+      - N03J0
+    name: 身份验证不正确
+    url: https://cwe.mitre.org/data/definitions/287.html
+  '289':
+    csv_codes:
+      - I01J2
+      - I01J1
+      - I01J0
+    name: 用备用名称绕过身份验证
+    url: https://cwe.mitre.org/data/definitions/289.html
+  '295':
+    csv_codes:
+      - C06J3
+      - C06J2
+      - C06J1
+      - C06J0
+    name: 证书验证不适当
+    url: https://cwe.mitre.org/data/definitions/295.html
+  '299':
+    csv_codes:
+      - P37C2
+      - P37C1
+      - P37C0
+    name: 对证书吊销的检查不适当
+    url: https://cwe.mitre.org/data/definitions/299.html
+  '306':
+    csv_codes: []
+    name: 缺失关键功能的认证机制
+    url: https://cwe.mitre.org/data/definitions/306.html
+  '311':
+    csv_codes:
+      - M41C2
+      - M41C1
+      - M41C0
+    name: 缺失对敏感数据的加密
+    url: https://cwe.mitre.org/data/definitions/311.html
+  '312':
+    csv_codes:
+      - F52J2
+      - F52J1
+      - F52J0
+    name: 以明文存储敏感信息
+    url: https://cwe.mitre.org/data/definitions/312.html
+  '325':
+    csv_codes:
+      - M61J1
+      - M61J0
+    name: 缺失密码学步骤
+    url: https://cwe.mitre.org/data/definitions/325.html
+  '326':
+    csv_codes:
+      - M61J1
+      - M61J0
+    name: 加密强度不足
+    url: https://cwe.mitre.org/data/definitions/326.html
+  '327':
+    csv_codes:
+      - M32C1
+      - M32C0
+      - M02J1
+      - M02J0
+      - M30C2
+      - M30C1
+      - M30C0
+    name: 使用已损坏或者有风险的密码学算法
+    url: https://cwe.mitre.org/data/definitions/327.html
+  '330':
+    csv_codes:
+      - M30C2
+      - M30C1
+      - M30C0
+    name: 使用不充分的随机数值
+    url: https://cwe.mitre.org/data/definitions/330.html
+  '338':
+    csv_codes:
+      - M30C2
+      - M30C1
+      - M30C0
+    name: 使用有密码学弱点的伪随机数字生成器 (PRNG)
+    url: https://cwe.mitre.org/data/definitions/338.html
+  '349':
+    csv_codes:
+      - N01J0
+    name: 在受信任数据中接受外部不受信任的数据
+    url: https://cwe.mitre.org/data/definitions/349.html
+  '352':
+    csv_codes: []
+    name: 伪造跨站请求
+    url: https://cwe.mitre.org/data/definitions/352.html
+  '363':
+    csv_codes:
+      - P35C0
+    name: 允许链接跟随的竞态条件
+    url: https://cwe.mitre.org/data/definitions/363.html
+  '369':
+    csv_codes:
+      - DBZ2
+      - DBZ1
+      - DBZ0
+    name: 除零
+    url: https://cwe.mitre.org/data/definitions/369.html
+  '390':
+    csv_codes: []
+    name: ' '
+    url: https://cwe.mitre.org/data/definitions/390.html
+  '391':
+    csv_codes:
+      - P34C2
+      - P34C1
+      - P34C0
+    name: 未经检查的错误条件
+    url: https://cwe.mitre.org/data/definitions/391.html
+  '40':
+    csv_codes:
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 路径遍历：''\UNC\share\name\' (Windows UNC Share)
+    url: https://cwe.mitre.org/data/definitions/40.html
+  '400':
+    csv_codes: []
+    name: 未受控制的资源消耗
+    url: https://cwe.mitre.org/data/definitions/400.html
+  '401':
+    csv_codes:
+      - m51P0
+    name: 在移除最后引用时缺失对内存的释放
+    url: https://cwe.mitre.org/data/definitions/401.html
+  '404':
+    csv_codes:
+      - F42C2
+      - F42C1
+      - F42C0
+    name: 对资源的关闭或释放不适当
+    url: https://cwe.mitre.org/data/definitions/404.html
+  '409':
+    csv_codes:
+      - I04J0
+    name: 对高度压缩数据的处理不恰当（数据放大）
+    url: https://cwe.mitre.org/data/definitions/409.html
+  '41':
+    csv_codes:
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 对路径等价的解析不正确
+    url: https://cwe.mitre.org/data/definitions/41.html
+  '412':
+    csv_codes:
+      - SLAE0
+      - LLAT0
+    name: 未加限制的外部可访问锁
+    url: https://cwe.mitre.org/data/definitions/412.html
+  '415':
+    csv_codes:
+      - DBF0
+    name: 双重释放
+    url: https://cwe.mitre.org/data/definitions/415.html
+  '416':
+    csv_codes:
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+    name: 释放后使用
+    url: https://cwe.mitre.org/data/definitions/416.html
+  '434':
+    csv_codes: []
+    name: 不加限制上传危险类型的文件
+    url: https://cwe.mitre.org/data/definitions/434.html
+  '457':
+    csv_codes: []
+    name: 使用未被初始化的变量
+    url: https://cwe.mitre.org/data/definitions/457.html
+  '459':
+    csv_codes:
+      - F42C2
+      - F42C1
+      - F42C0
+    name: 不完全的清理
+    url: https://cwe.mitre.org/data/definitions/459.html
+  '476':
+    csv_codes:
+      - NPD0
+      - E08J0
+    name: 空指针解引用
+    url: https://cwe.mitre.org/data/definitions/476.html
+  '479':
+    csv_codes:
+      - G30C0
+    name: 信号处理中使用不可重入的函数
+    url: https://cwe.mitre.org/data/definitions/479.html
+  '498':
+    csv_codes:
+      - O07J1
+      - O07J0
+    name: 包含敏感信息的可克隆类
+    url: https://cwe.mitre.org/data/definitions/498.html
+  '502':
+    csv_codes:
+      - R01J0
+    name: 不受信任数据的反序列化
+    url: https://cwe.mitre.org/data/definitions/502.html
+  '522':
+    csv_codes:
+      - M32C1
+      - M32C0
+      - F05J1
+      - F05J0
+      - M62J1
+      - M62J0
+      - F52J2
+      - F52J1
+      - F52J0
+    name: 认证信息保护不充分
+    url: https://cwe.mitre.org/data/definitions/522.html
+  '523':
+    csv_codes:
+      - I15J2
+      - I15J1
+      - I15J0
+    name: 未有保护的认证信息传输
+    url: https://cwe.mitre.org/data/definitions/523.html
+  '532':
+    csv_codes: []
+    name: 将敏感信息插入日志文件
+    url: https://cwe.mitre.org/data/definitions/532.html
+  '564':
+    csv_codes:
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+    name: SQL注入：Hibernate
+    url: https://cwe.mitre.org/data/definitions/564.html
+  '577':
+    csv_codes:
+      - RXS0
+    name: EJB不安全做法：使用套接字
+    url: https://cwe.mitre.org/data/definitions/577.html
+  '59':
+    csv_codes:
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 访问文件前的链接解析不正确（“链接跟随”）
+    url: https://cwe.mitre.org/data/definitions/59.html
+  '590':
+    csv_codes:
+      - UDR5
+      - UDR4
+      - UDR3
+      - UDR2
+      - UDR1
+      - UDR0
+    name: 释放不在堆上的内存
+    url: https://cwe.mitre.org/data/definitions/590.html
+  '609':
+    csv_codes:
+      - DBLI0
+    name: 双重检查的加锁机制
+    url: https://cwe.mitre.org/data/definitions/609.html
+  '611':
+    csv_codes:
+      - I17J2
+      - I17J1
+      - I17J0
+    name: XML外部实体引用的限制不当
+    url: https://cwe.mitre.org/data/definitions/611.html
+  '647':
+    csv_codes:
+      - F16J2
+      - F16J1
+    name: 使用未经过清理的URL路径来进行授权
+    url: https://cwe.mitre.org/data/definitions/647.html
+  '662':
+    csv_codes:
+      - G31C1
+      - G31C0
+    name: 不适当的同步机制
+    url: https://cwe.mitre.org/data/definitions/662.html
+  '667':
+    csv_codes:
+      - UIL0
+    name: 加锁机制不恰当
+    url: https://cwe.mitre.org/data/definitions/667.html
+  '672':
+    csv_codes:
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+    name: 在资源过期或者被释放后仍对资源进行操作
+    url: https://cwe.mitre.org/data/definitions/672.html
+  '674':
+    csv_codes:
+      - CRF0
+    name: 未经控制的递归
+    url: https://cwe.mitre.org/data/definitions/674.html
+  '680':
+    csv_codes:
+      - N322
+      - N321
+      - N320
+    name: 整数溢出导致缓冲区溢出
+    url: https://cwe.mitre.org/data/definitions/680.html
+  '690':
+    csv_codes: []
+    name: ' '
+    url: https://cwe.mitre.org/data/definitions/690.html
+  '696':
+    csv_codes: []
+    name: 不正确的行为顺序
+    url: https://cwe.mitre.org/data/definitions/696.html
+  '705':
+    csv_codes:
+      - F14J0
+    name: 不正确的控制流范围
+    url: https://cwe.mitre.org/data/definitions/705.html
+  '73':
+    csv_codes:
+      - F02C6
+      - F02C5
+      - F02C4
+      - F02C3
+      - F02C2
+      - F02C1
+      - F02C0
+    name: 文件名或路径的外部控制
+    url: https://cwe.mitre.org/data/definitions/73.html
+  '732':
+    csv_codes:
+      - N03J2
+      - N03J1
+      - N03J0
+      - C01J2
+      - C01J1
+      - C01J0
+    name: 重要资源的权限分配不正确
+    url: https://cwe.mitre.org/data/definitions/732.html
+  '766':
+    csv_codes:
+      - O01J0
+    name: 关键数据被公开声明
+    url: https://cwe.mitre.org/data/definitions/766.html
+  '767':
+    csv_codes:
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+    name: 可以通过公开方法访问关键私有变量
+    url: https://cwe.mitre.org/data/definitions/767.html
+  '77':
+    csv_codes:
+      - N33C3
+      - N33C2
+      - N33C1
+      - N33C0
+    name: 不适当地中和命令中使用的特殊元素（“命令注入”）
+    url: https://cwe.mitre.org/data/definitions/77.html
+  '772':
+    csv_codes:
+      - F42C2
+      - F42C1
+      - F42C0
+    name: 在移除最后引用时缺失对资源的释放
+    url: https://cwe.mitre.org/data/definitions/772.html
+  '776':
+    csv_codes:
+      - I16J1
+      - I16J0
+      - I17J2
+      - I17J1
+      - I17J0
+    name: DTD中递归实体索引的限制不适当（“XML实体扩展”）
+    url: https://cwe.mitre.org/data/definitions/776.html
+  '78':
+    csv_codes:
+      - N33C3
+      - N33C2
+      - N33C1
+      - N33C0
+      - S02C2
+      - S02C1
+      - S0200
+      - I07J1
+      - I07J0
+    name: 不适当地中和OS命令中使用的特殊元素（“OS命令注入”）
+    url: https://cwe.mitre.org/data/definitions/78.html
+  '787':
+    csv_codes:
+      - CSS0
+      - FMT2
+      - FMT1
+      - FMT0
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+      - A38C2
+      - A38C1
+      - A38C0
+    name: 越界写
+    url: https://cwe.mitre.org/data/definitions/787.html
+  '79':
+    csv_codes:
+      - I16J1
+      - I16J0
+      - I01J2
+      - I01J1
+      - I01J0
+    name: 不适当地中和网页生成过程中地输入（“跨站点脚本”）
+    url: https://cwe.mitre.org/data/definitions/79.html
+  '798':
+    csv_codes:
+      - M41C2
+      - M41C1
+      - M41C0
+      - M03J0
+    name: 使用硬编码认证信息
+    url: https://cwe.mitre.org/data/definitions/798.html
+  '828':
+    csv_codes:
+      - G31C1
+      - G31C0
+    name: 信号处理中使用非异步安全函数
+    url: https://cwe.mitre.org/data/definitions/828.html
+  '832':
+    csv_codes:
+      - MLU0
+    name: 对未加锁的资源进行解锁
+    url: https://cwe.mitre.org/data/definitions/832.html
+  '833':
+    csv_codes:
+      - LNR0
+    name: 死锁
+    url: https://cwe.mitre.org/data/definitions/833.html
+  '862':
+    csv_codes:
+      - N03J2
+      - N03J1
+      - N03J0
+      - C02J1
+      - C02J0
+      - C06J3
+      - C06J2
+      - C06J1
+      - C06J0
+    name: 缺少授权机制
+    url: https://cwe.mitre.org/data/definitions/862.html
+  '88':
+    csv_codes:
+      - FMT2
+      - FMT1
+      - FMT0
+      - N33C3
+      - N33C2
+      - N33C1
+      - N33C0
+      - S02C2
+      - S02C1
+      - S0200
+    name: 不适当地中和命令中使用的参数分隔符（“参数注入”）
+    url: https://cwe.mitre.org/data/definitions/88.html
+  '89':
+    csv_codes:
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+    name: 不适当地中和SQL命令中使用的特殊元素（“SQL命令注入”）
+    url: https://cwe.mitre.org/data/definitions/89.html
+  '90':
+    csv_codes:
+      - I54J1
+      - I54J0
+    name: 不适当地中和LDAP检索中使用的特殊元素（“LDAP注入”）
+    url: https://cwe.mitre.org/data/definitions/90.html
+  '909':
+    csv_codes:
+      - UIC0
+    name: 资源初始化缺失
+    url: https://cwe.mitre.org/data/definitions/909.html
+  '91':
+    csv_codes:
+      - I53J1
+      - I53J0
+    name: XML注入（XPath盲目注入）
+    url: https://cwe.mitre.org/data/definitions/91.html
+  '917':
+    csv_codes:
+      - N33C3
+      - N33C2
+      - N33C1
+      - N33C0
+      - S02C2
+      - S02C1
+      - S0200
+      - I07J1
+      - I07J0
+    name: 不适当地中和表达语言语句中使用的特殊元素（“表达语言注入”）
+    url: https://cwe.mitre.org/data/definitions/917.html
+  '918':
+    csv_codes: []
+    name: 伪造服务端请求（SSRF）
+    url: https://cwe.mitre.org/data/definitions/918.html
+  '943':
+    csv_codes:
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+      - I53J1
+      - I53J0
+      - I54J1
+      - I54J0
+    name: 不适当地中和数据检索逻辑使用的特殊元素
+    url: https://cwe.mitre.org/data/definitions/943.html
+owasp:
+  A1:
+    csv_codes:
+      - FMT2
+      - FMT1
+      - FMT0
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+      - UDR5
+      - UDR4
+      - UDR3
+      - UDR2
+      - UDR1
+      - UDR0
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - F34C0
+      - m35C1
+      - m35C0
+      - P30C1
+      - P30C0
+      - G30C0
+      - S02C2
+      - S02C1
+      - S0200
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+      - I16J1
+      - I16J0
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+      - I17J2
+      - I17J1
+      - I17J0
+      - F30C1
+      - F30C0
+      - M41C2
+      - M41C1
+      - M41C0
+      - I07J1
+      - I07J0
+      - I53J1
+      - I53J0
+      - I54J1
+      - I54J0
+    name: 注入
+    url: https://owasp.org/www-project-top-ten/2017/A1_2017-Injection
+  A10:
+    csv_codes:
+      - E08J0
+      - E00J0
+    name: 不足的日志记录和监控
+    url: >-
+      https://owasp.org/www-project-top-ten/2017/A10_2017-Insufficient_Logging%2526Monitoring
+  A2:
+    csv_codes:
+      - UDR5
+      - UDR4
+      - UDR3
+      - UDR2
+      - UDR1
+      - UDR0
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - M32C1
+      - M32C0
+      - P34C2
+      - P34C1
+      - P34C0
+      - P37C2
+      - P37C1
+      - P37C0
+      - N03J2
+      - N03J1
+      - N03J0
+      - N06J2
+      - N06J1
+      - N06J0
+      - F05J1
+      - F05J0
+      - F16J2
+      - F16J1
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+      - I01J2
+      - I01J1
+      - I01J0
+      - I11J2
+      - I11J1
+      - I11J0
+      - T06J1
+      - T06J0
+      - C02J1
+      - C02J0
+      - C06J3
+      - C06J2
+      - C06J1
+      - C06J0
+      - F52J2
+      - F52J1
+      - F52J0
+      - I15J2
+      - I15J1
+      - I15J0
+      - C01J2
+      - C01J1
+      - C01J0
+      - N01J0
+      - O13J1
+      - O13J0
+      - C03J1
+      - C03J0
+    name: 失效的身份认证
+    url: https://owasp.org/www-project-top-ten/2017/A2_2017-Broken_Authentication
+  A3:
+    csv_codes:
+      - FMT2
+      - FMT1
+      - FMT0
+      - MSF2
+      - MSF1
+      - MSF0
+      - UAF3
+      - UAF2
+      - UAF1
+      - UAF0
+      - UDR5
+      - UDR4
+      - UDR3
+      - UDR2
+      - UDR1
+      - UDR0
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - FAM2
+      - FAM1
+      - FAM0
+      - ECB1
+      - ECB0
+      - M32C1
+      - M32C0
+      - F42C2
+      - F42C1
+      - F42C0
+      - F45C0
+      - m35C1
+      - m35C0
+      - P34C2
+      - P34C1
+      - P34C0
+      - P35C0
+      - S02C2
+      - S02C1
+      - S0200
+      - S31C4
+      - S31C3
+      - S31C2
+      - S31C1
+      - S31C0
+      - S32C4
+      - S32C3
+      - S32C2
+      - S32C1
+      - S32C0
+      - M02J1
+      - M02J0
+      - N06J2
+      - N06J1
+      - N06J0
+      - F05J1
+      - F05J0
+      - F14J0
+      - I11J2
+      - I11J1
+      - I11J0
+      - M61J1
+      - M61J0
+      - C06J3
+      - C06J2
+      - C06J1
+      - C06J0
+      - I03J2
+      - I03J1
+      - I03J0
+      - M41C2
+      - M41C1
+      - M41C0
+      - F52J2
+      - F52J1
+      - F52J0
+      - M03J0
+      - O07J1
+      - O07J0
+      - C01J2
+      - C01J1
+      - C01J0
+      - O13J1
+      - O13J0
+      - C04J2
+      - C04J1
+      - C04J0
+      - M30C2
+      - M30C1
+      - M30C0
+    name: 敏感数据泄露
+    url: https://owasp.org/www-project-top-ten/2017/A3_2017-Sensitive_Data_Exposure
+  A4:
+    csv_codes:
+      - I16J1
+      - I16J0
+      - I17J2
+      - I17J1
+      - I17J0
+    name: XML 外部实体 (XXE)
+    url: >-
+      https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)
+  A5:
+    csv_codes:
+      - WRF0
+      - AOB4
+      - AOB3
+      - AOB2
+      - AOB1
+      - AOB0
+      - ECB1
+      - ECB0
+      - P34C2
+      - P34C1
+      - P34C0
+      - M02J1
+      - M02J0
+      - N03J2
+      - N03J1
+      - N03J0
+      - F16J2
+      - F16J1
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+      - I01J2
+      - I01J1
+      - I01J0
+      - T06J1
+      - T06J0
+      - F30C1
+      - F30C0
+      - M41C2
+      - M41C1
+      - M41C0
+      - I15J2
+      - I15J1
+      - I15J0
+      - O07J1
+      - O07J0
+      - C01J2
+      - C01J1
+      - C01J0
+      - O01J0
+      - C03J1
+      - C03J0
+      - C04J2
+      - C04J1
+      - C04J0
+    name: 失效的访问控制
+    url: https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control
+  A6:
+    csv_codes:
+      - FMT2
+      - FMT1
+      - FMT0
+      - FAM2
+      - FAM1
+      - FAM0
+      - N03J2
+      - N03J1
+      - N03J0
+      - C02J1
+      - C02J0
+      - C04J2
+      - C04J1
+      - C04J0
+    name: 安全配置错误
+    url: >-
+      https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration
+  A7:
+    csv_codes:
+      - P30C1
+      - P30C0
+      - I01J2
+      - I01J1
+      - I01J0
+      - I11J2
+      - I11J1
+      - I11J0
+    name: 跨站脚本 (XSS)
+    url: >-
+      https://owasp.org/www-project-top-ten/2017/A7_2017-Cross-Site_Scripting_(XSS)
+  A8:
+    csv_codes:
+      - R01J0
+    name: 不安全的反序列化
+    url: >-
+      https://owasp.org/www-project-top-ten/2017/A8_2017-Insecure_Deserialization
+  A9:
+    csv_codes:
+      - C07J0
+      - N06J2
+      - N06J1
+      - N06J0
+    name: 使用含有已知漏洞的组件
+    url: >-
+      https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities
+p3c-sec:
+  '1':
+    csv_codes:
+      - I15J2
+      - I15J1
+      - I15J0
+    name: 隶属于用户个人的页面或者功能必须进行权限控制校验
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification
+  '2':
+    csv_codes:
+      - I03J2
+      - I03J1
+      - I03J0
+    name: 用户敏感数据禁止直接展示，必须对展示数据进行脱敏
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification
+  '3':
+    csv_codes:
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+    name: 用户输入的 SQL 参数严格使用参数绑定或者 METADATA 字段值限定，防止 SQL 注入， 禁止字符串拼接 SQL 访问数据库
+    url: https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/
+  '4':
+    csv_codes:
+      - I16J1
+      - I16J0
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+      - I01J2
+      - I01J1
+      - I01J0
+      - I11J2
+      - I11J1
+      - I11J0
+      - I07J1
+      - I07J0
+    name: 用户请求传入的任何参数必须做有效性验证
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification
+  '5':
+    csv_codes:
+      - I00J3
+      - I00J2
+      - I00J1
+      - I00J0
+    name: 禁止向 HTML 页面输出未经安全过滤或未正确转义的用户数据
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification
+  '6':
+    csv_codes: []
+    name: 表单、AJAX 提交必须执行 CSRF 安全验证
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification
+  '7':
+    csv_codes:
+      - I15J2
+      - I15J1
+      - I15J0
+    name: 必须使用正确的防重播限制，例如号码限制，疲劳控制，验证码检查，以避免滥用平台资源，例如短信，电子邮件，电话，订单，付款等
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification
+  '8':
+    csv_codes: []
+    name: 在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的防重放的机制，如数量限制、疲劳度控制、验证码校验，避免被滥刷而导致资损
+    url: >-
+      https://alibaba.github.io/Alibaba-Java-Coding-Guidelines/#5-security-specification

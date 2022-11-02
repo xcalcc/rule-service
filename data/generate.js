@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const moment = require('moment');
 const genMasterData = require('./transformer');
-const genExtraData = require('./output/miscellaneous/buildExtra');
+const genExtraData = require('./buildExtra');
 const versionFilePath = path.resolve(__dirname, '../version.json');
 
 let versionData = {};

@@ -1,5 +1,4 @@
 const path = require('path');
-const moment = require('moment');
 require('dotenv').config({path: '.env'});
 const fs = require('fs-extra');
 const {ruleSets} = require('../../configs');
@@ -105,7 +104,7 @@ module.exports = (dataFilePath, outputPath, ruleSet) => {
     let dataList = [];
     if (fs.pathExistsSync(dataFilePath)) {
         dataList = fs.readJsonSync(dataFilePath, {encoding: 'utf8'});
-        fs.writeFileSync(`${ruleSet}_backup`, JSON.stringify(dataList, null, 2), {encoding: 'utf8'});
+        fs.writeFileSync(path.join(__dirname, `${ruleSet}_backup`), JSON.stringify(dataList, null, 2), {encoding: 'utf8'});
         dataList.forEach(data => {
             transform(data, ruleSet);
         });

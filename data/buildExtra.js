@@ -1,11 +1,11 @@
 const excelToJson = require("convert-excel-to-json");
 const fs = require("fs-extra");
 const path = require('path');
-const transformFormat = require('./transform');
-const RuleInfo = require("../../class/RuleInfo");
-const misraAutosarPlaceholderPath = path.resolve(__dirname, './misra.xlsx');
-const misraRulesDataPathEn = path.resolve(__dirname, './misra_en.json');
-const misraRulesDataPathCn = path.resolve(__dirname, './misra_cn.json');
+const transformFormat = require('./output/miscellaneous/transform');
+const RuleInfo = require("./class/RuleInfo");
+const misraAutosarPlaceholderPath = path.resolve(__dirname, './miscellaneous/output/misra.xlsx');
+const misraRulesDataPathEn = path.resolve(__dirname, './miscellaneous/misra_en.json');
+const misraRulesDataPathCn = path.resolve(__dirname, './miscellaneous/misra_cn.json');
 
 
 const transformList = process.env.EXTRA_RULE_FILES && process.env.EXTRA_RULE_FILES.split(',');
@@ -40,17 +40,18 @@ module.exports = async () => {
     let transformedData = {};
     try {
         transformList.length && transformList.forEach(ruleSetName => {
-            const ruleSetInput = path.resolve(__dirname, 'input', ruleSetName);
+            const ruleSetInput = path.join(__dirname, './output/miscellaneous/input/', ruleSetName);
+            const ruleSetOutput = path.join(__dirname, './output/miscellaneous/');
             const fileToTransformEn = path.resolve(ruleSetInput, 'rules_en.json');
             const fileToTransformCn = path.resolve(ruleSetInput, 'rules_cn.json');
             if (!transformedData.hasOwnProperty(ruleSetName)) {
                 transformedData[ruleSetName] = {};
             }
             if (fs.pathExistsSync(fileToTransformEn)) {
-                transformedData[ruleSetName][`en`] = transformFormat(fileToTransformEn, path.resolve(__dirname, `${ruleSetName}_en.json`), ruleSetName);
+                transformedData[ruleSetName][`en`] = transformFormat(fileToTransformEn, path.resolve(ruleSetOutput, `${ruleSetName}_en.json`), ruleSetName);
             }
             if (fs.pathExistsSync(fileToTransformCn)) {
-                transformedData[ruleSetName][`cn`] = transformFormat(fileToTransformCn, path.resolve(__dirname, `${ruleSetName}_cn.json`), ruleSetName);
+                transformedData[ruleSetName][`cn`] = transformFormat(fileToTransformCn, path.resolve(ruleSetOutput, `${ruleSetName}_cn.json`), ruleSetName);
             }
         });
 

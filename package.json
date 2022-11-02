@@ -7,7 +7,7 @@
     "test": "jest --silent --coverage",
     "start": "node service.js",
     "start-dev": "nodemon service.js",
-    "gen-data": "node -e \"require('./data/generate')()\"",
+    "gen-data": "yarn transform-extra && yarn build-misra && node -e \"require('./data/generate')()\"",
     "validate-data": "node -e \"require('./data/validation').validateOnce()\"",
     "compile-csvreader": "cd ./data/source/v2csv/src && make clean;make csvreader",
     "postman-test": "node ./postman/postman-collection-rule_service.js",
@@ -15,7 +15,7 @@
     "std2rc": "node -e \"require('./data/utilities/standardToRuleCodeExcel.js')\"",
     "extractDetails": "node -e \"require('./data/extractDetailsFromMaster.js')()\"",
     "transform-extra": "node -e \"require('./data/output/miscellaneous/transform.js')()\"",
-    "build-misra": "node -e \"require('./data/output/miscellaneous/buildExtra.js')()\"",
+    "build-misra": "node -e \"require('./data/buildExtra.js')()\"",
     "report": "node ./report/index.js"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "rules"
   ],
   "author": "Jack.J.XIE",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
@@ -37,6 +38,7 @@
     "express": "^4.17.1",
     "fs-extra": "^9.0.1",
     "helmet": "^4.1.1",
+    "js-yaml": "^4.1.0",
     "json-diff": "^0.5.4",
     "jsonschema": "^1.4.0",
     "jstransformer": "^1.0.0",

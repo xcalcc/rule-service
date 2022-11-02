@@ -42,9 +42,9 @@ const extractCsvFromNormalizedSheet = async normalizedFilePath => {
         sheetName: 'path message',
     });
 }
-const extractCsvFromMasterSheet = async masterFilePath => {
+const extractCsvFromMasterSheet = async masterSheetFilePath => {
     const masterWorkbook = new ExcelJS.Workbook();
-    await masterWorkbook.xlsx.readFile(masterFilePath);
+    await masterWorkbook.xlsx.readFile(masterSheetFilePath);
     await masterWorkbook.csv.writeFile(outputFuel['master'], {
         sheetName: 'Rule Master',
     });
@@ -96,17 +96,27 @@ const injectDetailData = async (masterJsonPath, locale) => {
     const filteredMasterDataList = fs.readJsonSync(masterJsonPath).filter(rule => rule.code !== 'reserved');
     try {
         const detailInjectedData = filteredMasterDataList.map(rule => {
-            //inject details
             if (!fs.pathExistsSync(path.resolve(outputDetailPath, rule.code))) {
                 console.log(`No detail data found for ${rule.code} in ${path.resolve(outputDetailPath, rule.code)}`);
                 return rule;
             }
+            //inject details
             const detailFileExists = fs.pathExistsSync(path.resolve(outputDetailPath, rule.code, `details_${locale}.md`));
             if (detailFileExists) {
                 rule.details = fs.readFileSync(path.resolve(outputDetailPath, rule.code, `details_${locale}.md`), 'utf8');
             } else {
                 fs.copySync(path.resolve(outputDetailPath, '__TEMPLATE', `details_${locale}.md`), path.resolve(outputDetailPath, rule.code, `details_${locale}.md`));
             }
+
+            //inject msg templates
+            const msgTemplFile = `msg_template_${locale}.txt`;
+            const msgTemplateFileExists = fs.pathExistsSync(path.resolve(outputDetailPath, rule.code, msgTemplFile));
+            if (msgTemplateFileExists) {
+                rule.msg_templ = fs.readFileSync(path.resolve(outputDetailPath, rule.code, msgTemplFile), 'utf8');
+            } else {
+                fs.copySync(path.resolve(outputDetailPath, '__TEMPLATE', msgTemplFile), path.resolve(outputDetailPath, rule.code, msgTemplFile));
+            }
+
 
             //inject example
             const fileList = fs.readdirSync(path.resolve(outputDetailPath, rule.code));

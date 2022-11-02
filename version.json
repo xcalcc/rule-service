@@ -1,10 +1,10 @@
 {
-    "version": "2022-09-20 12:34:20",
+    "version": "2022-10-21 16:14:40",
     "summary": {
         "extra": {
             "misra": {
                 "en": {
-                    "counts": 126,
+                    "counts": 166,
                     "codes": [
                         "MSR_2_3",
                         "MSR_2_6",
@@ -131,11 +131,51 @@
                         "MSR_12_5",
                         "MSR_2_10_6",
                         "MSR_4_5_1",
-                        "MSR_7_3_4"
+                        "MSR_7_3_4",
+                        "MSR_4_1",
+                        "MSR_7_1",
+                        "MSR_7_2",
+                        "MSR_7_3",
+                        "MSR_9_2",
+                        "MSR_10_1",
+                        "MSR_12_1",
+                        "MSR_16_1",
+                        "MSR_17_3",
+                        "MSR_20_1",
+                        "MSR_21_15",
+                        "MSR_21_16",
+                        "MSR_22_5",
+                        "MSR_5_8",
+                        "MSR_5_9",
+                        "MSR_15_5",
+                        "MSR_18_3",
+                        "MSR_19_1",
+                        "MSR_21_13",
+                        "MSR_21_17",
+                        "MSR_21_18",
+                        "MSR_21_19",
+                        "MSR_21_20",
+                        "MSR_22_6",
+                        "MSR_2_1",
+                        "MSR_2_2",
+                        "MSR_2_4",
+                        "MSR_2_5",
+                        "MSR_2_7",
+                        "MSR_3_1",
+                        "MSR_3_2",
+                        "MSR_8_3",
+                        "MSR_8_5",
+                        "MSR_8_6",
+                        "MSR_8_7",
+                        "MSR_20_2",
+                        "MSR_20_3",
+                        "MSR_20_4",
+                        "MSR_20_5",
+                        "MSR_20_6"
                     ]
                 },
                 "cn": {
-                    "counts": 126,
+                    "counts": 166,
                     "codes": [
                         "MSR_2_3",
                         "MSR_2_6",
@@ -262,7 +302,47 @@
                         "MSR_12_5",
                         "MSR_2_10_6",
                         "MSR_4_5_1",
-                        "MSR_7_3_4"
+                        "MSR_7_3_4",
+                        "MSR_4_1",
+                        "MSR_7_1",
+                        "MSR_7_2",
+                        "MSR_7_3",
+                        "MSR_9_2",
+                        "MSR_10_1",
+                        "MSR_12_1",
+                        "MSR_16_1",
+                        "MSR_17_3",
+                        "MSR_20_1",
+                        "MSR_21_15",
+                        "MSR_21_16",
+                        "MSR_22_5",
+                        "MSR_5_8",
+                        "MSR_5_9",
+                        "MSR_15_5",
+                        "MSR_18_3",
+                        "MSR_19_1",
+                        "MSR_21_13",
+                        "MSR_21_17",
+                        "MSR_21_18",
+                        "MSR_21_19",
+                        "MSR_21_20",
+                        "MSR_22_6",
+                        "MSR_2_1",
+                        "MSR_2_2",
+                        "MSR_2_4",
+                        "MSR_2_5",
+                        "MSR_2_7",
+                        "MSR_3_1",
+                        "MSR_3_2",
+                        "MSR_8_3",
+                        "MSR_8_5",
+                        "MSR_8_6",
+                        "MSR_8_7",
+                        "MSR_20_2",
+                        "MSR_20_3",
+                        "MSR_20_4",
+                        "MSR_20_5",
+                        "MSR_20_6"
                     ]
                 }
             },
@@ -641,9 +721,7 @@
                     ],
                     "report": {
                         "noCoreCodeFound": [],
-                        "noDetailFolder": [
-                            "LNR"
-                        ],
+                        "noDetailFolder": [],
                         "notYetImplemented": [
                             "OBJ13-J",
                             "SEC03-J",
@@ -655,12 +733,14 @@
                             "JNI01-J"
                         ],
                         "cnContentEmpty": [
+                            "LNR",
                             "ARR38-C",
                             "INT32-C",
                             "FIO39-C",
                             "POS39-C"
                         ],
                         "enContentEmpty": [
+                            "LNR",
                             "INT32-C",
                             "FIO39-C",
                             "POS39-C"
@@ -673,6 +753,7 @@
                             "DBLI",
                             "LIIT",
                             "SLAE",
+                            "LNR",
                             "LLAT",
                             "UIL",
                             "ARR38-C",
@@ -687,6 +768,7 @@
                             "DBLI",
                             "LIIT",
                             "SLAE",
+                            "LNR",
                             "LLAT",
                             "UIL",
                             "TASR",

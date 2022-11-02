@@ -29,6 +29,7 @@ const compileOptions = {
         'node_modules',
         'views',
         'data/output',
+        'data/directServe',
         '.env',
         './version.json'
     ],

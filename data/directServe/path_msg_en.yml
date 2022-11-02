@@ -1,0 +1,228 @@
+- id: 0
+  msg: Illegal path message
+- id: 1
+  msg: Value copied
+- id: 2
+  msg: Function called
+- id: 3
+  msg: Vulnerable point
+- id: 4
+  msg: Symbol declared
+- id: 5
+  msg: Value changed due to call side
+- id: 6
+  msg: Statement may change value
+- id: 7
+  msg: Control flow merged
+- id: 8
+  msg: Value set by indirect store
+- id: 9
+  msg: Memory allocated
+- id: 10
+  msg: Memory freed
+- id: 11
+  msg: Check condition
+- id: 12
+  msg: Function exit point
+- id: 13
+  msg: Inline function called
+- id: 14
+  msg: Inline function returned
+- id: 15
+  msg: Parameter value
+- id: 16
+  msg: Rule checked here
+- id: 17
+  msg: Branch taken
+- id: 18
+  msg: Value returned from call
+- id: 19
+  msg: Exception thrown
+- id: 20
+  msg: Exception caught
+- id: 21
+  msg: Object property changed by function call
+- id: 22
+  msg: Address taken
+- id: 23
+  msg: Condition set true
+- id: 24
+  msg: Condition set false
+- id: 25
+  msg: '"then" block taken'
+- id: 26
+  msg: '"else" block taken'
+- id: 27
+  msg: Value propagated
+- id: 65
+  msg: file opened with "r" attribute and assigned to file handle
+- id: 66
+  msg: file handle checked and validated
+- id: 67
+  msg: read from file
+- id: 68
+  msg: write to file
+- id: 69
+  msg: file closed
+- id: 70
+  msg: program exit
+- id: 71
+  msg: file opened with "w" attribute and assigned to file handle
+- id: 72
+  msg: file opened with "x" attribute and assigned to file handle
+- id: 73
+  msg: file opened with "O_RDONLY" attribute and assigned to file handle
+- id: 74
+  msg: file opened without "O_EXCL" attribute and assigned to file handle
+- id: 75
+  msg: file handle checked and validated exclusively
+- id: 76
+  msg: file opened with "O_EXCL" attribute and assigned to file handle
+- id: 77
+  msg: temporarily drop privileges
+- id: 78
+  msg: restore privileges
+- id: 79
+  msg: permanently drop privileges
+- id: 80
+  msg: socket opened
+- id: 81
+  msg: socket connected
+- id: 82
+  msg: received data from socket
+- id: 83
+  msg: socket binded
+- id: 84
+  msg: listen to socket
+- id: 85
+  msg: socket accepted
+- id: 86
+  msg: new a file
+- id: 87
+  msg: delete() called
+- id: 88
+  msg: delete() successed
+- id: 89
+  msg: char buffer wrapped
+- id: 90
+  msg: char buffer allocated
+- id: 91
+  msg: char buffer duplicated
+- id: 92
+  msg: char  buffer as read-only
+- id: 93
+  msg: function returns
+- id: 94
+  msg: new a print stream
+- id: 95
+  msg: stream closed
+- id: 96
+  msg: close a stream that is already closed
+- id: 97
+  msg: program terminated
+- id: 98
+  msg: new a SAX parser
+- id: 99
+  msg: create XML reader
+- id: 100
+  msg: set entity resolver to do sanitize
+- id: 101
+  msg: read and parse XML
+- id: 102
+  msg: normalized
+- id: 103
+  msg: validated
+- id: 104
+  msg: modified
+- id: 105
+  msg: ClassLoader's getPermissions implementation
+- id: 106
+  msg: call super class's getPermissions
+- id: 107
+  msg: RuntimePermission applied to createClassLoader
+- id: 108
+  msg: ReflectPermission applied to createClassLoader
+- id: 109
+  msg: ReflectPermission applied to suppressAccessChecks
+- id: 110
+  msg: dangerous combined permission granted
+- id: 111
+  msg: in privileged codes
+- id: 112
+  msg: access tainted variable
+- id: 113
+  msg: load URLClassLoader
+- id: 114
+  msg: verify key
+- id: 115
+  msg: method invoked
+- id: 116
+  msg: method acquired
+- id: 117
+  msg: call Random()
+- id: 118
+  msg: use weak cryptographic algorithms
+- id: 119
+  msg: tainted cookie instance created
+- id: 120
+  msg: secure flag set to unencrypted
+- id: 121
+  msg: secure flag set to encrypted
+- id: 122
+  msg: sensitive data stored on client side
+- id: 123
+  msg: get writer
+- id: 124
+  msg: print out tainted data
+- id: 125
+  msg: write out tainted data
+- id: 126
+  msg: object instance created
+- id: 127
+  msg: obtain object name
+- id: 128
+  msg: use name to compare
+- id: 129
+  msg: set sensitive data for hash
+- id: 130
+  msg: secured seed, salt or hash used
+- id: 131
+  msg: insecured seed, salt or hash used
+- id: 132
+  msg: get XML string
+- id: 133
+  msg: write out data
+- id: 134
+  msg: listen socket in wrong order
+- id: 135
+  msg: socket option allowed multi-binds to same port
+- id: 136
+  msg: only user-level privilege acquired
+- id: 137
+  msg: superuser privilege acquired
+- id: 138
+  msg: input stream opened
+- id: 139
+  msg: output stream opened
+- id: 140
+  msg: input and output stream alternated
+- id: 141
+  msg: system received data from external system
+- id: 142
+  msg: byte encoding not fixed
+- id: 143
+  msg: enter mutex locked region
+- id: 144
+  msg: exit mutex locked region
+- id: 145
+  msg: thread went to sleep
+- id: 146
+  msg: did not exit mutex locked region
+- id: 147
+  msg: environment not saved
+- id: 148
+  msg: execution succeeded
+- id: 149
+  msg: execution failed
+- id: 150
+  msg: retrieve file information

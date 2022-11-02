@@ -2301,7 +2301,7 @@
       }
     },
     "msg_templ": "在${so.filename}，第${so.line}行，表达式${so.func}的值在所有可能的运行顺序下不是唯一确定的。",
-    "name": "持久副作用表达式应相同 ",
+    "name": "所有执行顺序下表达式的值及副作用一致",
     "desc": "所有执行顺序下表达式的值及副作用一致",
     "details": "#### 概要\n所有执行顺序下表达式的值及副作用一致\n\n#### 解释\n由于表达式可能存在多种执行的顺序，设计表达式应该保证在所有可能的执行顺序下表达式的值以及其副作用都相同。",
     "alias": {},
@@ -2581,7 +2581,7 @@
           ""
         ],
         "c": [
-          "\nvoid func(){\n    int arr[3] = {0, 1, 2};\n\n    int *ptr;\n    ptr = arr;\n\n    * (ptr + 1) = 0; // Using + in pointer arithmatic is confusing\n}"
+          "\nvoid func(){\n    int arr[3] = {0, 1, 2};\n\n    int *ptr;\n    ptr = arr;\n\n    * (ptr + 1) = 0; // Using + in pointer arithmetic is confusing\n}"
         ],
         "general": [
           ""
@@ -3031,10 +3031,10 @@
         ]
       }
     },
-    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}中使用了 getenv、getenv 和 exit 函数",
-    "name": "不得使用 getenv、getenv 和 exit 函数",
-    "desc": "不得使用 getenv、getenv 和 exit 函数",
-    "details": "#### 概要\n不得使用 getenv、getenv 和 exit 函数\n\n#### 解释\n由于getenv、getenv和exit函数具有未定义和实现定义的行为，因此它们不应用于C90和C99模式。",
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}中使用了 stdlib.h 的 abort、exit 和 system",
+    "name": "不要使用 stdlib.h 的 abort、exit 和 system",
+    "desc": "不要使用 stdlib.h 的 abort、exit 和 system",
+    "details": "#### 概要\n不要使用 stdlib.h 的 abort、exit 和 system\n\n#### 解释\n由于stdlib.h 中的 abort、exit 和 system具有未定义和实现定义的行为，因此它们不应用于C90和C99模式。",
     "alias": {},
     "standards": {
       "mc": [
@@ -3596,10 +3596,10 @@
         ]
       }
     },
-    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}中，具有基本类型的单个参数的 ctor 不是显式的",
-    "name": "具有基本类型的单个参数的 ctor 应该是显式的",
-    "desc": "具有基本类型的单个参数的 ctor 应该是显式的",
-    "details": "#### 概要\n具有基本类型的单个参数的 ctor 应该是显式的\n\n#### 解释\n",
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}中，具有基本类型的单个参数的构造函数不是显式的",
+    "name": "具有单个基本类型参数的构造函数应该是显式的",
+    "desc": "具有单个基本类型参数的构造函数应该是显式的",
+    "details": "#### 概要\n具有单个基本类型参数的构造函数应该是显式的\n\n#### 解释\n构造函数的显式声明防止它被用来隐式地从基本类型转换为类类型。",
     "alias": {},
     "standards": {
       "mcpp": [
@@ -7072,6 +7072,2206 @@
     },
     "csv_string": [
       "MSR_7_3_4"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_4_1",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint a = '\\101\\t'; // terminated by another escape\nint b = '\\150\\v'; // terminated by another escape"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint a = '\\101t'; // non-compliant\nint b = '\\150v'; // non-compliant"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 八进制和十六进制转义序列没有被终止",
+    "name": "八进制和十六进制转义序列不应后跟其他字符",
+    "desc": "八进制和十六进制转义序列不应后跟其他字符",
+    "details": "#### 概要\n八进制和十六进制转义序列不应后跟其他字符\n\n#### 解释\n为了减少混淆，八进制和十六进制转义序列应该跟在文字结尾或另一个转义序列之后。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_4_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_4_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_7_1",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint a1 = 1;   // compliant\nint a2 = 2;   // compliant\nint a3 = 3;   // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint a1 = 01;   // non-compliant\nint a2 = 02;   // non-compliant\nint a3 = 03;   // non-compliant"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 八进制常量被使用了",
+    "name": "不应使用八进制常量",
+    "desc": "不应使用八进制常量",
+    "details": "#### 概要\n不应使用八进制常量\n\n#### 解释\n零开头的常量可能会被解释为十进制常量，这会引起混淆。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_7_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_7_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_7_2",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdint.h>\n\nuint16_t a = 0x8000u;   // compliant\nunsigned int b = 0xffu; // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nunsigned int a = 3;     // non-compliant\nunsigned int b = 0xff;  // non-compliant"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, “u”或“U”后缀没有被用于以无符号类型表示的整数常量",
+    "name": "应将“u”或“U”后缀应用于以无符号类型表示的所有整数常量",
+    "desc": "应将“u”或“U”后缀应用于以无符号类型表示的所有整数常量",
+    "details": "#### 概要\n应将“u”或“U”后缀应用于以无符号类型表示的所有整数常量\n\n#### 解释\n应用“u”或“U”后缀可以让程序员清楚地知道该常量是无符号的。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_7_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_7_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_7_3",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// using uppercase \"L\" to replace lowercase \"l\"\nint a = 1L;\nfloat b = 1.1L;\n"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// potential ambiguity betweem digit 1 and \"l\"\nint a = 1l;\nfloat b = 1.1l;"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 小写字母“l”被用于文字后缀",
+    "name": "不要在文字声明中使用小写“l”",
+    "desc": "不要在文字声明中使用小写“l”",
+    "details": "#### 概要\n不要在文字声明中使用小写“l”\n\n#### 解释\n在声明文字时，小写的“l”可能会与数字 1 混淆。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_7_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_7_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_9_2",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// compliant\nint arr1[2][2] = { { 1, 1 }, { 2, 2 } };\nint arr2[4][3] = { { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 }, { 4, 4, 4 } };\n\n// compliant by exception\nint arr_excep[3][2] = { { 1, 1 }, [ 1 ][ 0 ] = 2, [ 1 ][ 1 ] = 2, { 3, 3 } };"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// non-compliant\nint arr1[2][2] = { 1, 2, 3, 4 };\nint arr2[3][3] = { 1, 2, 3, 4, 5, 6, 7, 8, 9};"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func},  没有使用大括号以指示和匹配数组和结构的非零初始化构造",
+    "name": "使用大括号括起聚合或联合的初始化",
+    "desc": "使用大括号括起聚合或联合的初始化",
+    "details": "#### 概要\n使用大括号括起聚合或联合的初始化\n\n#### 解释\n使用大括号初始化子对象能够让程序员更容易理解多维数组",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_9_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_9_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_10_1",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nextern char rcha, cha, chb; \nextern unsigned char ru8a, u8a;\n\nvoid func() \n{\n  ru8a = u8a & 2U;       // compliant\t\n  ru8a = u8a << 2U;      // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nextern char rcha, cha, chb; \nextern unsigned char ru8a, u8a;\n\nvoid func() \n{\n  rcha = cha & chb;      // non-compliant; char type used as a numeric value */\n  rcha = cha << 1;       // non-compliant; char type used as a numeric value */\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 表达式中使用了不适当的基本类型操作数",
+    "name": "不要在表达式中使用不适当的基本类型操作数",
+    "desc": "不要在表达式中使用不适当的基本类型操作数",
+    "details": "#### 概要\n不要在表达式中使用不适当的基本类型操作数\n\n#### 解释\n具有不适当基本类型的表达式可能会导致意外行为。 有关基本类型的完整描述，请参阅官方 MISRA 文档中的表格：8.10.2。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_10_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_10_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_12_1",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdbool.h>\n\nint func( int x, int y, int z)\n{\n    int a = sizeof(x + y + z);  // compliant\n    bool b = x > (y + z);       // compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdbool.h>\n\nint func( int x, int y, int z)\n{\n    int a = sizeof x + y + z;   // non-compliant\n    bool b = x > y + z;         // non-compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 表达式中运算符的优先级不清晰明确",
+    "name": "运算符的优先级必须清晰明确",
+    "desc": "运算符的优先级必须清晰明确",
+    "details": "#### 概要\n运算符的优先级必须清晰明确\n\n#### 解释\n在表达式中使用括号提高了代码的可读性，也避免了任何误解",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_12_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_12_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_16_1",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint main( int s )\n{\n    switch (s)\n    {\n        case 1: // Compliant\n            printf(\"%d\", 1);\n            break;\n        case 2: // Compliant\n            printf(\"%d\", 2);\n            break;\n        default:\n            break;\n    }\n\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint main()\n{\n    int s, i;\n\n    switch (s)\n    {\n        case 5: // Compliant\n            printf(\"%d\", 5);\n            for( i=0; i<3; i++ )\n            {\n        case 10: // Unstructed code\n            printf(\"%c\", \"s\");\n            }\n            break;\n        default:\n            break;\n    }\n    \n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, switch 语句格式不正确",
+    "name": "所有 switch 语句都应格式正确",
+    "desc": "所有 switch 语句都应格式正确",
+    "details": "#### 概要\n所有 switch 语句都应格式正确\n\n#### 解释\n格式良好的 switch 语句提高了代码的可读性。有关格式良好的 switch 语句的完整描述，请参阅 MISRA C:2012, 8.16。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_16_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_16_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_17_3",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint some_function();\n\nint main(int argc, char** argv)\n{\n    double x = some_function(); // compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint main(int argc, char** argv)\n{\n    double x = some_function(); // non-compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 存在隐式声明函数",
+    "name": "函数声明应该清晰明确",
+    "desc": "函数声明应该清晰明确",
+    "details": "#### 概要\n函数声明应该清晰明确\n\n#### 解释\nC90 编译器假定隐式声明的函数具有 int 的返回类型，这可能导致未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_17_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_17_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_1",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h> // compliant\n\nvoid func();\n"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nvoid func();\n\n// non-compliant\n// #include directives should be at the top of the file\n#include <stdio.h>"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, #include 指令放在变量和函数声明和程序语句之后",
+    "name": "将#include 指令放在变量和函数声明和程序语句之前",
+    "desc": "将#include 指令放在变量和函数声明和程序语句之前",
+    "details": "#### 概要\n将#include 指令放在变量和函数声明和程序语句之前\n\n#### 解释\n#include 指令应在文件顶部附近以提高代码可读性。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_15",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint main ()\n{\n   char str1[5];\n   char str2[5];\n   int ret;\n\n   memcpy(str1, \"abcd\", 4); // compliant\n   memcpy(str2, \"ABCD\", 4); // compliant\n\n   ret = memcmp(str1, str2, 5); // compliant\n\n   if(ret > 0)\n   {\n      printf(\"str2 smaller than str1\");\n   }\n   else if(ret < 0)\n   {\n      printf(\"str1 smaller than str2\");\n   }\n   else\n   {\n      printf(\"str1 equals str2\");\n   }\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n#include <stdint.h>\n\nint main ()\n{\n   int8_t a[5];\n   int16_t b[5];\n   int32_t c[5];\n\n   // non-compliant\n   // call memcpy with arguments of different types\n   memcpy(a, b, 5);\n   memcpy(b, c, 5);\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, memcpy、memmove 和 memcpy 的指针参数不是兼容的类型、合格的或不合格的",
+    "name": "memcpy、memmove 和 memcpy 的指针参数应该是兼容的类型，合格或不合格",
+    "desc": "memcpy、memmove 和 memcpy 的指针参数应该是兼容的类型，合格或不合格",
+    "details": "#### 概要\nmemcpy、memmove 和 memcpy 的指针参数应该是兼容的类型，合格或不合格\n\n#### 解释\n调用函数：memcpy、memmove 或 memcmp 带有不同类型的参数（无论合格或不合格）可能会导致意外行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_15"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_15"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_16",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n#include <stdint.h>\n\nvoid main ()\n{\n   uint16_t a[5];\n   uint16_t b[5];\n\n   memcpy(a, b, 5); // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n\nstruct S1 {\n  char c;  // padding after c\n  int  val;\n} s1, s2;\nunion U1 {\n  char c;\n  double d;\n} u1, u2;\n\nfloat f1, f2;\ndouble d1, d2;\nchar buf1[16];\nconst char *str = \"string\";\n\nint foo() {\n  memcmp(&s1, &s2, sizeof(s1));  // not compliant\n  memcmp(&u1, &u2, sizeof(u1));  // not compliant\n  memcmp(&f1, &f2, sizeof(f1));  // not compliant\n  memcmp(&d1, &d2, sizeof(d1));  // not compliant\n  memcmp(buf1, str, sizeof(buf1));  // not compliant\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, memcpy 参数没有指向指针类型或本质上是有符号、无符号、布尔或枚举类型。",
+    "name": "Memcpy 参数应指向指针类型或本质上是有符号、无符号、布尔或枚举类型。",
+    "desc": "Memcpy 参数应指向指针类型或本质上是有符号、无符号、布尔或枚举类型。",
+    "details": "#### 概要\nMemcpy 参数应指向指针类型或本质上是有符号、无符号、布尔或枚举类型。\n\n#### 解释\n结构和联合可能包含具有不确定值的填充，这将在 memcmp 中增加复杂性并被错误地报告。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_16"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_16"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_22_5",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// compliant\nvoid func()\n{\n    FILE *fp1 = fopen(\"<somefilepath1\", \"r\");\n    FILE *fp2 = fopen(\"<somefilepath2\", \"r\");\n    fp2 = fp1;\n    fclose(fp1);\n    fclose(fp2);\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// non-compliant\n// a pointer to a FILE object should not be dereferenced\nvoid func()\n{\n    FILE *fp = fopen(\"<somefilepath\", \"r\");\n    FILE f;\n    f = *fp;\n    fclose(fp);\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 指向 FILE 对象的指针被逆向引用",
+    "name": "不应逆向引用指向 FILE 对象的指针",
+    "desc": "不应逆向引用指向 FILE 对象的指针",
+    "details": "#### 概要\n不应逆向引用指向 FILE 对象的指针\n\n#### 解释\n直接操作 FILE 对象可能会导致 FILE 对象作为流指示符的行为不一致。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_22_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_22_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_5_8",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nint Add_extern(int a, int b) // Add_extern has external linkage\n{\n    return a + b;\n}\n\nint var_extern; // var_extern has external linkage\n\n// file_2.c\nstatic int Add_intern(int, int); // Add_extern is unique; compliant\nstatic int var_intern; // var_extern is unique; compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nint Add(int a, int b) // Add has external linkage\n{\n    return a + b;\n}\n\nint var_extern; // var_extern has external linkage\n\n// file_2.c\nstatic int Add(int, int); // Add is not unique\nstatic int var_extern; // var_extern is not unique\n\nint main()\n{\n    int a = 10;\n    int b = 5;\n    int result = Add(a, b);\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 外部链接对象或函数具有相同的标识符",
+    "name": "外部链接对象或函数不应具有相同的标识符",
+    "desc": "外部链接对象或函数不应具有相同的标识符",
+    "details": "#### 概要\n外部链接对象或函数不应具有相同的标识符\n\n#### 解释\n使用相同的标识符来定义具有外部链接的对象或函数是令人困惑的。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_5_8"
+      ]
+    },
+    "csv_string": [
+      "MSR_5_8"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_5_9",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nstatic int Add1(int a, int b) // Add1 has internal linkage\n{\n    int var_no_link; // var_no_link has no linkage\n    return a + b;\n}\n\nint var_intern1; // var_intern1 has internal linkage\n\n// file_2.c\nstatic int Add2(int a, int b) // Add2 is unique; compliant\n{\n    int var_no_link; // var_no_link has no linkage; compliant\n    return 0;\n}\nstatic int var_intern2; // var_intern2 is unique; compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nstatic int Add(int a, int b) // Add has internal linkage\n{\n    return a + b;\n}\n\nint var_intern; // var_intern has internal linkage\n\n// file_2.c\nstatic int Add(int, int); // Add is not unique\nstatic int var_intern; // var_intern is not unique"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 内部链接对象或函数具有相同的标识符",
+    "name": "内部链接对象或函数不应具有相同的标识符",
+    "desc": "内部链接对象或函数不应具有相同的标识符",
+    "details": "#### 概要\n内部链接对象或函数不应具有相同的标识符\n\n#### 解释\n使用相同的标识符来定义具有内部链接的对象或函数是令人困惑的。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_5_9"
+      ]
+    },
+    "csv_string": [
+      "MSR_5_9"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_15_5",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// One single return statement at the end of func \nint func ( int a )\n{\n    for (int i = 1; i < 5; i++ )\n        if ( i < 2 )\n        {\n            // Do something\n        }\n        else;\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// More than one return statement in func\nint func ( int a )\n{\n    for (int i = 1; i < 5; i++ )\n        if ( i < 2 )\n        {\n            return 1;\n        }\n        else\n        {\n            return 1;\n        }\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 在一个函数中使用了多个 return 语句",
+    "name": "一个函数中不应有多个 return 语句",
+    "desc": "一个函数中不应有多个 return 语句",
+    "details": "#### 概要\n一个函数中不应有多个 return 语句\n\n#### 解释\n如果在函数结束之前使用 return 语句，它可能会无意中错过部分函数终止代码。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_15_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_15_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_18_3",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func_1( void )\n{\n    int arr[3];\n    int *p = arr;\n    \n    if (p > &arr) // comparison between p and &arr is compliant\n    {\n        printf(\"compliant\");\n    }\n    if (p < &arr) // comparison between p and &arr is compliant\n    {\n        printf(\"compliant\");\n    }\n    return 0;\n}\n\nint *p_a;\nint *p_b;\n\nint func_2(int i, int j)\n{\n  if (&p_a[i] < &p_a[j]) // compliant\n  {\n    return 0;\n  }\n  return 1;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func1 ( void )\n{\n    int a = 10;\n    int arr[3];\n    int *p1 = &a;\n    int *p2 = arr;\n    \n    if (p1 > p2) // comparison between p1 and p2 is non-compliant\n    {\n        printf(\"non-compliant\");\n    }\n    if (p1 < p2) // comparison between p1 and p2 is non-compliant\n    {\n        printf(\"non-compliant\");\n    }\n    return 0;\n}\n\nint array_a[16];\nint array_b[16];\n\nint func_2(int i, int j)\n{\n  if (&array_a[i] > &array_b[i])  // not compliant\n  {\n    return 0;\n  }\n  if (&array_b[j] >= &array_a[j]) // not compliant\n  {\n    return 0;\n  }\n  return 1;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 关系运算符被应用于指向不同对象类型的指针",
+    "name": "关系运算符不应用于指向不同对象类型的指针",
+    "desc": "关系运算符不应用于指向不同对象类型的指针",
+    "details": "#### 概要\n关系运算符不应用于指向不同对象类型的指针\n\n#### 解释\n指向不同对象的指针之间的比较会导致未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_18_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_18_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_19_1",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n\nvoid func1( void )\n{   \n    int arr[5]\n    int *p1 = &arr[1];\n    int *p2 = &arr[1];\n    *p1 = *p2; // compliant; exception1\n}\n\nvoid func2(int *x)\n{\n  memmove(x, x+5, 10 * sizeof(int)); // compliant; exception2\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n  \nunion value \n{\n  char cval;\n  short sval;\n  int ival;\n  long lval;\n  float fval;\n  double dval;\n  int arr[2];\n} v1, v2, v3, v4, v5;\n\nchar array[16];\n\nvoid func() \n{\n  v1.fval = v1.dval;  // not compliant\n  v2.lval = v2.sval;  // not compliant\n  v3.ival = (int)v3.fval;  // not compliant\n  v4.dval = (double)v4.lval;  // not compliant\n  v5.arr[0] = v5.arr[1];  // compliant\n\n  memcpy(&array[0], &array[4], 8);  // not compliant\n  memcpy(&array[4], &array[0], 8);  // not compliant\n}\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 一个对象被分配或复制到另一个具有内存重叠的对象",
+    "name": "不要将对象分配或复制到另一个具有内存重叠的对象",
+    "desc": "不要将对象分配或复制到另一个具有内存重叠的对象",
+    "details": "#### 概要\n不要将对象分配或复制到另一个具有内存重叠的对象\n\n#### 解释\n如果两个对象在内存中有重叠，则它们之间的赋值和复制是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_19_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_19_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_13",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <ctype.h>\n#include <stdbool.h>\n\nint main()\n{\n   int var1 = 'd';\n   int var2 = 256;\n   int var3 = EOF;\n    \n   if( isalpha(var1) )\n   {\n      // Do something\n   }\n   else;\n\n    if( isdigit(var2) )\n    {\n      // Do something\n    }\n    else;\n\n   if( islower(var2) )\n   {\n      // Do something\n   }\n   else;\n\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <ctype.h>\n#include <stdbool.h>\n\nbool main()\n{\n   int var1 = 'd';\n   int var2 = 256;\n   int var3 = '\\t';\n    \n   if( isalpha(var1) )\n   {\n      // Do something\n   }\n   else;\n\n    if( isalpha(var2) )\n    {\n      // Do something\n    }\n    else;\n\n   if( isalpha(var2) )\n   {\n      // Do something\n   }\n   else;\n\n  return isalpha(var2); // non-compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, 将 char 或 EOF 以外的值传递给 ctype.h 中的函数",
+    "name": "不要将 unsigned char 或 EOF 以外的值传递给 ctype.h 中的函数",
+    "desc": "不要将 unsigned char 或 EOF 以外的值传递给 ctype.h 中的函数",
+    "details": "#### 概要\n不要将 unsigned char 或 EOF 以外的值传递给 ctype.h 中的函数\n\n#### 解释\n将除无符号char或EOF之外的任何值传递给 <ctype.h> 中的函数是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_13"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_13"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_17",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char str[50];\n   /*\n   compliant; strcpy accesses in the bounds of str\n   */\n   strcpy( str, \"very long string\" );\n\n   return 0;\n}\n\nint main() \n{\n  return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n\nchar buf1[16];\nchar buf2[16];\nchar buf3[4] = { 'a', 'b', 'c', 'd' };\nconst char *str1 = \"a short string\";\nconst char *str2 = \"a long string with more than 16 bytes\";\nconst char *str3 = \"abcdefg\";\n\nint func() \n{\n  char *saved_str;\n  strcpy(buf1, str1);  // compliant\n  strcat(buf1, str1);  // not compliant\n  strcpy(buf2, str2);  // not compliant\n\n  strchr(buf3, 'e');   // not compliant\n  strrchr(buf3, 'e');  // not compliant\n\n  strcmp(buf3, str3);  // not compliant\n  strcoll(buf3, str3); // not compliant\n\n  return strlen(buf3); // not compliant\n}\n\nint main() \n{\n  return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 字符串处理函数被用于超出参数范围的访问",
+    "name": "不要将字符串处理函数用于超出参数范围的访问",
+    "desc": "不要将字符串处理函数用于超出参数范围的访问",
+    "details": "#### 概要\n不要将字符串处理函数用于超出参数范围的访问\n\n#### 解释\n通过字符串处理函数进行超出参数范围的访问将导致未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_17"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_17"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_18",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char str1[5];\n   char str2[50];\n   \n   memcpy( str1, \"long string\", 1 );   // compliant\n   memcpy( str1, \"long string\", 5 );   // compliant\n   memcpy( str2, \"long string\", 10 );  // compliant\n\n   return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char str1[5];\n   char str2[50];\n   \n   memcpy( str1, \"long string\", -1 );  // non-compliant\n   memcpy( str1, \"long string\", 6 );   // non-compliant\n   memcpy( str2, \"long string\", 15 );  // non-compliant\n\n   return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, <string.h>中函数的size_t参数没有取合适的值",
+    "name": "<string.h>中函数的size_t参数应该具有合适的值",
+    "desc": "<string.h>中函数的size_t参数应该具有合适的值",
+    "details": "#### 概要\n<string.h>中函数的size_t参数应该具有合适的值\n\n#### 解释\n<string.h>中函数的size_t参数取值不适当会导致未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_18"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_18"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_19",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char *str1 = getenv(\"PATH\"); // compliant\n   char *str2 = getenv(\"ROOT\"); // compliant\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char *str = getenv(\"PATH\");\n   str[1] = \"s\"; // non-compliant\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, localeconv、getenv、setlocale和strerror没有返回指向 const 限定类型的指针",
+    "name": "不应修改 localeconv、getenv、setlocale 和 strerror 返回的指针",
+    "desc": "不应修改 localeconv、getenv、setlocale 和 strerror 返回的指针",
+    "details": "#### 概要\n不应修改 localeconv、getenv、setlocale 和 strerror 返回的指针\n\n#### 解释\n修改localeconv、getenv、setlocale和strerror的返回指针将导致未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_19"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_19"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_20",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <time.h>\n\nint func ( void )\n{\n   time_t curtime;\n   time(&curtime);\n   const char *time_res;\n   time_res = ctime(&curtime);\n\n   printf(\"current time is %s\", time_res); // compliant\n\n   return 0;\n}\n\nint main() \n{\n  return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <time.h>\n\nstruct tm stm;\ntime_t    ttm;\nvoid call_asctime() {\n  char *tm1 = asctime(&stm);\n  char *tm2 = asctime(&stm);\n  printf(\"tm1=%s\\n\", tm1);  // not compliant\n  printf(\"tm2=%s\\n\", tm2);  // compliant\n}\n\nvoid call_ctime() {\n  char *tm1 = ctime(&ttm);\n  char *tm2 = ctime(&ttm);\n  printf(\"tm1=%s\\n\", tm1);  // not compliant\n  printf(\"tm2=%s\\n\", tm2);  // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 在后续调用同一函数后使用了asctime、ctime、gmtime、localtime、localeconv、getenv、setlocale 或 sterror 的返回指针",
+    "name": "在对同一函数的后续调用后，不要使用解释中列出的函数返回的指针",
+    "desc": "在对同一函数的后续调用后，不要使用解释中列出的函数返回的指针",
+    "details": "#### 概要\n在对同一函数的后续调用后，不要使用解释中列出的函数返回的指针\n\n#### 解释\n在随后调用同一函数后使用 asctime、ctime、gmtime、localtime、localeconv、getenv、setlocale 或 sterror返回的指针将导致未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_20"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_20"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_22_6",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func()\n{\n   FILE* f = fopen(\"some_path\", \"w\");\n   if (f == NULL) \n      {\n         fprintf(f, \"....\"); // compliant\n      }\n   fclose(f);\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func()\n{\n   FILE* f = fopen(\"some_path\", \"w\");\n   if (f == NULL) \n      {\n         fprintf(f, \"....\"); // compliant\n      }\n   fclose(f);\n   fprintf(f, \"....\");  // non-compliant\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 在流关闭后使用了指向 FILE 的指针",
+    "name": "在流关闭后不要使用指向 FILE 的指针",
+    "desc": "在流关闭后不要使用指向 FILE 的指针",
+    "details": "#### 概要\n在流关闭后不要使用指向 FILE 的指针\n\n#### 解释\n在关联流关闭后使用指向 FILE 的指针可能会导致错误，因为该对象将具有未定义的状态。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_22_6"
+      ]
+    },
+    "csv_string": [
+      "MSR_22_6"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_1",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func( int a )\n{\n    if (a <= 5)\n    {\n        a++;\n    }    \n    else if ( a > 5 )\n    {\n        a--;\n    }\n    return a;\n} "
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func( int a )\n{\n    if (a <= 5)\n    {\n        a++;\n    }    \n    else if ( a > 5 )\n    {\n        a--;\n    }\n    else    // This part is unreachable code\n    {\n        a = 0;\n    }\n    return a;\n    a = 1;  // This part is unreachable code\n} "
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 存在无法访问的代码",
+    "name": "不要使用无法访问的代码",
+    "desc": "不要使用无法访问的代码",
+    "details": "#### 概要\n不要使用无法访问的代码\n\n#### 解释\n编译器可能会删除无法访问的代码以进行优化。 没有被编译器删除的不可达代码会浪费资源。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_2",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdbool.h>\n\nint func( int a, int b )\n{\n    (void) b; // compliant by exception\n    if ( a < 0 )\n    {\n        a++;\n    }    \n    else // compliant\n    {\n        a = 0;\n    }\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdbool.h>\n\nint func( int a )\n{\n    if (true & true)\n    {\n        a++;\n    }    \n    else // dead code\n    {\n        a = 0;\n    }\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 存在了无效代码",
+    "name": "不要包含无效代码",
+    "desc": "不要包含无效代码",
+    "details": "#### 概要\n不要包含无效代码\n\n#### 解释\n无效代码的存在令人困惑，因为它可能会被编译器删除。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_4",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nenum used_enum {  // compliant\n  used_item\n};\n\nstruct used_struct {  // compliant\n  int x;\n};\n\nstruct used_struct v;\n\nint foo() {\n  v.x = used_item;\n}\n\nint main() {\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nenum unused_enum {  // not compliant\n  unused_item_1,\n  unused_item_2,\n};"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 在项目中声明了未使用的标签",
+    "name": "不要在项目中声明未使用的标签",
+    "desc": "不要在项目中声明未使用的标签",
+    "details": "#### 概要\n不要在项目中声明未使用的标签\n\n#### 解释\n未使用的标签的存在可能会造成混淆。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_4"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_4"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_5",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#define ARRAY_SIZE 100\ndouble  data[ARRAY_SIZE]; // macro used"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#define UNUSED_MACRO1 1 // non-compliant; unused macro\n#define UNUSED_MACRO2 2 // non-compliant; unused macro\n#define UNUSED_MACRO3 3 // non-compliant; unused macro"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 在项目中声明了未使用的宏",
+    "name": "不要在项目中声明未使用的宏",
+    "desc": "不要在项目中声明未使用的宏",
+    "details": "#### 概要\n不要在项目中声明未使用的宏\n\n#### 解释\n未使用的宏的声明可能会造成混淆。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_7",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\nvoid func( int used_para1, int used_para2 )\n{\n    used_para1++;\n    used_para2--;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// non-compliant; unused_para is not used\nvoid func( int used_para, int unused_para )\n{\n    used_para++;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 存在未使用的参数。",
+    "name": "避免函数中存在未使用的参数",
+    "desc": "避免函数中存在未使用的参数",
+    "details": "#### 概要\n避免函数中存在未使用的参数\n\n#### 解释\n如果函数包含未使用的参数，则该函数的实现和规范之间可能出现不匹配。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_7"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_7"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_3_1",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\nint func( int a )\n{\n    // some code // compliant by exception\n    a++;\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n/* this comment is not closed\nsome_function();\n/* still in the comment */"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "",
+    "name": "不要嵌套注释",
+    "desc": "不要嵌套注释",
+    "details": "#### 概要\n不要嵌套注释可能会导致一些关键代码成为内部注释。\n\n#### 解释\n嵌套注释",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_3_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_3_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_3_2",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func ( int a )\n{\n    a++;\n    return a; // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func ( int a )\n{\n    a++;\n    return a; // non-compliant \\ \n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, // 注释中使用了行拼接",
+    "name": "不要在 // 注释中使用行拼接",
+    "desc": "不要在 // 注释中使用行拼接",
+    "details": "#### 概要\n不要在 // 注释中使用行拼接\n\n#### 解释\n在 // 注释中使用行拼接会使下一行变成注释并引起混淆。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_3_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_3_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_3",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nextern void func1( signed p );\nextern void func2( int a, int b );\n\nvoid func1( int p )\n{\n    // compliant by exception\n}\n\nvoid func2( int a, int b )\n{\n    // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nextern void func1( float *const p );\nextern void func2( int a, int b );\n\nvoid func1( float * p )\n{\n    // non-compliant; parameter differs from the previous declaration\n}\n\nvoid func2( int b, int a )\n{\n    // non-compliant; parameter differs from the previous declaration\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 对象或函数声明的名称和类型不相同",
+    "name": "对象或函数声明的名称和类型应该相同",
+    "desc": "对象或函数声明的名称和类型应该相同",
+    "details": "#### 概要\n对象或函数声明的名称和类型应该相同\n\n#### 解释\n使对象或函数的声明的名称和类型相同可以提高代码的一致性。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_5",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include \"header1.h\" // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include \"header1.h\"\n#include \"header2.h\" // non-compliant; var declared twice"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 具有外部链接的对象或函数没有在一个文件中声明一次",
+    "name": "具有外部链接的对象或函数应在一个文件中声明一次",
+    "desc": "具有外部链接的对象或函数应在一个文件中声明一次",
+    "details": "#### 概要\n具有外部链接的对象或函数应在一个文件中声明一次\n\n#### 解释\n在一个文件中一次性声明具有外部链接的对象或函数将有助于确保声明和定义之间的一致性。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_6",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdint.h>\n\nint16_t b;\nint16_t b = 0; // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdint.h>\n#include <header.h>\n\nint16_t a = 0; // non-compliant; a has tentative definition in header.h"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 具有外部链接的标识符不只有一个外部定义",
+    "name": "具有外部链接的标识符应该只有一个外部定义",
+    "desc": "具有外部链接的标识符应该只有一个外部定义",
+    "details": "#### 概要\n具有外部链接的标识符应该只有一个外部定义\n\n#### 解释\n具有多个定义或根本没有定义的外部链接的标识符是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_6"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_6"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_7",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nstatic void myfunc( void );  // Only used internally, should be static\n\nvoid myfunc( void )\n{\n   // do something\n}\n\nint main( void )\n{\n   myfunc();\n   return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include \"header.h\"\n\n// not compliant\nint bar(int a) {\n  return a;\n}\n\nvoid foo(int a) {\n  bar(a);\n}\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 仅在一个翻译单元中定义和引用的函数和对象是外部的",
+    "name": "仅在一个翻译单元中定义和引用的函数和对象不应该是外部的",
+    "desc": "仅在一个翻译单元中定义和引用的函数和对象不应该是外部的",
+    "details": "#### 概要\n仅在一个翻译单元中定义和引用的函数和对象不应该是外部的\n\n#### 解释\n如果一个对象或函数定义了内部链接或没有链接，它可以减少被无意访问的机会。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_7"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_7"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_2",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n#include \"file_valid.h\"\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// non-compliant\n#include \"file_not_valid\\.h\"\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 头文件名中使用了文档中提到的字符或字符序列",
+    "name": "头文件名中不要使用文档中提到的字符或字符序列",
+    "desc": "头文件名中不要使用文档中提到的字符或字符序列",
+    "details": "#### 概要\n头文件名中不要使用文档中提到的字符或字符序列\n\n#### 解释\n在头文件名中使用文档中提到的字符和字符序列是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_3",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n#include \"file.h\"\n#include <stdlib.h>"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// non-compliant\n#include file.h"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, #include 指令后应没有跟随 <filename> 或文件名序列",
+    "name": "#include 指令后应跟随 <filename> 或文件名序列",
+    "desc": "#include 指令后应跟随 <filename> 或文件名序列",
+    "details": "#### 概要\n#include 指令后应跟随 <filename> 或文件名序列\n\n#### 解释\n使用 #include 指令后不跟 <filename> 或文件名序列是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_4",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n# define const const"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#define double float  // not compliant\n\n#define while(E) for (; E;)  // not compliant\n\nextern inline void bar() {}\n\ndouble foo(int c) {\n  while(c > 0) {\n    bar();\n    -- c;\n  }\n  return 0;\n}\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 宏定义为与关键字同名",
+    "name": "不要定义与关键字同名的宏",
+    "desc": "不要定义与关键字同名的宏",
+    "details": "#### 概要\n不要定义与关键字同名的宏\n\n#### 解释\n使用与关键字相同的名称来定义宏是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_4"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_4"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_5",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n#include <stdio.h>\n \nint main()\n{\n    #define MAX 5\n    int a = MAX + 1;\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n \nint main()\n{\n    #define MAX 5\n    int a = MAX + 1;\n    #undef MAX // non-compliant\n    int MAX = 10;\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 使用了#undef。",
+    "name": "不要使用#undef",
+    "desc": "不要使用#undef",
+    "details": "#### 概要\n不要使用#undef\n\n#### 解释\n使用#undef 会导致对宏的存在或含义产生混淆。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_6",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// not reported by cppcheck\n#include <string.h>\n\nvoid func(const char *src) \n{\n  char *dest;\n  // malloc() destination string\n  memcpy( dest, src,\n    #ifdef PLATFORM1\n      12\n    #else\n      24\n    #endif\n  );\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 宏参数中使用了类似于预处理指令的标记。",
+    "name": "不要在宏参数中使用类似于预处理指令的标记",
+    "desc": "不要在宏参数中使用类似于预处理指令的标记",
+    "details": "#### 概要\n不要在宏参数中使用类似于预处理指令的标记\n\n#### 解释\n在宏参数中使用标记作为预处理指令是未定义的行为。",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_6"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_6"
     ],
     "ruleSet": {
       "id": "M",

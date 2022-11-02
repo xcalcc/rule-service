@@ -6,18 +6,17 @@ const outputDetailPath = path.resolve(__dirname, './temp');
 const configs = require('./configs');
 fs.ensureDirSync(outputDetailPath);
 //run one time
-const extractDetailsToFile = async (masterFilePath=path.resolve(__dirname, './raw/RuleSetMaster.xlsx')) => {
+const extractDetailsToFile = async (masterFilePath = path.resolve(__dirname, './raw/RuleSetMaster.xlsx')) => {
     try {
         await fs.emptyDir(outputDetailPath);
         const masterWorkbook = new ExcelJS.Workbook();
         await masterWorkbook.xlsx.readFile(masterFilePath);
         const workSheet = masterWorkbook.getWorksheet('Rule Master');
         workSheet.eachRow((row, rowNum) => {
-            //ignore header
-            if(rowNum > 1) {
-                const ruleCode = row.getCell('F').value;
-                const ruleCodeDetailPath = `${outputDetailPath}/${ruleCode}`;
-                //write details
+            const ruleCode = row.getCell('F').value.trim();
+            const ruleCodeDetailPath = `${outputDetailPath}/${ruleCode}`;
+
+            const writeDetails = () => {
                 const detailFileEn = `${ruleCodeDetailPath}/details_en.md`;
                 const detailFileCn = `${ruleCodeDetailPath}/details_cn.md`;
                 fs.ensureFileSync(detailFileEn);
@@ -27,7 +26,9 @@ const extractDetailsToFile = async (masterFilePath=path.resolve(__dirname, './ra
 
                 fs.writeFileSync(detailFileEn, typeof ruleDetailsEn === 'string' ? ruleDetailsEn.replace(/\\n/gm, os.EOL) : '');
                 fs.writeFileSync(detailFileCn, typeof ruleDetailsCn === 'string' ? ruleDetailsCn.replace(/\\n/gm, os.EOL) : '');
-                //write message templates
+            }
+
+            const writeMsgTempl = () => {
                 const ruleMsgTempEn = row.getCell('M').value;
                 const ruleMsgTempCn = row.getCell('N').value;
                 const msgTemplFileEn = `${ruleCodeDetailPath}/msg_template_en.txt`;
@@ -37,7 +38,9 @@ const extractDetailsToFile = async (masterFilePath=path.resolve(__dirname, './ra
 
                 fs.writeFileSync(msgTemplFileEn, typeof ruleMsgTempEn === 'string' ? ruleMsgTempEn.replace(/\\n/gm, os.EOL) : '');
                 fs.writeFileSync(msgTemplFileCn, typeof ruleMsgTempCn === 'string' ? ruleMsgTempCn.replace(/\\n/gm, os.EOL) : '');
-                //write examples
+            }
+
+            const writeExamples = () => {
                 // const languages = row.getCell('C').value;
                 // const filteredLangs = languages && languages.split(',').filter(lang => {
                 //     return !!configs.supportedProgrammingLang.includes(lang);
@@ -52,6 +55,12 @@ const extractDetailsToFile = async (masterFilePath=path.resolve(__dirname, './ra
                     //write bad example
                     fs.writeFileSync(badExpFilePath, '');
                 });
+            }
+            //ignore header
+            if (rowNum > 1 && ruleCode !== "reserved") {
+                writeMsgTempl();
+                // writeDetails();
+                // writeExamples();
             }
         });
     } catch (e) {

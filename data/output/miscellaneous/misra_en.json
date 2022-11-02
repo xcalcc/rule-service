@@ -1802,7 +1802,7 @@
     "mapping": "",
     "language": "c",
     "code": "MSR_11_6",
-    "name": "No casting between a void pointer and an arithmatic type",
+    "name": "No casting between a void pointer and an arithmetic type",
     "severity": "H",
     "compliance": "R",
     "likelihood": "L",
@@ -1860,7 +1860,7 @@
     "mapping": "",
     "language": "c",
     "code": "MSR_11_7",
-    "name": "No casting between void pointer and a non-int arithmatic type",
+    "name": "Cast between void pointer and a non-int arithmetic type should not be performed",
     "severity": "H",
     "compliance": "R",
     "likelihood": "L",
@@ -1896,8 +1896,8 @@
       }
     },
     "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, there is casting between pointers to objects and non-integer arithmetic types",
-    "desc": "Cannot cast pointers to objects and non-integer arithmetic types",
-    "details": "#### Abstract\nCannot cast pointers to objects and non-integer arithmetic types\n\n#### Explanation\nIn order to prevent undefined behavior during the type conversion process, the data type conversion between the pointer to the object and the non-integer arithmetic is not allowed. ",
+    "desc": "Cast between void pointer and a non-int arithmetic type should not be performed",
+    "details": "#### Abstract\nCast between void pointer and a non-int arithmetic type should not be performed\n\n#### Explanation\nIn order to prevent undefined behavior during the type conversion process, the data type conversion between the pointer to the object and the non-integer arithmetic is not allowed. ",
     "alias": {},
     "standards": {
       "mc": [
@@ -2266,7 +2266,7 @@
     "mapping": "",
     "language": "c",
     "code": "MSR_13_2",
-    "name": "Persistent side effect expressions should be the same",
+    "name": "The values and side effects of expressions in the execution order must be the same",
     "severity": "H",
     "compliance": "R",
     "likelihood": "L",
@@ -2556,7 +2556,7 @@
     "mapping": "",
     "language": "c",
     "code": "MSR_18_4",
-    "name": "Pointer arithmatic should not be used, except for ++ and --",
+    "name": "Pointer arithmetic should not be used, except for ++ and --",
     "severity": "L",
     "compliance": "A",
     "examples": {
@@ -2582,16 +2582,16 @@
           ""
         ],
         "c": [
-          "\nvoid func(){\n    int arr[3] = {0, 1, 2};\n\n    int *ptr;\n    ptr = arr;\n\n    * (ptr + 1) = 0; // Using + in pointer arithmatic is confusing\n}"
+          "\nvoid func(){\n    int arr[3] = {0, 1, 2};\n\n    int *ptr;\n    ptr = arr;\n\n    * (ptr + 1) = 0; // Using + in pointer arithmetic is confusing\n}"
         ],
         "general": [
           ""
         ]
       }
     },
-    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, pointer arithmatic is used, except for ++ and --",
-    "desc": "Pointer arithmatic should not be used, except for ++ and --",
-    "details": "#### Abstract\nPointer arithmatic should not be used, except for ++ and --\n\n#### Explanation\nPointer arithmetic is confusing to the novice programmers. The expression ptr+1 may be mistakenly interpreted as adding one byte to the address held in ptr.",
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, pointer arithmetic is used, except for ++ and --",
+    "desc": "Pointer arithmetic should not be used, except for ++ and --",
+    "details": "#### Abstract\nPointer arithmetic should not be used, except for ++ and --\n\n#### Explanation\nPointer arithmetic is confusing to the novice programmers. The expression ptr+1 may be mistakenly interpreted as adding one byte to the address held in ptr.",
     "alias": {},
     "standards": {
       "mc": [
@@ -3000,7 +3000,7 @@
     "mapping": "",
     "language": "c",
     "code": "MSR_21_8",
-    "name": "getenv, getenv and exit functions should not be used",
+    "name": "Do not use abort, exit and system of stdlib.h",
     "compliance": "R",
     "examples": {
       "good": {
@@ -3032,9 +3032,9 @@
         ]
       }
     },
-    "msg_templ": "In file ${so.filename}, line ${so.line}, getenv, getenv and exit functions are used",
-    "desc": "getenv, getenv and exit functions should not be used",
-    "details": "#### Abstract\ngetenv, getenv and exit functions should not be used\n\n#### Explanation\nSince getenv, getenv and exit functions have undefined and implementation-defined behaviors, they should not be used for C90 and C99 modes.",
+    "msg_templ": "In file ${so.filename}, line ${so.line}, abort, exit and system of stdlib.h are used",
+    "desc": "Do not use abort, exit and system of stdlib.h",
+    "details": "#### Abstract\nDo not use abort, exit and system of stdlib.h\n\n#### Explanation\nSince abort, exit and system of stdlib.h have undefined and implementation-defined behaviors, they should not be used for C90 and C99 modes.",
     "alias": {},
     "standards": {
       "mc": [
@@ -3565,7 +3565,7 @@
     "mapping": "",
     "language": "c",
     "code": "MSR_12_1_3",
-    "name": "ctor with single parameter of basic type should be explicit",
+    "name": "constructor with single parameter of basic type should be explicit",
     "compliance": "R",
     "examples": {
       "good": {
@@ -3597,9 +3597,9 @@
         ]
       }
     },
-    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, ctor with single parameter of basic type is not explicit",
-    "desc": "ctor with single parameter of basic type should be explicit",
-    "details": "#### Abstract\nctor with single parameter of basic type should be explicit\n\n#### Explanation\n",
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, constructor with single parameter of basic type is not explicit",
+    "desc": "constructor with single parameter of basic type should be explicit",
+    "details": "#### Abstract\nconstructor with single parameter of basic type should be explicit\n\n#### Explanation\nExplicit declaration of constructor prevents it from being used to convert from fundamental type to class type implicitly.",
     "alias": {},
     "standards": {
       "mcpp": [
@@ -3839,7 +3839,7 @@
     "category": "",
     "language": "c",
     "code": "MSR_10_2",
-    "name": "char not allowed in arithmatic expression",
+    "name": "char not allowed in arithmetic expression",
     "examples": {
       "good": {
         "cpp": [
@@ -3870,7 +3870,7 @@
         ]
       }
     },
-    "msg_templ": "In file ${so.filename}, line ${so.line}, char is used in arithmatic expression ${so.func}",
+    "msg_templ": "In file ${so.filename}, line ${so.line}, char is used in arithmetic expression ${so.func}",
     "desc": "Use basic character variables appropriately for addition and subtraction",
     "details": "#### Abstract\nUse basic character variables appropriately for addition and subtraction\n\n#### Explanation\nSince the data in the basic character variable does not represent a numeric value, the basic character variable should be used appropriately in the addition and subtraction expressions.",
     "alias": {},
@@ -4587,8 +4587,8 @@
       }
     },
     "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func} assessed an undefined location with a pointer that went out of bound.",
-    "desc": "Pointer arithmatic should not cause an array out of bound access",
-    "details": "#### Abstract\nPointer arithmatic should not cause an array out of bound access\n\n#### Explanation\nCompilers can only determine at compile time whether an array boundary has been exceeded. No checks are done at run-time for invalid array indexing. Using invalid indexing can cause program to have erroneous behaviour.",
+    "desc": "Pointer arithmetic should not cause an array out of bound access",
+    "details": "#### Abstract\nPointer arithmetic should not cause an array out of bound access\n\n#### Explanation\nCompilers can only determine at compile time whether an array boundary has been exceeded. No checks are done at run-time for invalid array indexing. Using invalid indexing can cause program to have erroneous behaviour.",
     "alias": {},
     "standards": {
       "mc": [
@@ -6809,6 +6809,7 @@
     "mapping": "",
     "language": "c++",
     "code": "MSR_15_3_5",
+    "name": "A class type exception object should be caught by reference only",
     "compliance": "R",
     "examples": {
       "good": {
@@ -6840,10 +6841,9 @@
         ]
       }
     },
-    "msg_templ": "在${so.filename}，第${so.line}行，函数${so.func}, 类类型异常对象未被引用捕获",
-    "name": "一个类类型异常对象应仅通过引用捕获",
-    "desc": "一个类类型异常对象应仅通过引用捕获",
-    "details": "#### 概要\n一个类类型异常对象应仅通过引用捕获\n\n#### 解释\n如果类类型异常对象不是通过引用捕获的，则无法访问派生类中的其他成员数据。",
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, a class type exception object is caught not by reference",
+    "desc": "A class type exception object should be caught by reference only",
+    "details": "#### Abstract\nA class type exception object should be caught by reference only\n\n#### Explanation\nIf the class type exception object is caught not by reference, additional member data in derived class cannot be accessed.",
     "alias": {},
     "standards": {
       "mcpp": [
@@ -7072,6 +7072,2206 @@
     },
     "csv_string": [
       "MSR_7_3_4"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_4_1",
+    "name": "Octal and hexadecimal escape sequences should not be followed by other characters",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint a = '\\101\\t'; // terminated by another escape\nint b = '\\150\\v'; // terminated by another escape"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint a = '\\101t'; // non-compliant\nint b = '\\150v'; // non-compliant"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, octal and hexadecimal escape sequences are not terminated",
+    "desc": "Octal and hexadecimal escape sequences should not be followed by other characters",
+    "details": "#### Abstract\nOctal and hexadecimal escape sequences should not be followed by other characters\n\n#### Explanation\nOctal and hexadecimal escape sequences should be followed by end of literal or another escape sequence in order to reduce confusion.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_4_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_4_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_7_1",
+    "name": "Do not use octal constants",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint a1 = 1;   // compliant\nint a2 = 2;   // compliant\nint a3 = 3;   // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint a1 = 01;   // non-compliant\nint a2 = 02;   // non-compliant\nint a3 = 03;   // non-compliant"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, octal constants are used",
+    "desc": "Do not use octal constants",
+    "details": "#### Abstract\nDo not use octal constants\n\n#### Explanation\nConstants with a leading zero might be interpreted as decimal constants and may cause confusion.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_7_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_7_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_7_2",
+    "name": "All unsigned integer constansts should have suffice \"u\" or \"U\"",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdint.h>\n\nuint16_t a = 0x8000u;   // compliant\nunsigned int b = 0xffu; // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nunsigned int a = 3;     // non-compliant\nunsigned int b = 0xff;  // non-compliant"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, a “u” or “U” suffix are not applied to integer constants represented in unsigned type",
+    "desc": "All unsigned integer constansts should have suffice \"u\" or \"U\"",
+    "details": "#### Abstract\nAll unsigned integer constansts should have suffice \"u\" or \"U\"\n\n#### Explanation\nApplying a \"u\" or \"U\" suffix can help clarify the unsigned constant.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_7_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_7_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_7_3",
+    "name": "Do not use lowercase “l” in literal declaration ",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// using uppercase \"L\" to replace lowercase \"l\"\nint a = 1L;\nfloat b = 1.1L;\n"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// potential ambiguity betweem digit 1 and \"l\"\nint a = 1l;\nfloat b = 1.1l;"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the lowercase character “l” is used in a literal suffix",
+    "desc": "Do not use lowercase “l” in literal declaration ",
+    "details": "#### Abstract\nDo not use lowercase “l” in literal declaration \n\n#### Explanation\nThe lowercase “l” might be confused with digit 1 when declaring literals.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_7_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_7_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_9_2",
+    "name": "Use braces to enclose initialization of an aggregate or union",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// compliant\nint arr1[2][2] = { { 1, 1 }, { 2, 2 } };\nint arr2[4][3] = { { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 }, { 4, 4, 4 } };\n\n// compliant by exception\nint arr_excep[3][2] = { { 1, 1 }, [ 1 ][ 0 ] = 2, [ 1 ][ 1 ] = 2, { 3, 3 } };"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// non-compliant\nint arr1[2][2] = { 1, 2, 3, 4 };\nint arr2[3][3] = { 1, 2, 3, 4, 5, 6, 7, 8, 9};"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the initializer for an aggregate or union is not enclosed in braces",
+    "desc": "Use braces to enclose initialization of an aggregate or union",
+    "details": "#### Abstract\nUse braces to enclose initialization of an aggregate or union\n\n#### Explanation\nUsing braces for initialization of subobjects makes it easier for programmers to understand multi-dimensional arrays",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_9_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_9_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_10_1",
+    "name": "Do not use inappropriate essential type operands in an expression",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nextern char rcha, cha, chb; \nextern unsigned char ru8a, u8a;\n\nvoid func() \n{\n  ru8a = u8a & 2U;       // compliant\t\n  ru8a = u8a << 2U;      // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nextern char rcha, cha, chb; \nextern unsigned char ru8a, u8a;\n\nvoid func() \n{\n  rcha = cha & chb;      // non-compliant; char type used as a numeric value */\n  rcha = cha << 1;       // non-compliant; char type used as a numeric value */\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, inappropriate essential type operands in an expression are used.",
+    "desc": "Do not use inappropriate essential type operands in an expression",
+    "details": "#### Abstract\nDo not use inappropriate essential type operands in an expression\n\n#### Explanation\nExpressions with inappropriate essential types may cause unexpected behavior. For complete description of essential type, please refer to the table from official MISRA document: 8.10.2.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_10_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_10_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_12_1",
+    "name": "The precedence of operators must be clear and unambiguous",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdbool.h>\n\nint func( int x, int y, int z)\n{\n    int a = sizeof(x + y + z);  // compliant\n    bool b = x > (y + z);       // compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdbool.h>\n\nint func( int x, int y, int z)\n{\n    int a = sizeof x + y + z;   // non-compliant\n    bool b = x > y + z;         // non-compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the precedence of operators within expressions is not clear and unambiguous",
+    "desc": "The precedence of operators must be clear and unambiguous",
+    "details": "#### Abstract\nThe precedence of operators must be clear and unambiguous\n\n#### Explanation\nThe use of parentheses within expressions improves the readability of the code and also avoids any misunderstanding",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_12_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_12_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_16_1",
+    "name": "Switch statements should be well-formed",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint main( int s )\n{\n    switch (s)\n    {\n        case 1: // Compliant\n            printf(\"%d\", 1);\n            break;\n        case 2: // Compliant\n            printf(\"%d\", 2);\n            break;\n        default:\n            break;\n    }\n\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint main()\n{\n    int s, i;\n\n    switch (s)\n    {\n        case 5: // Compliant\n            printf(\"%d\", 5);\n            for( i=0; i<3; i++ )\n            {\n        case 10: // Unstructed code\n            printf(\"%c\", \"s\");\n            }\n            break;\n        default:\n            break;\n    }\n    \n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, switch statements are not well-formed",
+    "desc": "Use well-formed switch statements",
+    "details": "#### Abstract\nAll switch statements should be well-formed\n\n#### Explanation\nWell-formed switch statements improve readability of the code. For complete description of well-formed switch statements, please refer to MISRA C:2012, 8.16.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_16_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_16_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_17_3",
+    "name": "Function declaration should be clear and unambiguous",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint some_function();\n\nint main(int argc, char** argv)\n{\n    double x = some_function(); // compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint main(int argc, char** argv)\n{\n    double x = some_function(); // non-compliant\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, a function is declared implicitly",
+    "desc": "Function declaration should be clear and unambiguous",
+    "details": "#### Abstract\nFunction declaration should be clear and unambiguous\n\n#### Explanation\nCompilers for C90 assumes that the function which is declared implicitly has return type of int, which may lead to undefined behaviour.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_17_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_17_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_1",
+    "name": "Place #include directives before variable & function declaration and program statements",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h> // compliant\n\nvoid func();\n"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nvoid func();\n\n// non-compliant\n// #include directives should be at the top of the file\n#include <stdio.h>"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, #include directives are placed after variable & function declaration and program statements",
+    "desc": "Place #include directives before variable & function declaration and program statements",
+    "details": "#### Abstract\nPlace #include directives before variable & function declaration and program statements\n\n#### Explanation\n#include directives should be grouped near the top of the file in order to improve code readability.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_15",
+    "name": "Pointer arguments for memcpy, memmove and memcpy should be of compatible types, qualified or unqualified",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint main ()\n{\n   char str1[5];\n   char str2[5];\n   int ret;\n\n   memcpy(str1, \"abcd\", 4); // compliant\n   memcpy(str2, \"ABCD\", 4); // compliant\n\n   ret = memcmp(str1, str2, 5); // compliant\n\n   if(ret > 0)\n   {\n      printf(\"str2 smaller than str1\");\n   }\n   else if(ret < 0)\n   {\n      printf(\"str1 smaller than str2\");\n   }\n   else\n   {\n      printf(\"str1 equals str2\");\n   }\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n#include <stdint.h>\n\nint main ()\n{\n   int8_t a[5];\n   int16_t b[5];\n   int32_t c[5];\n\n   // non-compliant\n   // call memcpy with arguments of different types\n   memcpy(a, b, 5);\n   memcpy(b, c, 5);\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, pointer arguments for memcpy, memmove and memcpy are not of compatible types, qualified or unqualified",
+    "desc": "Pointer arguments for memcpy, memmove and memcpy should be of compatible types, qualified or unqualified",
+    "details": "#### Abstract\nPointer arguments for memcpy, memmove and memcpy should be of compatible types, qualified or unqualified\n\n#### Explanation\nCalling functions: memcpy, memmove or memcmp with arguments of  different types (regardless of qualified or unqualified) can result in unexpected behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_15"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_15"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_16",
+    "name": "Memcpy arguments should point to either a pointer type or essentially signed, unsigned, boolean or enum type.",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n#include <stdint.h>\n\nvoid main ()\n{\n   uint16_t a[5];\n   uint16_t b[5];\n\n   memcpy(a, b, 5); // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n\nstruct S1 {\n  char c;  // padding after c\n  int  val;\n} s1, s2;\nunion U1 {\n  char c;\n  double d;\n} u1, u2;\n\nfloat f1, f2;\ndouble d1, d2;\nchar buf1[16];\nconst char *str = \"string\";\n\nint foo() {\n  memcmp(&s1, &s2, sizeof(s1));  // not compliant\n  memcmp(&u1, &u2, sizeof(u1));  // not compliant\n  memcmp(&f1, &f2, sizeof(f1));  // not compliant\n  memcmp(&d1, &d2, sizeof(d1));  // not compliant\n  memcmp(buf1, str, sizeof(buf1));  // not compliant\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, memcpy arguments do not point to either a pointer type or essentially signed, unsigned, boolean or enum type.",
+    "desc": "Memcpy arguments should point to either a pointer type or essentially signed, unsigned, boolean or enum type.",
+    "details": "#### Abstract\nMemcpy arguments should point to either a pointer type or essentially signed, unsigned, boolean or enum type.\n\n#### Explanation\nStructures and unions may contain padding with an indeterminate value, which would be added complication in memcmp and be reported incorrectly.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_16"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_16"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_22_5",
+    "name": "Do not dereference a FILE pointer",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// compliant\nvoid func()\n{\n    FILE *fp1 = fopen(\"<somefilepath1\", \"r\");\n    FILE *fp2 = fopen(\"<somefilepath2\", \"r\");\n    fp2 = fp1;\n    fclose(fp1);\n    fclose(fp2);\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\n// non-compliant\n// a pointer to a FILE object should not be dereferenced\nvoid func()\n{\n    FILE *fp = fopen(\"<somefilepath\", \"r\");\n    FILE f;\n    f = *fp;\n    fclose(fp);\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, a pointer to a FILE object is dereferenced",
+    "desc": "Do not dereference a FILE pointer",
+    "details": "#### Abstract\nDo not dereference a FILE pointer\n\n#### Explanation\nDirect manipulation of a FILE object may cause inconsistent behavior of the FILE object as a stream designator.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_22_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_22_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_5_8",
+    "name": "External linkage objects or functions should not have the same identifier",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nint Add_extern(int a, int b) // Add_extern has external linkage\n{\n    return a + b;\n}\n\nint var_extern; // var_extern has external linkage\n\n// file_2.c\nstatic int Add_intern(int, int); // Add_extern is unique; compliant\nstatic int var_intern; // var_extern is unique; compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nint Add(int a, int b) // Add has external linkage\n{\n    return a + b;\n}\n\nint var_extern; // var_extern has external linkage\n\n// file_2.c\nstatic int Add(int, int); // Add is not unique\nstatic int var_extern; // var_extern is not unique\n\nint main()\n{\n    int a = 10;\n    int b = 5;\n    int result = Add(a, b);\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, external linkage objects or functions  have the same identifier",
+    "desc": "External linkage objects or functions should not have the same identifier",
+    "details": "#### Abstract\nExternal linkage objects or functions should not have the same identifier\n\n#### Explanation\nUsing the same identifier to define objects or functions with external linkage is confusing.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_5_8"
+      ]
+    },
+    "csv_string": [
+      "MSR_5_8"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_5_9",
+    "name": "Internal linkage objects or functions should not have the same identifier",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nstatic int Add1(int a, int b) // Add1 has internal linkage\n{\n    int var_no_link; // var_no_link has no linkage\n    return a + b;\n}\n\nint var_intern1; // var_intern1 has internal linkage\n\n// file_2.c\nstatic int Add2(int a, int b) // Add2 is unique; compliant\n{\n    int var_no_link; // var_no_link has no linkage; compliant\n    return 0;\n}\nstatic int var_intern2; // var_intern2 is unique; compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// file_1.c\n#include <stdio.h>\n\nstatic int Add(int a, int b) // Add has internal linkage\n{\n    return a + b;\n}\n\nint var_intern; // var_intern has internal linkage\n\n// file_2.c\nstatic int Add(int, int); // Add is not unique\nstatic int var_intern; // var_intern is not unique"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, internal linkage objects or functions  have the same identifier",
+    "desc": "Internal linkage objects or functions should not have the same identifier",
+    "details": "#### Abstract\nInternal linkage objects or functions should not have the same identifier\n\n#### Explanation\nUsing the same identifier to define objects or functions with internal linkage is confusing.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_5_9"
+      ]
+    },
+    "csv_string": [
+      "MSR_5_9"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_15_5",
+    "name": "There should not be more han one return statement in a function",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// One single return statement at the end of func \nint func ( int a )\n{\n    for (int i = 1; i < 5; i++ )\n        if ( i < 2 )\n        {\n            // Do something\n        }\n        else;\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// More than one return statement in func\nint func ( int a )\n{\n    for (int i = 1; i < 5; i++ )\n        if ( i < 2 )\n        {\n            return 1;\n        }\n        else\n        {\n            return 1;\n        }\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, more than one return statement is used in a function",
+    "desc": "There should not be more han one return statement in a function",
+    "details": "#### Abstract\nThere should not be more han one return statement in a function\n\n#### Explanation\nIf a return statement is used before the end of function, it may unintentionally miss portion of the function termination code.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_15_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_15_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_18_3",
+    "name": "Relational operators should not be applied to pointers to different objects types",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func_1( void )\n{\n    int arr[3];\n    int *p = arr;\n    \n    if (p > &arr) // comparison between p and &arr is compliant\n    {\n        printf(\"compliant\");\n    }\n    if (p < &arr) // comparison between p and &arr is compliant\n    {\n        printf(\"compliant\");\n    }\n    return 0;\n}\n\nint *p_a;\nint *p_b;\n\nint func_2(int i, int j)\n{\n  if (&p_a[i] < &p_a[j]) // compliant\n  {\n    return 0;\n  }\n  return 1;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func1 ( void )\n{\n    int a = 10;\n    int arr[3];\n    int *p1 = &a;\n    int *p2 = arr;\n    \n    if (p1 > p2) // comparison between p1 and p2 is non-compliant\n    {\n        printf(\"non-compliant\");\n    }\n    if (p1 < p2) // comparison between p1 and p2 is non-compliant\n    {\n        printf(\"non-compliant\");\n    }\n    return 0;\n}\n\nint array_a[16];\nint array_b[16];\n\nint func_2(int i, int j)\n{\n  if (&array_a[i] > &array_b[i])  // not compliant\n  {\n    return 0;\n  }\n  if (&array_b[j] >= &array_a[j]) // not compliant\n  {\n    return 0;\n  }\n  return 1;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, relational operators are applied to pointers to different objects types",
+    "desc": "Relational operators should not be applied to pointers to different objects types",
+    "details": "#### Abstract\nRelational operators should not be applied to pointers to different objects types\n\n#### Explanation\nComparisons between pointers which point to different objects would lead to undefined behaviour.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_18_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_18_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_19_1",
+    "name": "Do not copy or assigned an object to another with overlapped memory address",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n\nvoid func1( void )\n{   \n    int arr[5]\n    int *p1 = &arr[1];\n    int *p2 = &arr[1];\n    *p1 = *p2; // compliant; exception1\n}\n\nvoid func2(int *x)\n{\n  memmove(x, x+5, 10 * sizeof(int)); // compliant; exception2\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n  \nunion value \n{\n  char cval;\n  short sval;\n  int ival;\n  long lval;\n  float fval;\n  double dval;\n  int arr[2];\n} v1, v2, v3, v4, v5;\n\nchar array[16];\n\nvoid func() \n{\n  v1.fval = v1.dval;  // not compliant\n  v2.lval = v2.sval;  // not compliant\n  v3.ival = (int)v3.fval;  // not compliant\n  v4.dval = (double)v4.lval;  // not compliant\n  v5.arr[0] = v5.arr[1];  // compliant\n\n  memcpy(&array[0], &array[4], 8);  // not compliant\n  memcpy(&array[4], &array[0], 8);  // not compliant\n}\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, an object is assigned or copied to another with overlapped memory address",
+    "desc": "Do not copy or assigned an object to another with overlapped memory address",
+    "details": "#### Abstract\nDo not copy or assigned an object to another with overlapped memory address\n\n#### Explanation\nIf two objects have overlap in memory, assignment and copying between them is undefined behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_19_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_19_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_13",
+    "name": "Do not pass value other than unsigned char or EOF to function in ctype.h",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <ctype.h>\n#include <stdbool.h>\n\nint main()\n{\n   int var1 = 'd';\n   int var2 = 256;\n   int var3 = EOF;\n    \n   if( isalpha(var1) )\n   {\n      // Do something\n   }\n   else;\n\n    if( isdigit(var2) )\n    {\n      // Do something\n    }\n    else;\n\n   if( islower(var2) )\n   {\n      // Do something\n   }\n   else;\n\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <ctype.h>\n#include <stdbool.h>\n\nbool main()\n{\n   int var1 = 'd';\n   int var2 = 256;\n   int var3 = '\\t';\n    \n   if( isalpha(var1) )\n   {\n      // Do something\n   }\n   else;\n\n    if( isalpha(var2) )\n    {\n      // Do something\n    }\n    else;\n\n   if( isalpha(var2) )\n   {\n      // Do something\n   }\n   else;\n\n  return isalpha(var2); // non-compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, value other than char or EOF is passed to functions in ctype.h",
+    "desc": "Do not pass value other than unsigned char or EOF to function in ctype.h",
+    "details": "#### Abstract\nDo not pass value other than unsigned char or EOF to function in ctype.h\n\n#### Explanation\nPassing any value other than an unsigned char or EOF to a function in <ctype.h> is undefined behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_13"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_13"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_17",
+    "name": "Do not use string handling functions with accesses beyond the bounds of parameter",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char str[50];\n   /*\n   compliant; strcpy accesses in the bounds of str\n   */\n   strcpy( str, \"very long string\" );\n\n   return 0;\n}\n\nint main() \n{\n  return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <string.h>\n\nchar buf1[16];\nchar buf2[16];\nchar buf3[4] = { 'a', 'b', 'c', 'd' };\nconst char *str1 = \"a short string\";\nconst char *str2 = \"a long string with more than 16 bytes\";\nconst char *str3 = \"abcdefg\";\n\nint func() \n{\n  char *saved_str;\n  strcpy(buf1, str1);  // compliant\n  strcat(buf1, str1);  // not compliant\n  strcpy(buf2, str2);  // not compliant\n\n  strchr(buf3, 'e');   // not compliant\n  strrchr(buf3, 'e');  // not compliant\n\n  strcmp(buf3, str3);  // not compliant\n  strcoll(buf3, str3); // not compliant\n\n  return strlen(buf3); // not compliant\n}\n\nint main() \n{\n  return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, string handling functions are used with accesses beyond the bounds of parameter",
+    "desc": "Do not use string handling functions with accesses beyond the bounds of parameter",
+    "details": "#### Abstract\nDo not use string handling functions with accesses beyond the bounds of parameter\n\n#### Explanation\nUsing string handling functions with accesses beyond the bounds of parameter would lead to undefined behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_17"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_17"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_18",
+    "name": "Functions in <string.h> should have size_t argument with appropriate value",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char str1[5];\n   char str2[50];\n   \n   memcpy( str1, \"long string\", 1 );   // compliant\n   memcpy( str1, \"long string\", 5 );   // compliant\n   memcpy( str2, \"long string\", 10 );  // compliant\n\n   return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char str1[5];\n   char str2[50];\n   \n   memcpy( str1, \"long string\", -1 );  // non-compliant\n   memcpy( str1, \"long string\", 6 );   // non-compliant\n   memcpy( str2, \"long string\", 15 );  // non-compliant\n\n   return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, functions in <string.h> do not have size_t argument with appropriate value",
+    "desc": "Functions in <string.h> should have size_t argument with appropriate value",
+    "details": "#### Abstract\nFunctions in <string.h> should have size_t argument with appropriate value\n\n#### Explanation\nInappropriate value of size_t argument for functions in <string.h> would lead to undefined behaviors.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_18"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_18"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_19",
+    "name": "Pointers returned by localeconv, getenv, setlocale and strerror should not be modified",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char *str1 = getenv(\"PATH\"); // compliant\n   char *str2 = getenv(\"ROOT\"); // compliant\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <string.h>\n\nint func ( void )\n{\n   char *str = getenv(\"PATH\");\n   str[1] = \"s\"; // non-compliant\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, localeconv, getenv, setlocale and strerror do not return pointer to const-qualified type",
+    "desc": "Pointers returned by localeconv, getenv, setlocale and strerror should not be modified",
+    "details": "#### Abstract\nPointers returned by localeconv, getenv, setlocale and strerror should not be modified\n\n#### Explanation\nPointers returned by localeconv, getenv, setlocale and strerror should not be modified",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_19"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_19"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_21_20",
+    "name": "Do not use pointer returned by functions listed in explanation with a subsequent call to the same function",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <time.h>\n\nint func ( void )\n{\n   time_t curtime;\n   time(&curtime);\n   const char *time_res;\n   time_res = ctime(&curtime);\n\n   printf(\"current time is %s\", time_res); // compliant\n\n   return 0;\n}\n\nint main() \n{\n  return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <time.h>\n\nstruct tm stm;\ntime_t    ttm;\nvoid call_asctime() {\n  char *tm1 = asctime(&stm);\n  char *tm2 = asctime(&stm);\n  printf(\"tm1=%s\\n\", tm1);  // not compliant\n  printf(\"tm2=%s\\n\", tm2);  // compliant\n}\n\nvoid call_ctime() {\n  char *tm1 = ctime(&ttm);\n  char *tm2 = ctime(&ttm);\n  printf(\"tm1=%s\\n\", tm1);  // not compliant\n  printf(\"tm2=%s\\n\", tm2);  // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, returned pointer of asctime, ctime, gmtime, localtime, localeconv, getenv, setlocale or sterror is used following a subsequent call to the same function",
+    "desc": "Do not use pointer returned by functions listed in explanation with a subsequent call to the same function",
+    "details": "#### Abstract\nDo not use pointer returned by functions listed in explanation with a subsequent call to the same function\n\n#### Explanation\nThe use of returned pointer of asctime, ctime, gmtime, localtime, localeconv, getenv, setlocale or sterror following a subsequent call to the same function would lead to undefined behaviors.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_21_20"
+      ]
+    },
+    "csv_string": [
+      "MSR_21_20"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_22_6",
+    "name": "Do not use a pointer to FILE after a closure on stream",
+    "compliance": "M",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func()\n{\n   FILE* f = fopen(\"some_path\", \"w\");\n   if (f == NULL) \n      {\n         fprintf(f, \"....\"); // compliant\n      }\n   fclose(f);\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n\nint func()\n{\n   FILE* f = fopen(\"some_path\", \"w\");\n   if (f == NULL) \n      {\n         fprintf(f, \"....\"); // compliant\n      }\n   fclose(f);\n   fprintf(f, \"....\");  // non-compliant\n   return 0;\n}\n\nint main()\n{\n   return func();\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, a pointer to FILE after a closure on stream is used",
+    "desc": "Do not use a pointer to FILE after a closure on stream",
+    "details": "#### Abstract\nDo not use a pointer to FILE after a closure on stream\n\n#### Explanation\nUsing a pointer to FILE after the associated stream has been closed may lead to errors because that object will be having an undefined state.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_22_6"
+      ]
+    },
+    "csv_string": [
+      "MSR_22_6"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_1",
+    "name": "Do not use unreachable code",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func( int a )\n{\n    if (a <= 5)\n    {\n        a++;\n    }    \n    else if ( a > 5 )\n    {\n        a--;\n    }\n    return a;\n} "
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func( int a )\n{\n    if (a <= 5)\n    {\n        a++;\n    }    \n    else if ( a > 5 )\n    {\n        a--;\n    }\n    else    // This part is unreachable code\n    {\n        a = 0;\n    }\n    return a;\n    a = 1;  // This part is unreachable code\n} "
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, there is unreachable code",
+    "desc": "Do not use unreachable code",
+    "details": "#### Abstract\nDo not use unreachable code\n\n#### Explanation\nThe compiler may remove unreachable code for optimization. The unreachable code that not removed by compiler can waste resources.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_2",
+    "name": "Do not contain dead code",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdbool.h>\n\nint func( int a, int b )\n{\n    (void) b; // compliant by exception\n    if ( a < 0 )\n    {\n        a++;\n    }    \n    else // compliant\n    {\n        a = 0;\n    }\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdbool.h>\n\nint func( int a )\n{\n    if (true & true)\n    {\n        a++;\n    }    \n    else // dead code\n    {\n        a = 0;\n    }\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, there is dead code",
+    "desc": "Do not contain dead code",
+    "details": "#### Abstract\nDo not contain dead code\n\n#### Explanation\nThe presence of dead code is confusing since it may be removed by compiler.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_4",
+    "name": "Do not declare unused tag in project",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nenum used_enum {  // compliant\n  used_item\n};\n\nstruct used_struct {  // compliant\n  int x;\n};\n\nstruct used_struct v;\n\nint foo() {\n  v.x = used_item;\n}\n\nint main() {\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nenum unused_enum {  // not compliant\n  unused_item_1,\n  unused_item_2,\n};"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, unused tag is declared in project",
+    "desc": "Do not declare unused tag in project",
+    "details": "#### Abstract\nDo not declare unused tag in project\n\n#### Explanation\nThe presence of an unused tag can be confusing.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_4"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_4"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_5",
+    "name": "Do not declare unused macro in project",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#define ARRAY_SIZE 100\ndouble  data[ARRAY_SIZE]; // macro used"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#define UNUSED_MACRO1 1 // non-compliant; unused macro\n#define UNUSED_MACRO2 2 // non-compliant; unused macro\n#define UNUSED_MACRO3 3 // non-compliant; unused macro"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, unused macro is declared in project",
+    "desc": "Do not declare unused macro in project",
+    "details": "#### Abstract\nDo not declare unused macro in project\n\n#### Explanation\nThe declaration of an unused macro can be confusing.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_2_7",
+    "name": "Avoid unused parameters in functions",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\nvoid func( int used_para1, int used_para2 )\n{\n    used_para1++;\n    used_para2--;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// non-compliant; unused_para is not used\nvoid func( int used_para, int unused_para )\n{\n    used_para++;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, there are unused parameters.",
+    "desc": "Avoid unused parameters in functions",
+    "details": "#### Abstract\nAvoid unused parameters in functions\n\n#### Explanation\nThere may be mismatch between the implementation and specification of the function if it contains unused parameters.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_2_7"
+      ]
+    },
+    "csv_string": [
+      "MSR_2_7"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_3_1",
+    "name": "Do not contain character sequences in a comment",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\nint func( int a )\n{\n    // some code // compliant by exception\n    a++;\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n/* this comment is not closed\nsome_function();\n/* still in the comment */"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "",
+    "desc": "Do not contain character sequences in a comment",
+    "details": "#### Abstract\nDo not contain character sequences in a comment\n\n#### Explanation\nUsing character sequences in a comment may cause some crucial code to become inside comments.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_3_1"
+      ]
+    },
+    "csv_string": [
+      "MSR_3_1"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_3_2",
+    "name": "Do not use line-splicing in // comment",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func ( int a )\n{\n    a++;\n    return a; // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nint func ( int a )\n{\n    a++;\n    return a; // non-compliant \\ \n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, line-splicing is used in // comment",
+    "desc": "Do not use line-splicing in // comment",
+    "details": "#### Abstract\nDo not use line-splicing in // comment\n\n#### Explanation\nUsing line-splicing in // comment would make the next line become comment and cause confusion.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_3_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_3_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_3",
+    "name": "The name and type of declaration of object or function should be the same",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nextern void func1( signed p );\nextern void func2( int a, int b );\n\nvoid func1( int p )\n{\n    // compliant by exception\n}\n\nvoid func2( int a, int b )\n{\n    // compliant\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n#include <stdint.h>\n\nextern void func1( float *const p );\nextern void func2( int a, int b );\n\nvoid func1( float * p )\n{\n    // non-compliant; parameter differs from the previous declaration\n}\n\nvoid func2( int b, int a )\n{\n    // non-compliant; parameter differs from the previous declaration\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the name and type of declaration of object or function are not the same",
+    "desc": "The name and type of declaration of object or function should be the same",
+    "details": "#### Abstract\nThe name and type of declaration of object or function should be the same\n\n#### Explanation\nMaking the name and type of the declarations of an object or function the same improves the code consistency.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_5",
+    "name": "objects or functions with external linkage should be declared once and in one file",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include \"header1.h\" // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include \"header1.h\"\n#include \"header2.h\" // non-compliant; var declared twice"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, objects or functions with external linkage are not declared once and in one file",
+    "desc": "objects or functions with external linkage should be declared once and in one file",
+    "details": "#### Abstract\nobjects or functions with external linkage should be declared once and in one file\n\n#### Explanation\nDeclaring objects or functions with external linkage once and in one file would help ensure consistency between the declaration and the definition.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_6",
+    "name": "An identifier with external linkage should have exactly one external definition",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdint.h>\n\nint16_t b;\nint16_t b = 0; // compliant"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdint.h>\n#include <header.h>\n\nint16_t a = 0; // non-compliant; a has tentative definition in header.h"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, an identifier with external linkage does not have exactly one external definition",
+    "desc": "An identifier with external linkage should have exactly one external definition",
+    "details": "#### Abstract\nAn identifier with external linkage should have exactly one external definition\n\n#### Explanation\nAn identifier with external linkage having multiple definitions or no definition at all is undefined behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_6"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_6"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_8_7",
+    "name": "Functions and objects defined and referenced in only one translation unit should not be externs",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\nstatic void myfunc( void );  // Only used internally, should be static\n\nvoid myfunc( void )\n{\n   // do something\n}\n\nint main( void )\n{\n   myfunc();\n   return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include \"header.h\"\n\n// not compliant\nint bar(int a) {\n  return a;\n}\n\nvoid foo(int a) {\n  bar(a);\n}\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, functions and objects defined and referenced in only one translation unit are externs",
+    "desc": "Functions and objects defined and referenced in only one translation unit should not be externs",
+    "details": "#### Abstract\nFunctions and objects defined and referenced in only one translation unit should not be externs\n\n#### Explanation\nIf an object or function is defined with internal linkage or no linkage, it can reduce the chance of being accessed inadvertently.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_8_7"
+      ]
+    },
+    "csv_string": [
+      "MSR_8_7"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_2",
+    "name": "Do not use the characters or character sequences mentioned in document in head file name",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n#include \"file_valid.h\"\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// non-compliant\n#include \"file_not_valid\\.h\"\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, characters or character sequences mentioned in document in head file name are used",
+    "desc": "Do not use the characters or character sequences mentioned in document in head file name",
+    "details": "#### Abstract\nDo not use the characters or character sequences mentioned in document in head file name\n\n#### Explanation\nUsing characters and character sequences mentioned in document in header file name is undefined behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_2"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_2"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_3",
+    "name": "The #include directive should be followed by either a <filename> or filename sequence",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n#include \"file.h\"\n#include <stdlib.h>"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// non-compliant\n#include file.h"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, the #include directive is not followed by either a <filename> or filename sequence",
+    "desc": "The #include directive should be followed by either a <filename> or filename sequence",
+    "details": "#### Abstract\nThe #include directive should be followed by either a <filename> or filename sequence\n\n#### Explanation\nUsing #include directive not followed by either a <filename> or filename sequence is undefined behavior.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_3"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_3"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_4",
+    "name": "Do not define a macro with the same name as a keyword",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n# define const const"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#define double float  // not compliant\n\n#define while(E) for (; E;)  // not compliant\n\nextern inline void bar() {}\n\ndouble foo(int c) {\n  while(c > 0) {\n    bar();\n    -- c;\n  }\n  return 0;\n}\n\nint main() {\n  return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, a macro is defined with the same name as a keyword",
+    "desc": "Do not define a macro with the same name as a keyword",
+    "details": "#### Abstract\nDo not define a macro with the same name as a keyword\n\n#### Explanation\nUsing the same name as a keyword to define a macro is undefined behaviour.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_4"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_4"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_5",
+    "name": "Do not use #undef",
+    "compliance": "A",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// compliant\n#include <stdio.h>\n \nint main()\n{\n    #define MAX 5\n    int a = MAX + 1;\n    return a;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n#include <stdio.h>\n \nint main()\n{\n    #define MAX 5\n    int a = MAX + 1;\n    #undef MAX // non-compliant\n    int MAX = 10;\n    return 0;\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, #undef is used.",
+    "desc": "Do not use #undef",
+    "details": "#### Abstract\nDo not use #undef\n\n#### Explanation\nUsing #undef would lead to confusion with respect to the existence or meaning of a macro.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_5"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_5"
+    ],
+    "ruleSet": {
+      "id": "M",
+      "code": "M",
+      "displayName": "MISRA"
+    }
+  },
+  {
+    "category": "",
+    "mapping": "",
+    "language": "c",
+    "code": "MSR_20_6",
+    "name": "Do not use tokens similar to preprocessing directive in macro argument",
+    "compliance": "R",
+    "examples": {
+      "good": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          ""
+        ],
+        "general": [
+          ""
+        ]
+      },
+      "bad": {
+        "cpp": [
+          ""
+        ],
+        "java": [
+          ""
+        ],
+        "c": [
+          "\n// not reported by cppcheck\n#include <string.h>\n\nvoid func(const char *src) \n{\n  char *dest;\n  // malloc() destination string\n  memcpy( dest, src,\n    #ifdef PLATFORM1\n      12\n    #else\n      24\n    #endif\n  );\n}"
+        ],
+        "general": [
+          ""
+        ]
+      }
+    },
+    "msg_templ": "In file ${so.filename}, line ${so.line}, ${so.func}, tokens similar to preprocessing directive in macro argument are used.",
+    "desc": "Do not use tokens similar to preprocessing directive in macro argument",
+    "details": "#### Abstract\nDo not use tokens similar to preprocessing directive in macro argument\n\n#### Explanation\nUsing tokens act as preprocessing directives in a macro argument is undefined behaviour.",
+    "alias": {},
+    "standards": {
+      "mc": [
+        "MSR_20_6"
+      ]
+    },
+    "csv_string": [
+      "MSR_20_6"
     ],
     "ruleSet": {
       "id": "M",
